@@ -19,6 +19,7 @@ class CWattack(object):
         yi = Variable(label_or_target.cuda())
         xi = Variable(input_xi.cuda())
         for it in range(10):
+            xi.gradient.zero_()
             error = self.get_loss(xi,yi,TARGETED)
             self.model.get_gradient(error)
             gradient = xi.grad
