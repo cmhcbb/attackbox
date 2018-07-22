@@ -3,7 +3,7 @@ from torch.autograd import Variable
 import torch.optim as optim
 from utils import mulvt
 
-class CWattack(object):
+class CW(object):
     def __init__(self,model):
         self.model = model
 
