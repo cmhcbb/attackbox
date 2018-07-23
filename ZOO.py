@@ -4,7 +4,7 @@ import torch.optim as optim
 from utils import mulvt
 import numpy as np
 
-class CWattack(object):
+class ZOO(object):
     def __init__(self,model):
         self.model = model
         
@@ -24,8 +24,8 @@ class CWattack(object):
         return error,loss1,loss2
 
     def zoo(self, input_xi, label_or_target, c, TARGETED=False):
-       
-        modifier = Variable(torch.zeros(input_xi.size()).cuda(), requires_grad=True)
+        step_size = 0.01
+        modifier = Variable(torch.zeros(input_xi.size()).cuda())
         yi = label_or_target
         label_onehot = torch.FloatTensor(yi.size()[0],self.model.num_classes)
         label_onehot.zero_()
@@ -40,12 +40,12 @@ class CWattack(object):
         for it in range(1000):
             #optimizer.zero_grad()
             error1,loss11,loss12 = self.get_loss(xi,label_onehot_v,c,modifier, TARGETED)
-            modifier = Variable(torch.zeros(xi.size()))
+            modifier = Variable(torch.zeros(xi.size()).cuda())
             for j in range(num_coor):
                 randx = np.random.randint(xi.size()[0])
                 randy = np.random.randint(xi.size()[1])
                 randz = np.random.randint(xi.size()[2])
-                modifier[randx][randy][randz] = delta
+                modifier[randx,randy,randz] = delta
                 new_xi = xi + modifier
                 error2,loss21,loss22 = self.get_loss(new_xi,label_onehot_v,c,modifier, TARGETED)
                 modifier_gradient = (error2 - error1) / delta * modifier
@@ -55,12 +55,12 @@ class CWattack(object):
             #error.backward()
             #optimizer.step()
             if (it)%500==0:
-                print(error.data[0],loss1.data[0],loss2.data[0]) 
-            return xi
+                print(error1.data[0],loss11.data[0],loss12.data[0]) 
+        return xi
  
 
-    def __call__(self, input_xi, label_or_target, TARGETED=False):
-        adv = self.zoo(input_xi, label_or_target, c_v, TARGETED)
+    def __call__(self, input_xi, label_or_target, c=0.1, TARGETED=False):
+        adv = self.zoo(input_xi, label_or_target, c, TARGETED)
         return adv   
     
         
