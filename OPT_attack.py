@@ -1,9 +1,7 @@
-import torch
-from torch.autograd import Variable
-import torch.optim as optim
 from utils import mulvt
-import torch.nn as nn
 import time
+import numpy as np 
+from numpy import linalg as LA
 
 class OPT_attack(object):
     def __init__(self,model):
@@ -29,9 +27,9 @@ class OPT_attack(object):
         timestart = time.time()
         for i in range(num_directions):
             query_count += 1
-            theta = torch.randn(x0.size())
-            initial_lbd = torch.norm(theta)
-            theta = theta/torch.norm(theta)
+            theta = np.random.randn(*x0.shape)
+            initial_lbd = LA.norm(theta)
+            theta /= initial_lbd
             lbd, count = self.fine_grained_binary_search(model, x0, y0, theta, initial_lbd, g_theta)
             query_count += count
             if lbd < g_theta:
@@ -40,25 +38,22 @@ class OPT_attack(object):
 
         timeend = time.time()
         print("==========> Found best distortion %.4f in %.4f seconds using %d queries" % (g_theta, timeend-timestart, query_count))
-
-        
-        
+    
         timestart = time.time()
         g1 = 1.0
-        theta, g2 = best_theta.clone(), g_theta
-        torch.manual_seed(0)
+        theta, g2 = best_theta, g_theta
         opt_count = 0
         stopping = 0.01
         prev_obj = 100000
         for i in range(iterations):
-            gradient = torch.zeros(theta.size())
+            gradient = np.zeros(theta.shape)
             q = 10
             min_g1 = float('inf')
             for _ in range(q):
-                u = torch.randn(theta.size()).type(torch.FloatTensor)
-                u = u/torch.norm(u)
+                u = np.random.randn(*theta.shape)
+                u /= LA.norm(u)
                 ttt = theta+beta * u
-                ttt = ttt/torch.norm(ttt)
+                ttt /= LA.norm(ttt)
                 g1, count = self.fine_grained_binary_search_local(model, x0, y0, ttt, initial_lbd = g2, tol=beta/500)
                 opt_count += count
                 gradient += (g1-g2)/beta * u
@@ -68,7 +63,7 @@ class OPT_attack(object):
             gradient = 1.0/q * gradient
 
             if (i+1)%50 == 0:
-                print("Iteration %3d: g(theta + beta*u) = %.4f g(theta) = %.4f distortion %.4f num_queries %d" % (i+1, g1, g2, torch.norm(g2*theta), opt_count))
+                print("Iteration %3d: g(theta + beta*u) = %.4f g(theta) = %.4f distortion %.4f num_queries %d" % (i+1, g1, g2, LA.norm(g2*theta), opt_count))
                 if g2 > prev_obj-stopping:
                     break
                 prev_obj = g2
@@ -78,7 +73,7 @@ class OPT_attack(object):
         
             for _ in range(15):
                 new_theta = theta - alpha * gradient
-                new_theta = new_theta/torch.norm(new_theta)
+                new_theta /= LA.norm(new_theta)
                 new_g2, count = self.fine_grained_binary_search_local(model, x0, y0, new_theta, initial_lbd = min_g2, tol=beta/500)
                 opt_count += count
                 alpha = alpha * 2
@@ -92,7 +87,7 @@ class OPT_attack(object):
                 for _ in range(15):
                     alpha = alpha * 0.25
                     new_theta = theta - alpha * gradient
-                    new_theta = new_theta/torch.norm(new_theta)
+                    new_theta /= LA.norm(new_theta)
                     new_g2, count = self.fine_grained_binary_search_local(model, x0, y0, new_theta, initial_lbd = min_g2, tol=beta/500)
                     opt_count += count
                     if new_g2 < g2:
@@ -106,7 +101,7 @@ class OPT_attack(object):
                 theta, g2 = min_ttt, min_g1
 
             if g2 < g_theta:
-                best_theta, g_theta = theta.clone(), g2
+                best_theta, g_theta = theta, g2
             
             #print(alpha)
             if alpha < 1e-4:
@@ -172,6 +167,7 @@ class OPT_attack(object):
             else:
                 lbd_lo = lbd_mid
         return lbd_hi, nquery
+
 
     def __call__(self, input_xi, label_or_target, TARGETED=False):
         if TARGETED:

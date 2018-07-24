@@ -1,4 +1,5 @@
 import torch
+import numpy as np
 from torch.autograd import Variable
 
 class PytorchModel(object):
@@ -17,6 +18,8 @@ class PytorchModel(object):
         return output
     
     def predict_label(self, image):
+        if isinstance(image, np.ndarray):
+            image = torch.from_numpy(image).type(torch.FloatTensor)
         image = torch.clamp(image,self.bounds[0],self.bounds[1]).cuda()
         if len(image.size())!=4:
             image = image.unsqueeze(0)
