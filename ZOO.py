@@ -24,7 +24,7 @@ class ZOO(object):
         return error,loss1,loss2
 
     def zoo(self, input_xi, label_or_target, c, TARGETED=False):
-        step_size = 0.01
+        step_size = 0.1
         modifier = Variable(torch.zeros(input_xi.size()).cuda())
         yi = label_or_target
         label_onehot = torch.FloatTensor(yi.size()[0],self.model.num_classes)
@@ -35,17 +35,18 @@ class ZOO(object):
         #optimizer = optim.Adam([modifier], lr = 0.1)
         best_loss1 = 1000
         best_adv = None
-        num_coor =5
+        num_coor = 1
         delta = 0.0001
-        for it in range(1000):
+        for it in range(20000):
             #optimizer.zero_grad()
             error1,loss11,loss12 = self.get_loss(xi,label_onehot_v,c,modifier, TARGETED)
-            modifier = Variable(torch.zeros(xi.size()).cuda())
             for j in range(num_coor):
+                modifier = Variable(torch.zeros(xi.size()).cuda(), volatile=True)
                 randx = np.random.randint(xi.size()[0])
                 randy = np.random.randint(xi.size()[1])
                 randz = np.random.randint(xi.size()[2])
                 modifier[randx,randy,randz] = delta
+                #print(modifier)
                 new_xi = xi + modifier
                 error2,loss21,loss22 = self.get_loss(new_xi,label_onehot_v,c,modifier, TARGETED)
                 modifier_gradient = (error2 - error1) / delta * modifier
@@ -54,7 +55,7 @@ class ZOO(object):
             #self.model.get_gradient(error)
             #error.backward()
             #optimizer.step()
-            if (it)%500==0:
+            if (it)%1000==0:
                 print(error1.data[0],loss11.data[0],loss12.data[0]) 
         return xi
  

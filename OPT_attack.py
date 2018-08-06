@@ -22,19 +22,19 @@ class OPT_attack(object):
         num_directions = 100
         best_theta, g_theta = None, float('inf')
         query_count = 0
-
         print("Searching for the initial direction on %d random directions: " % (num_directions))
         timestart = time.time()
         for i in range(num_directions):
             query_count += 1
             theta = np.random.randn(*x0.shape)
-            initial_lbd = LA.norm(theta)
-            theta /= initial_lbd
-            lbd, count = self.fine_grained_binary_search(model, x0, y0, theta, initial_lbd, g_theta)
-            query_count += count
-            if lbd < g_theta:
-                best_theta, g_theta = theta, lbd
-                print("--------> Found distortion %.4f" % g_theta)
+            if model.predict_label(x0+theta)!=y0:
+                initial_lbd = LA.norm(theta)
+                theta /= initial_lbd
+                lbd, count = self.fine_grained_binary_search(model, x0, y0, theta, initial_lbd, g_theta)
+                query_count += count
+                if lbd < g_theta:
+                    best_theta, g_theta = theta, lbd
+                    print("--------> Found distortion %.4f" % g_theta)
 
         timeend = time.time()
         print("==========> Found best distortion %.4f in %.4f seconds using %d queries" % (g_theta, timeend-timestart, query_count))
