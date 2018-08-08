@@ -2,6 +2,9 @@ from utils import mulvt
 import time
 import numpy as np 
 from numpy import linalg as LA
+from models import PytorchModel
+import torch, random
+from allmodels import MNIST, load_model, load_mnist_data, load_cifar10_data, CIFAR10
 
 class OPT_genattack(object):
     def __init__(self,model):
@@ -127,3 +130,20 @@ class OPT_genattack(object):
         return adv   
     
         
+if __name__ == '__main__':
+    #timestart = time.time()
+    random.seed(0)
+    net = MNIST()
+    net.cuda()
+    net = torch.nn.DataParallel(net, device_ids=[0])
+    load_model(net,'mnist_gpu.pt')
+    net.eval()
+    model = net.module if torch.cuda.is_available() else net
+    amodel = PytorchModel(model, bounds=[0,1], num_classes=10)
+    attack = OPT_genattack(amodel)
+    train_loader, test_loader, train_dataset, test_dataset = load_mnist_data()
+    for i, (xi,yi) in enumerate(test_loader):
+        if i==1:
+            break
+    xi = xi.numpy()
+    attack(xi,yi)
