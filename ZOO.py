@@ -58,10 +58,39 @@ class ZOO(object):
             if (it)%1000==0:
                 print(error1.data[0],loss11.data[0],loss12.data[0]) 
         return xi
- 
+    
+    def random_zoo(self, input_xi, label_or_target, c, TARGETED=False):
+        step_size = 5e-3    
+        modifier = Variable(torch.zeros(input_xi.size()).cuda())
+        yi = label_or_target
+        label_onehot = torch.FloatTensor(yi.size()[0],self.model.num_classes)
+        label_onehot.zero_()
+        label_onehot.scatter_(1,yi.view(-1,1),1)
+        label_onehot_v = Variable(label_onehot, requires_grad=False).cuda()
+        xi = Variable(input_xi.cuda(),requires_grad=False)
+        #optimizer = optim.Adam([modifier], lr = 0.1)
+        best_loss1 = 1000
+        best_adv = None
+        num_coor = 1
+        delta = 0.0001
+        modifier = Variable(torch.zeros(xi.size()).cuda(), volatile=True)
+        for it in range(20000):
+            #optimizer.zero_grad()
+            error1,loss11,loss12 = self.get_loss(xi,label_onehot_v,c,modifier, TARGETED)
+            u=torch.randn(xi.size()).cuda()
+            error2,loss21,loss22 = self.get_loss(xi,label_onehot_v,c,modifier+delta*u, TARGETED)
+            modifier_gradient = (error2 - error1) / delta * u
+            modifier.data = modifier.data - step_size*modifier_gradient
+            #xi = xi + modifier
+            #self.model.get_gradient(error)
+            #error.backward()
+            #optimizer.step()
+            if (it)%100==0:
+                print(it,error1.item(),loss11.item(),loss12.item()) 
+        return xi        
 
     def __call__(self, input_xi, label_or_target, c=0.1, TARGETED=False):
-        adv = self.zoo(input_xi, label_or_target, c, TARGETED)
+        adv = self.random_zoo(input_xi, label_or_target, c, TARGETED)
         return adv   
     
         
