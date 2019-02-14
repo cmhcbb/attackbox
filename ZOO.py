@@ -72,7 +72,7 @@ class ZOO(object):
         best_loss1 = 1000
         best_adv = None
         num_coor = 1
-        delta = 0.0001
+        delta = 1e-6
         modifier = Variable(torch.zeros(xi.size()).cuda(), volatile=True)
         for it in range(20000):
             #optimizer.zero_grad()
