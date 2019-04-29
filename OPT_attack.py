@@ -1,5 +1,5 @@
 from utils import mulvt
-import time
+import time, torch
 import numpy as np 
 from numpy import linalg as LA
 
@@ -14,7 +14,10 @@ class OPT_attack(object):
             (x0, y0): original image
         """
         model = self.model
-        y0 = y0[0]
+        if type(x0) is torch.Tensor:
+            x0 = x0.numpy()
+        if type(y0) is torch.Tensor:
+            y0 = y0.item()
         if (model.predict_label(x0) != y0):
             print("Fail to classify the image. No need to attack.")
             return x0
