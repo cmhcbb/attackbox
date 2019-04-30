@@ -4,6 +4,7 @@ import numpy as np
 from numpy import linalg as LA
 import torch
 import scipy.spatial
+from scipy.linalg import qr
 
 start_learning_rate = 1.0
 stopping = 0.001
@@ -31,7 +32,8 @@ class OPT_attack_sign_SGD(object):
         model = self.model
         y0 = y0[0]
         query_count = 0
-        
+        ls_total = 0
+       # 
         if (model.predict_label(x0) != y0):
             print("Fail to classify the image. No need to attack.")
             return x0
@@ -41,6 +43,7 @@ class OPT_attack_sign_SGD(object):
         num_directions = 100
         best_theta, g_theta = None, float('inf')
         print("Searching for the initial direction on %d random directions: " % (num_directions))
+        np.random.seed(0)
         timestart = time.time()
         for i in range(num_directions):
             query_count += 1
@@ -66,7 +69,7 @@ class OPT_attack_sign_SGD(object):
         prev_obj = 100000
         distortions = [gg]
         for i in range(iterations):
-            sign_gradient, grad_queries = self.sign_grad_v1(x0, y0, xg, initial_lbd=gg)
+            sign_gradient, grad_queries = self.sign_grad_v1(x0, y0, xg, initial_lbd=gg, h=beta)
             
             if False:
                 print("simran")
@@ -76,27 +79,59 @@ class OPT_attack_sign_SGD(object):
                       scipy.spatial.distance.cosine(gradient.flatten(), sign_gradient.flatten()))
             
             # Learning rate decay
-            if i!=0 and i%20==0:
-                learning_rate *= 0.9
-                
-            xg = xg - learning_rate * sign_gradient
-            xg /= LA.norm(xg)
+            #if i!=0 and i%20==0:
+            #    learning_rate *= 0.9
             
-            gg, gg_queries = self.fine_grained_binary_search_local(model, x0, y0, xg, initial_lbd = gg, tol=beta/500)
-            query_count += (grad_queries + gg_queries)
+            # Line search
+            ls_count = 0
+            min_theta = xg
+            min_g2 = gg
+            for _ in range(15):
+                new_theta = xg - alpha * sign_gradient
+                new_theta /= LA.norm(new_theta)
+                new_g2, count = self.fine_grained_binary_search_local(model, x0, y0, new_theta, initial_lbd = min_g2, tol=beta/500)
+                ls_count += count
+                alpha = alpha * 2
+                if new_g2 < min_g2:
+                    min_theta = new_theta 
+                    min_g2 = new_g2
+                else:
+                    break
+
+            if min_g2 >= gg:
+                for _ in range(15):
+                    alpha = alpha * 0.25
+                    new_theta = xg - alpha * sign_gradient
+                    new_theta /= LA.norm(new_theta)
+                    new_g2, count = self.fine_grained_binary_search_local(model, x0, y0, new_theta, initial_lbd = min_g2, tol=beta/500)
+                    ls_count += count
+                    if new_g2 < g2:
+                        min_theta = new_theta 
+                        min_g2 = new_g2
+                        break
+            if alpha < 1e-4:
+                alpha = 1.0
+                print("Warning: not moving")
+                beta = beta*0.1
+            
+            xg, g2 = min_theta, min_g2
+            gg = g2
+            
+            query_count += (grad_queries + ls_count)
+            ls_total += ls_count
             distortions.append(gg)
             
             if i%5==0:
-                print("Iteration: ", i, " Distortion: ", gg, " Queries: ", query_count, " LR: ", learning_rate)
+                print("Iteration: ", i, " Distortion: ", gg, " Queries: ", query_count, " LR: ", alpha, "grad_queries", grad_queries, "ls_queries", ls_count)
             
-            if distortion is not None and gg < distortion:
-                print("Success: required distortion reached")
-                break
+            #if distortion is not None and gg < distortion:
+            #    print("Success: required distortion reached")
+            #    break
 
-            if gg > prev_obj-stopping:
-                print("Success: stopping threshold reached")
-                #learning_rate *= 0.7
-                break
+            #if gg > prev_obj-stopping:
+            #    print("Success: stopping threshold reached")
+            #    #learning_rate *= 0.7
+            #    break
             
             prev_obj = gg
 
@@ -107,22 +142,32 @@ class OPT_attack_sign_SGD(object):
         print("Distortions: ", distortions)
         return x0 + torch.tensor(gg*xg, dtype=torch.float).cuda(), gg
 
-    def sign_grad_v1(self, x0, y0, theta, initial_lbd, h=0.001, K=500, lr=5.0):
+    def sign_grad_v1(self, x0, y0, theta, initial_lbd, h=0.001, K=200, lr=5.0):
         """
         Evaluate the sign of gradient by formulat
         sign(g) = 1/Q [ \sum_{q=1}^Q sign( g(theta+h*u_i) - g(theta) )u_i$ ]
         """
         sign_grad = np.zeros(theta.shape)
         queries = 0
-        for _ in range(K):
+        ### USe orthogonal transform
+        #dim = np.prod(sign_grad.shape)
+        #H = np.random.randn(dim, K)
+        #Q, R = qr(H, mode='economic')
+        for iii in range(K):
             u = np.random.randn(*theta.shape)
+            #u = Q[:,iii].reshape(sign_grad.shape)
             u /= LA.norm(u)
             
-            sign = -1
+            #sign = -1
+            sign = 1
             new_theta = theta + h*u
             new_theta /= LA.norm(new_theta)
-            if self.model.predict_label(x0+torch.tensor(initial_lbd*new_theta, dtype=torch.float).cuda()) == y0:
-                sign = 1
+            if self.model.predict_label(x0+torch.tensor(initial_lbd*new_theta, dtype=torch.float).cuda()) != y0:
+                sign = -1
+                #if self.model.predict_label(x0+torch.tensor((initial_lbd*1.00001)*new_theta, dtype=torch.float).cuda()) == y0:
+                #    print "Yes"
+                #else:
+                #    print "No"
             queries += 1
             sign_grad += u*sign
         sign_grad /= K

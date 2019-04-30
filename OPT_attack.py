@@ -7,7 +7,7 @@ class OPT_attack(object):
     def __init__(self,model):
         self.model = model
 
-    def attack_untargeted(self, x0, y0, alpha = 0.2, beta = 0.001, iterations = 1000):
+    def attack_untargeted(self, x0, y0, alpha = 0.2, beta = 0.001, iterations = 1500):
         """ Attack the original image and return adversarial example
             model: (pytorch model)
             train_dataset: set of training data
@@ -26,6 +26,7 @@ class OPT_attack(object):
         best_theta, g_theta = None, float('inf')
         query_count = 0
         print("Searching for the initial direction on %d random directions: " % (num_directions))
+        np.random.seed(0)
         timestart = time.time()
         for i in range(num_directions):
             query_count += 1
@@ -67,8 +68,8 @@ class OPT_attack(object):
 
             if (i+1)%50 == 0:
                 print("Iteration %3d: g(theta + beta*u) = %.4f g(theta) = %.4f distortion %.4f num_queries %d" % (i+1, g1, g2, LA.norm(g2*theta), opt_count))
-                if g2 > prev_obj-stopping:
-                    break
+                #if g2 > prev_obj-stopping:
+                #    break
                 prev_obj = g2
 
             min_theta = theta
@@ -111,8 +112,8 @@ class OPT_attack(object):
                 alpha = 1.0
                 print("Warning: not moving, g2 %lf gtheta %lf" % (g2, g_theta))
                 beta = beta * 0.1
-                if (beta < 0.0005):
-                    break
+                #if (beta < 0.0005):
+                #    break
 
         target = model.predict_label(x0 + g_theta*best_theta)
         timeend = time.time()
