@@ -105,7 +105,7 @@ class OPT_attack_sign_SGD(object):
                     new_theta /= LA.norm(new_theta)
                     new_g2, count = self.fine_grained_binary_search_local(model, x0, y0, new_theta, initial_lbd = min_g2, tol=beta/500)
                     ls_count += count
-                    if new_g2 < g2:
+                    if new_g2 < gg:
                         min_theta = new_theta 
                         min_g2 = new_g2
                         break
@@ -184,7 +184,7 @@ class OPT_attack_sign_SGD(object):
         
         return sign_grad, queries
     
-    def sign_grad_v2(self, x0, y0, theta, initial_lbd, h=0.001, K=20):
+    def sign_grad_v2(self, x0, y0, theta, initial_lbd, h=0.001, K=200):
         """
         Evaluate the sign of gradient by formulat
         sign(g) = 1/Q [ \sum_{q=1}^Q sign( g(theta+h*u_i) - g(theta) )u_i$ ]
@@ -195,13 +195,13 @@ class OPT_attack_sign_SGD(object):
             u = np.random.randn(*theta.shape)
             u /= LA.norm(u)
             
-            sign = -1
+            ss = -1
             new_theta = theta + h*u
             new_theta /= LA.norm(new_theta)
             if self.model.predict_label(x0+torch.tensor(initial_lbd*new_theta, dtype=torch.float).cuda()) == y0:
-                sign = 1
+                ss = 1
             queries += 1
-            sign_grad += sign(u)*sign
+            sign_grad += sign(u)*ss
         sign_grad /= K
         return sign_grad, queries
 
