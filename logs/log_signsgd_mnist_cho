@@ -1,0 +1,1399 @@
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 10.6657
+--------> Found distortion 8.2977
+--------> Found distortion 8.1595
+--------> Found distortion 6.6298
+==========> Found best distortion 6.6298 in 0.2922 seconds using 279 queries
+Iteration   1 distortion 4.6254 num_queries 646
+Iteration   6 distortion 2.4765 num_queries 2127
+Iteration  11 distortion 1.9013 num_queries 3429
+Iteration  16 distortion 1.6940 num_queries 4687
+Iteration  21 distortion 1.5717 num_queries 5907
+Iteration  26 distortion 1.4968 num_queries 7166
+Iteration  31 distortion 1.4472 num_queries 8396
+Iteration  36 distortion 1.4217 num_queries 9608
+Iteration  41 distortion 1.3982 num_queries 10783
+Iteration  46 distortion 1.3793 num_queries 11942
+Iteration  51 distortion 1.3681 num_queries 13122
+Iteration  56 distortion 1.3590 num_queries 14283
+Iteration  61 distortion 1.3521 num_queries 15467
+Iteration  66 distortion 1.3470 num_queries 16649
+Iteration  71 distortion 1.3428 num_queries 17805
+Iteration  76 distortion 1.3401 num_queries 18961
+
+Adversarial Example Found Successfully: distortion 1.3377 target 2 queries 20143 
+Time: 21.5816 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 10.2299
+--------> Found distortion 8.5007
+--------> Found distortion 7.8389
+--------> Found distortion 7.2802
+--------> Found distortion 7.2434
+--------> Found distortion 7.1521
+--------> Found distortion 7.0016
+--------> Found distortion 6.7148
+--------> Found distortion 6.4202
+==========> Found best distortion 6.4202 in 0.3927 seconds using 373 queries
+Iteration   1 distortion 4.3179 num_queries 776
+Iteration   6 distortion 2.3624 num_queries 2132
+Iteration  11 distortion 1.7631 num_queries 3401
+Iteration  16 distortion 1.5527 num_queries 4688
+Iteration  21 distortion 1.4444 num_queries 5906
+Iteration  26 distortion 1.3872 num_queries 7149
+Iteration  31 distortion 1.3469 num_queries 8402
+Iteration  36 distortion 1.3252 num_queries 9575
+Iteration  41 distortion 1.3097 num_queries 10747
+Iteration  46 distortion 1.2976 num_queries 11937
+Iteration  51 distortion 1.2896 num_queries 13124
+Iteration  56 distortion 1.2851 num_queries 14294
+Iteration  61 distortion 1.2821 num_queries 15448
+Iteration  66 distortion 1.2800 num_queries 16632
+Iteration  71 distortion 1.2785 num_queries 17786
+Iteration  76 distortion 1.2772 num_queries 18954
+
+Adversarial Example Found Successfully: distortion 1.2765 target 8 queries 20136 
+Time: 21.3336 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 5.3414
+--------> Found distortion 4.8709
+--------> Found distortion 4.1371
+--------> Found distortion 3.6809
+--------> Found distortion 3.6358
+--------> Found distortion 3.6241
+==========> Found best distortion 3.6241 in 0.3247 seconds using 312 queries
+Iteration   1 distortion 2.2536 num_queries 717
+Iteration   6 distortion 1.3665 num_queries 2039
+Iteration  11 distortion 1.0228 num_queries 3374
+Iteration  16 distortion 0.9035 num_queries 4667
+Iteration  21 distortion 0.8439 num_queries 5883
+Iteration  26 distortion 0.8073 num_queries 7132
+Iteration  31 distortion 0.7828 num_queries 8321
+Iteration  36 distortion 0.7704 num_queries 9484
+Iteration  41 distortion 0.7611 num_queries 10673
+Iteration  46 distortion 0.7552 num_queries 11837
+Iteration  51 distortion 0.7519 num_queries 12985
+Iteration  56 distortion 0.7497 num_queries 14141
+Iteration  61 distortion 0.7481 num_queries 15284
+Iteration  66 distortion 0.7467 num_queries 16442
+Iteration  71 distortion 0.7459 num_queries 17585
+Iteration  76 distortion 0.7452 num_queries 18741
+Iteration  81 distortion 0.7447 num_queries 19897
+
+Adversarial Example Found Successfully: distortion 0.7446 target 4 queries 20123 
+Time: 21.3409 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 8.8021
+--------> Found distortion 8.0475
+--------> Found distortion 7.6613
+==========> Found best distortion 7.6613 in 0.2662 seconds using 259 queries
+Iteration   1 distortion 5.0733 num_queries 650
+Iteration   6 distortion 2.7854 num_queries 2076
+Iteration  11 distortion 2.1197 num_queries 3357
+Iteration  16 distortion 1.8324 num_queries 4661
+Iteration  21 distortion 1.7139 num_queries 5912
+Iteration  26 distortion 1.6559 num_queries 7115
+Iteration  31 distortion 1.6152 num_queries 8310
+Iteration  36 distortion 1.5872 num_queries 9517
+Iteration  41 distortion 1.5661 num_queries 10675
+Iteration  46 distortion 1.5495 num_queries 11853
+Iteration  51 distortion 1.5398 num_queries 13014
+Iteration  56 distortion 1.5332 num_queries 14212
+Iteration  61 distortion 1.5311 num_queries 15352
+Iteration  66 distortion 1.5257 num_queries 16550
+Iteration  71 distortion 1.5242 num_queries 17732
+Iteration  76 distortion 1.5225 num_queries 18900
+
+Adversarial Example Found Successfully: distortion 1.5210 target 8 queries 20054 
+Time: 21.4120 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 9.6788
+--------> Found distortion 8.5414
+--------> Found distortion 8.1293
+--------> Found distortion 8.0737
+--------> Found distortion 7.6965
+==========> Found best distortion 7.6965 in 0.3049 seconds using 297 queries
+Iteration   1 distortion 4.4370 num_queries 710
+Iteration   6 distortion 2.2574 num_queries 2110
+Iteration  11 distortion 1.6093 num_queries 3492
+Iteration  16 distortion 1.3659 num_queries 4791
+Iteration  21 distortion 1.2749 num_queries 6005
+Iteration  26 distortion 1.2192 num_queries 7248
+Iteration  31 distortion 1.1926 num_queries 8459
+Iteration  36 distortion 1.1752 num_queries 9639
+Iteration  41 distortion 1.1572 num_queries 10858
+Iteration  46 distortion 1.1476 num_queries 12016
+Iteration  51 distortion 1.1421 num_queries 13170
+Iteration  56 distortion 1.1383 num_queries 14324
+Iteration  61 distortion 1.1337 num_queries 15480
+Iteration  66 distortion 1.1315 num_queries 16650
+Iteration  71 distortion 1.1295 num_queries 17804
+Iteration  76 distortion 1.1285 num_queries 18972
+
+Adversarial Example Found Successfully: distortion 1.1278 target 8 queries 20154 
+Time: 21.8522 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 7.6386
+--------> Found distortion 6.9777
+--------> Found distortion 5.3905
+--------> Found distortion 5.3571
+--------> Found distortion 5.3301
+--------> Found distortion 5.2803
+--------> Found distortion 4.9546
+==========> Found best distortion 4.9546 in 0.3667 seconds using 335 queries
+Iteration   1 distortion 2.9549 num_queries 734
+Iteration   6 distortion 1.6280 num_queries 2092
+Iteration  11 distortion 1.2558 num_queries 3373
+Iteration  16 distortion 1.0904 num_queries 4624
+Iteration  21 distortion 1.0205 num_queries 5867
+Iteration  26 distortion 0.9807 num_queries 7085
+Iteration  31 distortion 0.9558 num_queries 8291
+Iteration  36 distortion 0.9379 num_queries 9464
+Iteration  41 distortion 0.9264 num_queries 10647
+Iteration  46 distortion 0.9200 num_queries 11804
+Iteration  51 distortion 0.9159 num_queries 12980
+Iteration  56 distortion 0.9128 num_queries 14176
+Iteration  61 distortion 0.9111 num_queries 15344
+Iteration  66 distortion 0.9098 num_queries 16498
+Iteration  71 distortion 0.9087 num_queries 17666
+Iteration  76 distortion 0.9081 num_queries 18848
+
+Adversarial Example Found Successfully: distortion 0.9076 target 4 queries 20030 
+Time: 21.4120 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 9.5584
+--------> Found distortion 8.3635
+--------> Found distortion 8.1671
+--------> Found distortion 8.0225
+--------> Found distortion 6.0902
+--------> Found distortion 5.5783
+==========> Found best distortion 5.5783 in 0.3299 seconds using 316 queries
+Iteration   1 distortion 3.3225 num_queries 712
+Iteration   6 distortion 1.6885 num_queries 2146
+Iteration  11 distortion 1.3118 num_queries 3427
+Iteration  16 distortion 1.1344 num_queries 4770
+Iteration  21 distortion 1.0683 num_queries 5985
+Iteration  26 distortion 1.0351 num_queries 7229
+Iteration  31 distortion 1.0118 num_queries 8397
+Iteration  36 distortion 0.9974 num_queries 9588
+Iteration  41 distortion 0.9872 num_queries 10759
+Iteration  46 distortion 0.9814 num_queries 11937
+Iteration  51 distortion 0.9769 num_queries 13096
+Iteration  56 distortion 0.9736 num_queries 14264
+Iteration  61 distortion 0.9713 num_queries 15420
+Iteration  66 distortion 0.9693 num_queries 16590
+Iteration  71 distortion 0.9681 num_queries 17744
+Iteration  76 distortion 0.9676 num_queries 18898
+
+Adversarial Example Found Successfully: distortion 0.9667 target 8 queries 20052 
+Time: 21.9272 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 5.9160
+--------> Found distortion 5.0011
+--------> Found distortion 4.8359
+--------> Found distortion 4.3463
+--------> Found distortion 3.9599
+--------> Found distortion 3.8973
+--------> Found distortion 3.7297
+==========> Found best distortion 3.7297 in 0.3393 seconds using 330 queries
+Iteration   1 distortion 1.9801 num_queries 750
+Iteration   6 distortion 1.2060 num_queries 2104
+Iteration  11 distortion 0.8471 num_queries 3472
+Iteration  16 distortion 0.7615 num_queries 4759
+Iteration  21 distortion 0.7157 num_queries 5954
+Iteration  26 distortion 0.6972 num_queries 7155
+Iteration  31 distortion 0.6782 num_queries 8364
+Iteration  36 distortion 0.6673 num_queries 9524
+Iteration  41 distortion 0.6588 num_queries 10712
+Iteration  46 distortion 0.6549 num_queries 11876
+Iteration  51 distortion 0.6523 num_queries 13023
+Iteration  56 distortion 0.6503 num_queries 14192
+Iteration  61 distortion 0.6492 num_queries 15335
+Iteration  66 distortion 0.6482 num_queries 16517
+Iteration  71 distortion 0.6477 num_queries 17673
+Iteration  76 distortion 0.6472 num_queries 18829
+Iteration  81 distortion 0.6470 num_queries 19972
+
+Adversarial Example Found Successfully: distortion 0.6469 target 8 queries 20211 
+Time: 21.4156 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 5.0582
+--------> Found distortion 4.3120
+--------> Found distortion 3.8967
+--------> Found distortion 3.6434
+--------> Found distortion 3.5252
+==========> Found best distortion 3.5252 in 0.3039 seconds using 293 queries
+Iteration   1 distortion 2.2288 num_queries 681
+Iteration   6 distortion 1.1757 num_queries 2070
+Iteration  11 distortion 0.8687 num_queries 3409
+Iteration  16 distortion 0.7800 num_queries 4683
+Iteration  21 distortion 0.7416 num_queries 5882
+Iteration  26 distortion 0.7181 num_queries 7079
+Iteration  31 distortion 0.7065 num_queries 8241
+Iteration  36 distortion 0.7008 num_queries 9375
+Iteration  41 distortion 0.6944 num_queries 10552
+Iteration  46 distortion 0.6907 num_queries 11700
+Iteration  51 distortion 0.6873 num_queries 12873
+Iteration  56 distortion 0.6854 num_queries 14029
+Iteration  61 distortion 0.6839 num_queries 15172
+Iteration  66 distortion 0.6829 num_queries 16317
+Iteration  71 distortion 0.6820 num_queries 17475
+Iteration  76 distortion 0.6814 num_queries 18618
+Iteration  81 distortion 0.6809 num_queries 19761
+
+Adversarial Example Found Successfully: distortion 0.6807 target 8 queries 20226 
+Time: 21.4399 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 10.9472
+--------> Found distortion 7.8507
+--------> Found distortion 6.6784
+--------> Found distortion 6.4908
+==========> Found best distortion 6.4908 in 0.2938 seconds using 279 queries
+Iteration   1 distortion 4.2493 num_queries 671
+Iteration   6 distortion 3.0679 num_queries 1994
+Iteration  11 distortion 1.6151 num_queries 3421
+Iteration  16 distortion 1.3490 num_queries 4767
+Iteration  21 distortion 1.2296 num_queries 5974
+Iteration  26 distortion 1.1705 num_queries 7235
+Iteration  31 distortion 1.1506 num_queries 8411
+Iteration  36 distortion 1.1316 num_queries 9615
+Iteration  41 distortion 1.1196 num_queries 10773
+Iteration  46 distortion 1.1084 num_queries 11936
+Iteration  51 distortion 1.0999 num_queries 13095
+Iteration  56 distortion 1.0950 num_queries 14249
+Iteration  61 distortion 1.0915 num_queries 15433
+Iteration  66 distortion 1.0895 num_queries 16601
+Iteration  71 distortion 1.0880 num_queries 17755
+Iteration  76 distortion 1.0870 num_queries 18923
+
+Adversarial Example Found Successfully: distortion 1.0863 target 8 queries 20091 
+Time: 21.2174 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 8.6780
+--------> Found distortion 8.3262
+--------> Found distortion 8.1376
+--------> Found distortion 7.9259
+--------> Found distortion 7.6404
+==========> Found best distortion 7.6404 in 0.2975 seconds using 297 queries
+Iteration   1 distortion 5.3427 num_queries 682
+Iteration   6 distortion 2.9194 num_queries 2083
+Iteration  11 distortion 1.9848 num_queries 3421
+Iteration  16 distortion 1.7457 num_queries 4746
+Iteration  21 distortion 1.6506 num_queries 5976
+Iteration  26 distortion 1.5804 num_queries 7186
+Iteration  31 distortion 1.5433 num_queries 8376
+Iteration  36 distortion 1.5232 num_queries 9566
+Iteration  41 distortion 1.5108 num_queries 10724
+Iteration  46 distortion 1.5004 num_queries 11901
+Iteration  51 distortion 1.4941 num_queries 13064
+Iteration  56 distortion 1.4895 num_queries 14232
+Iteration  61 distortion 1.4850 num_queries 15388
+Iteration  66 distortion 1.4811 num_queries 16556
+Iteration  71 distortion 1.4783 num_queries 17726
+Iteration  76 distortion 1.4766 num_queries 18894
+
+Adversarial Example Found Successfully: distortion 1.4755 target 8 queries 20090 
+Time: 21.4268 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 9.1011
+--------> Found distortion 8.0794
+--------> Found distortion 6.7175
+--------> Found distortion 6.3681
+--------> Found distortion 6.0858
+--------> Found distortion 5.2743
+==========> Found best distortion 5.2743 in 0.3273 seconds using 316 queries
+Iteration   1 distortion 3.2450 num_queries 708
+Iteration   6 distortion 1.8921 num_queries 2103
+Iteration  11 distortion 1.4026 num_queries 3433
+Iteration  16 distortion 1.2588 num_queries 4745
+Iteration  21 distortion 1.1868 num_queries 5936
+Iteration  26 distortion 1.1489 num_queries 7177
+Iteration  31 distortion 1.1303 num_queries 8366
+Iteration  36 distortion 1.1155 num_queries 9551
+Iteration  41 distortion 1.1047 num_queries 10709
+Iteration  46 distortion 1.0978 num_queries 11886
+Iteration  51 distortion 1.0934 num_queries 13040
+Iteration  56 distortion 1.0907 num_queries 14210
+Iteration  61 distortion 1.0893 num_queries 15364
+Iteration  66 distortion 1.0880 num_queries 16532
+Iteration  71 distortion 1.0874 num_queries 17714
+Iteration  76 distortion 1.0871 num_queries 18882
+
+Adversarial Example Found Successfully: distortion 1.0868 target 8 queries 20036 
+Time: 21.1648 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 9.1161
+--------> Found distortion 8.7223
+--------> Found distortion 7.4412
+--------> Found distortion 7.2403
+--------> Found distortion 6.2396
+--------> Found distortion 5.5562
+==========> Found best distortion 5.5562 in 0.3170 seconds using 316 queries
+Iteration   1 distortion 2.9458 num_queries 728
+Iteration   6 distortion 1.5652 num_queries 2093
+Iteration  11 distortion 1.1011 num_queries 3435
+Iteration  16 distortion 0.9688 num_queries 4695
+Iteration  21 distortion 0.9172 num_queries 5902
+Iteration  26 distortion 0.8871 num_queries 7143
+Iteration  31 distortion 0.8688 num_queries 8311
+Iteration  36 distortion 0.8567 num_queries 9500
+Iteration  41 distortion 0.8487 num_queries 10657
+Iteration  46 distortion 0.8419 num_queries 11816
+Iteration  51 distortion 0.8373 num_queries 13003
+Iteration  56 distortion 0.8345 num_queries 14171
+Iteration  61 distortion 0.8327 num_queries 15327
+Iteration  66 distortion 0.8315 num_queries 16481
+Iteration  71 distortion 0.8310 num_queries 17663
+Iteration  76 distortion 0.8304 num_queries 18817
+Iteration  81 distortion 0.8301 num_queries 19985
+
+Adversarial Example Found Successfully: distortion 0.8300 target 4 queries 20213 
+Time: 21.5076 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 8.4288
+--------> Found distortion 8.3741
+--------> Found distortion 7.4096
+--------> Found distortion 7.2040
+==========> Found best distortion 7.2040 in 0.3004 seconds using 278 queries
+Iteration   1 distortion 4.7123 num_queries 673
+Iteration   6 distortion 2.7930 num_queries 2045
+Iteration  11 distortion 1.9762 num_queries 3396
+Iteration  16 distortion 1.7095 num_queries 4702
+Iteration  21 distortion 1.5952 num_queries 5915
+Iteration  26 distortion 1.5307 num_queries 7145
+Iteration  31 distortion 1.4881 num_queries 8316
+Iteration  36 distortion 1.4698 num_queries 9490
+Iteration  41 distortion 1.4507 num_queries 10681
+Iteration  46 distortion 1.4399 num_queries 11854
+Iteration  51 distortion 1.4344 num_queries 13022
+Iteration  56 distortion 1.4280 num_queries 14234
+Iteration  61 distortion 1.4227 num_queries 15404
+Iteration  66 distortion 1.4186 num_queries 16574
+Iteration  71 distortion 1.4159 num_queries 17728
+Iteration  76 distortion 1.4139 num_queries 18896
+
+Adversarial Example Found Successfully: distortion 1.4122 target 8 queries 20050 
+Time: 21.3413 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 8.9805
+--------> Found distortion 7.3282
+--------> Found distortion 6.9967
+--------> Found distortion 6.4064
+--------> Found distortion 6.3673
+--------> Found distortion 6.1808
+--------> Found distortion 6.1610
+--------> Found distortion 5.9033
+--------> Found distortion 5.5288
+==========> Found best distortion 5.5288 in 0.3915 seconds using 373 queries
+Iteration   1 distortion 3.6081 num_queries 762
+Iteration   6 distortion 2.1359 num_queries 2183
+Iteration  11 distortion 1.6754 num_queries 3449
+Iteration  16 distortion 1.4430 num_queries 4795
+Iteration  21 distortion 1.3531 num_queries 6013
+Iteration  26 distortion 1.3012 num_queries 7256
+Iteration  31 distortion 1.2664 num_queries 8427
+Iteration  36 distortion 1.2491 num_queries 9607
+Iteration  41 distortion 1.2324 num_queries 10816
+Iteration  46 distortion 1.2236 num_queries 11993
+Iteration  51 distortion 1.2162 num_queries 13152
+Iteration  56 distortion 1.2119 num_queries 14320
+Iteration  61 distortion 1.2086 num_queries 15476
+Iteration  66 distortion 1.2062 num_queries 16646
+Iteration  71 distortion 1.2042 num_queries 17800
+Iteration  76 distortion 1.2027 num_queries 18982
+
+Adversarial Example Found Successfully: distortion 1.2013 target 4 queries 20136 
+Time: 22.1309 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 5.5248
+--------> Found distortion 5.3321
+--------> Found distortion 5.1999
+--------> Found distortion 4.6691
+--------> Found distortion 4.2987
+--------> Found distortion 4.1543
+==========> Found best distortion 4.1543 in 0.3342 seconds using 313 queries
+Iteration   1 distortion 2.4584 num_queries 725
+Iteration   6 distortion 1.3733 num_queries 2133
+Iteration  11 distortion 1.1294 num_queries 3395
+Iteration  16 distortion 1.0443 num_queries 4701
+Iteration  21 distortion 0.9907 num_queries 5905
+Iteration  26 distortion 0.9635 num_queries 7132
+Iteration  31 distortion 0.9418 num_queries 8298
+Iteration  36 distortion 0.9315 num_queries 9488
+Iteration  41 distortion 0.9244 num_queries 10659
+Iteration  46 distortion 0.9197 num_queries 11833
+Iteration  51 distortion 0.9157 num_queries 12987
+Iteration  56 distortion 0.9134 num_queries 14155
+Iteration  61 distortion 0.9115 num_queries 15309
+Iteration  66 distortion 0.9102 num_queries 16479
+Iteration  71 distortion 0.9095 num_queries 17675
+Iteration  76 distortion 0.9092 num_queries 18829
+Iteration  81 distortion 0.9087 num_queries 19983
+
+Adversarial Example Found Successfully: distortion 0.9085 target 8 queries 20225 
+Time: 21.5102 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 12.6610
+--------> Found distortion 8.8753
+--------> Found distortion 7.8035
+--------> Found distortion 7.7697
+--------> Found distortion 7.0384
+==========> Found best distortion 7.0384 in 0.3059 seconds using 298 queries
+Iteration   1 distortion 4.2644 num_queries 712
+Iteration   6 distortion 2.0865 num_queries 2111
+Iteration  11 distortion 1.4712 num_queries 3492
+Iteration  16 distortion 1.2881 num_queries 4814
+Iteration  21 distortion 1.1887 num_queries 6103
+Iteration  26 distortion 1.1494 num_queries 7347
+Iteration  31 distortion 1.1284 num_queries 8518
+Iteration  36 distortion 1.1171 num_queries 9714
+Iteration  41 distortion 1.1078 num_queries 10872
+Iteration  46 distortion 1.1021 num_queries 12031
+Iteration  51 distortion 1.0981 num_queries 13204
+Iteration  56 distortion 1.0953 num_queries 14372
+Iteration  61 distortion 1.0936 num_queries 15540
+Iteration  66 distortion 1.0924 num_queries 16722
+Iteration  71 distortion 1.0913 num_queries 17876
+Iteration  76 distortion 1.0901 num_queries 19044
+
+Adversarial Example Found Successfully: distortion 1.0895 target 8 queries 20226 
+Time: 21.7044 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 12.6570
+--------> Found distortion 10.5631
+--------> Found distortion 8.7655
+--------> Found distortion 8.1822
+--------> Found distortion 8.1712
+==========> Found best distortion 8.1712 in 0.2981 seconds using 299 queries
+Iteration   1 distortion 5.7778 num_queries 684
+Iteration   6 distortion 2.7234 num_queries 2015
+Iteration  11 distortion 1.9527 num_queries 3389
+Iteration  16 distortion 1.7357 num_queries 4684
+Iteration  21 distortion 1.5899 num_queries 5950
+Iteration  26 distortion 1.5206 num_queries 7171
+Iteration  31 distortion 1.4787 num_queries 8372
+Iteration  36 distortion 1.4555 num_queries 9549
+Iteration  41 distortion 1.4372 num_queries 10745
+Iteration  46 distortion 1.4229 num_queries 11917
+Iteration  51 distortion 1.4114 num_queries 13095
+Iteration  56 distortion 1.4043 num_queries 14277
+Iteration  61 distortion 1.3995 num_queries 15447
+Iteration  66 distortion 1.3971 num_queries 16615
+Iteration  71 distortion 1.3955 num_queries 17783
+Iteration  76 distortion 1.3943 num_queries 18965
+
+Adversarial Example Found Successfully: distortion 1.3931 target 9 queries 20119 
+Time: 21.4590 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 4.7905
+--------> Found distortion 3.7345
+--------> Found distortion 3.5286
+--------> Found distortion 3.4250
+--------> Found distortion 3.0287
+==========> Found best distortion 3.0287 in 0.3014 seconds using 293 queries
+Iteration   1 distortion 1.4657 num_queries 719
+Iteration   6 distortion 1.2220 num_queries 1918
+Iteration  11 distortion 0.7768 num_queries 3297
+Iteration  16 distortion 0.5732 num_queries 4624
+Iteration  21 distortion 0.5218 num_queries 5815
+Iteration  26 distortion 0.5013 num_queries 7012
+Iteration  31 distortion 0.4837 num_queries 8218
+Iteration  36 distortion 0.4774 num_queries 9376
+Iteration  41 distortion 0.4727 num_queries 10565
+Iteration  46 distortion 0.4697 num_queries 11711
+Iteration  51 distortion 0.4678 num_queries 12870
+Iteration  56 distortion 0.4665 num_queries 14013
+Iteration  61 distortion 0.4656 num_queries 15169
+Iteration  66 distortion 0.4651 num_queries 16312
+Iteration  71 distortion 0.4647 num_queries 17494
+Iteration  76 distortion 0.4644 num_queries 18637
+Iteration  81 distortion 0.4644 num_queries 19780
+
+Adversarial Example Found Successfully: distortion 0.4643 target 8 queries 20006 
+Time: 21.2689 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 10.9586
+--------> Found distortion 10.2603
+--------> Found distortion 8.8705
+--------> Found distortion 8.8178
+--------> Found distortion 8.5991
+--------> Found distortion 8.1479
+==========> Found best distortion 8.1479 in 0.3224 seconds using 317 queries
+Iteration   1 distortion 5.2147 num_queries 717
+Iteration   6 distortion 2.9051 num_queries 2143
+Iteration  11 distortion 1.8509 num_queries 3572
+Iteration  16 distortion 1.6421 num_queries 4813
+Iteration  21 distortion 1.5147 num_queries 6026
+Iteration  26 distortion 1.4564 num_queries 7285
+Iteration  31 distortion 1.4021 num_queries 8491
+Iteration  36 distortion 1.3745 num_queries 9664
+Iteration  41 distortion 1.3530 num_queries 10837
+Iteration  46 distortion 1.3338 num_queries 12042
+Iteration  51 distortion 1.3176 num_queries 13233
+Iteration  56 distortion 1.3085 num_queries 14406
+Iteration  61 distortion 1.3048 num_queries 15560
+Iteration  66 distortion 1.3012 num_queries 16728
+Iteration  71 distortion 1.2993 num_queries 17896
+Iteration  76 distortion 1.2976 num_queries 19064
+
+Adversarial Example Found Successfully: distortion 1.2961 target 8 queries 20218 
+Time: 21.5810 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 7.7761
+--------> Found distortion 7.5016
+--------> Found distortion 6.5677
+--------> Found distortion 6.5657
+==========> Found best distortion 6.5657 in 0.2764 seconds using 278 queries
+Iteration   1 distortion 4.2882 num_queries 655
+Iteration   6 distortion 2.2838 num_queries 1972
+Iteration  11 distortion 1.3321 num_queries 3405
+Iteration  16 distortion 1.1384 num_queries 4623
+Iteration  21 distortion 1.0555 num_queries 5834
+Iteration  26 distortion 1.0132 num_queries 7078
+Iteration  31 distortion 0.9804 num_queries 8316
+Iteration  36 distortion 0.9636 num_queries 9514
+Iteration  41 distortion 0.9508 num_queries 10689
+Iteration  46 distortion 0.9420 num_queries 11863
+Iteration  51 distortion 0.9362 num_queries 13022
+Iteration  56 distortion 0.9326 num_queries 14206
+Iteration  61 distortion 0.9302 num_queries 15360
+Iteration  66 distortion 0.9284 num_queries 16542
+Iteration  71 distortion 0.9273 num_queries 17724
+Iteration  76 distortion 0.9267 num_queries 18878
+
+Adversarial Example Found Successfully: distortion 0.9262 target 4 queries 20046 
+Time: 21.2811 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 9.4803
+--------> Found distortion 9.3411
+--------> Found distortion 8.7268
+--------> Found distortion 7.5013
+--------> Found distortion 6.3956
+--------> Found distortion 6.3852
+--------> Found distortion 6.3684
+--------> Found distortion 5.7452
+==========> Found best distortion 5.7452 in 0.3582 seconds using 354 queries
+Iteration   1 distortion 3.7565 num_queries 744
+Iteration   6 distortion 3.0901 num_queries 2015
+Iteration  11 distortion 2.0019 num_queries 3407
+Iteration  16 distortion 1.5964 num_queries 4730
+Iteration  21 distortion 1.4402 num_queries 5988
+Iteration  26 distortion 1.3736 num_queries 7219
+Iteration  31 distortion 1.3303 num_queries 8439
+Iteration  36 distortion 1.3092 num_queries 9612
+Iteration  41 distortion 1.2950 num_queries 10770
+Iteration  46 distortion 1.2869 num_queries 11956
+Iteration  51 distortion 1.2825 num_queries 13138
+Iteration  56 distortion 1.2795 num_queries 14292
+Iteration  61 distortion 1.2763 num_queries 15460
+Iteration  66 distortion 1.2743 num_queries 16642
+Iteration  71 distortion 1.2733 num_queries 17810
+Iteration  76 distortion 1.2721 num_queries 18964
+
+Adversarial Example Found Successfully: distortion 1.2709 target 8 queries 20132 
+Time: 21.6308 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 7.2805
+--------> Found distortion 6.9348
+--------> Found distortion 6.9013
+--------> Found distortion 6.4728
+--------> Found distortion 6.1662
+--------> Found distortion 6.0346
+--------> Found distortion 5.9134
+--------> Found distortion 5.8703
+==========> Found best distortion 5.8703 in 0.3588 seconds using 354 queries
+Iteration   1 distortion 3.8820 num_queries 743
+Iteration   6 distortion 2.0240 num_queries 2172
+Iteration  11 distortion 1.6282 num_queries 3443
+Iteration  16 distortion 1.4349 num_queries 4718
+Iteration  21 distortion 1.3660 num_queries 5938
+Iteration  26 distortion 1.3106 num_queries 7160
+Iteration  31 distortion 1.2836 num_queries 8333
+Iteration  36 distortion 1.2665 num_queries 9552
+Iteration  41 distortion 1.2565 num_queries 10724
+Iteration  46 distortion 1.2481 num_queries 11901
+Iteration  51 distortion 1.2424 num_queries 13055
+Iteration  56 distortion 1.2378 num_queries 14223
+Iteration  61 distortion 1.2343 num_queries 15377
+Iteration  66 distortion 1.2317 num_queries 16561
+Iteration  71 distortion 1.2297 num_queries 17715
+Iteration  76 distortion 1.2279 num_queries 18883
+
+Adversarial Example Found Successfully: distortion 1.2270 target 8 queries 20037 
+Time: 21.3058 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 12.2377
+--------> Found distortion 6.4456
+--------> Found distortion 6.3608
+==========> Found best distortion 6.3608 in 0.2651 seconds using 260 queries
+Iteration   1 distortion 4.5458 num_queries 643
+Iteration   6 distortion 3.2560 num_queries 1940
+Iteration  11 distortion 2.1048 num_queries 3340
+Iteration  16 distortion 1.7686 num_queries 4670
+Iteration  21 distortion 1.6281 num_queries 5887
+Iteration  26 distortion 1.5488 num_queries 7156
+Iteration  31 distortion 1.4968 num_queries 8371
+Iteration  36 distortion 1.4712 num_queries 9559
+Iteration  41 distortion 1.4546 num_queries 10777
+Iteration  46 distortion 1.4420 num_queries 11967
+Iteration  51 distortion 1.4334 num_queries 13125
+Iteration  56 distortion 1.4280 num_queries 14297
+Iteration  61 distortion 1.4234 num_queries 15453
+Iteration  66 distortion 1.4204 num_queries 16651
+Iteration  71 distortion 1.4197 num_queries 17791
+Iteration  76 distortion 1.4176 num_queries 18975
+
+Adversarial Example Found Successfully: distortion 1.4166 target 8 queries 20143 
+Time: 22.2738 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 11.0509
+--------> Found distortion 9.5554
+--------> Found distortion 8.5905
+--------> Found distortion 7.8782
+--------> Found distortion 6.8800
+==========> Found best distortion 6.8800 in 0.3018 seconds using 298 queries
+Iteration   1 distortion 4.0076 num_queries 716
+Iteration   6 distortion 1.7149 num_queries 2117
+Iteration  11 distortion 1.3033 num_queries 3416
+Iteration  16 distortion 1.1404 num_queries 4721
+Iteration  21 distortion 1.0705 num_queries 5957
+Iteration  26 distortion 1.0314 num_queries 7143
+Iteration  31 distortion 1.0091 num_queries 8344
+Iteration  36 distortion 0.9963 num_queries 9501
+Iteration  41 distortion 0.9863 num_queries 10675
+Iteration  46 distortion 0.9815 num_queries 11831
+Iteration  51 distortion 0.9776 num_queries 12999
+Iteration  56 distortion 0.9740 num_queries 14195
+Iteration  61 distortion 0.9723 num_queries 15377
+Iteration  66 distortion 0.9707 num_queries 16531
+Iteration  71 distortion 0.9695 num_queries 17713
+Iteration  76 distortion 0.9691 num_queries 18881
+
+Adversarial Example Found Successfully: distortion 0.9689 target 8 queries 20035 
+Time: 21.3358 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 6.8742
+--------> Found distortion 6.7209
+--------> Found distortion 6.4478
+--------> Found distortion 6.2623
+--------> Found distortion 5.9237
+--------> Found distortion 5.9205
+==========> Found best distortion 5.9205 in 0.3295 seconds using 316 queries
+Iteration   1 distortion 3.6995 num_queries 726
+Iteration   6 distortion 2.1071 num_queries 2152
+Iteration  11 distortion 1.6036 num_queries 3537
+Iteration  16 distortion 1.4464 num_queries 4839
+Iteration  21 distortion 1.3040 num_queries 6055
+Iteration  26 distortion 1.2354 num_queries 7301
+Iteration  31 distortion 1.1977 num_queries 8500
+Iteration  36 distortion 1.1740 num_queries 9676
+Iteration  41 distortion 1.1601 num_queries 10867
+Iteration  46 distortion 1.1485 num_queries 12025
+Iteration  51 distortion 1.1396 num_queries 13204
+Iteration  56 distortion 1.1340 num_queries 14358
+Iteration  61 distortion 1.1297 num_queries 15530
+Iteration  66 distortion 1.1267 num_queries 16686
+Iteration  71 distortion 1.1248 num_queries 17854
+Iteration  76 distortion 1.1232 num_queries 19008
+
+Adversarial Example Found Successfully: distortion 1.1222 target 8 queries 20148 
+Time: 21.3274 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 8.4876
+--------> Found distortion 6.6433
+--------> Found distortion 6.5562
+--------> Found distortion 6.1649
+--------> Found distortion 6.0452
+--------> Found distortion 5.3642
+--------> Found distortion 5.1431
+--------> Found distortion 5.0355
+--------> Found distortion 4.9113
+==========> Found best distortion 4.9113 in 0.3921 seconds using 371 queries
+Iteration   1 distortion 2.4639 num_queries 813
+Iteration   6 distortion 1.4593 num_queries 2168
+Iteration  11 distortion 0.9421 num_queries 3538
+Iteration  16 distortion 0.8013 num_queries 4858
+Iteration  21 distortion 0.7446 num_queries 6068
+Iteration  26 distortion 0.7151 num_queries 7317
+Iteration  31 distortion 0.6939 num_queries 8485
+Iteration  36 distortion 0.6808 num_queries 9647
+Iteration  41 distortion 0.6735 num_queries 10815
+Iteration  46 distortion 0.6665 num_queries 11994
+Iteration  51 distortion 0.6619 num_queries 13154
+Iteration  56 distortion 0.6588 num_queries 14315
+Iteration  61 distortion 0.6569 num_queries 15473
+Iteration  66 distortion 0.6555 num_queries 16618
+Iteration  71 distortion 0.6543 num_queries 17774
+Iteration  76 distortion 0.6536 num_queries 18917
+
+Adversarial Example Found Successfully: distortion 0.6532 target 9 queries 20073 
+Time: 21.2466 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 15.1896
+--------> Found distortion 13.6020
+--------> Found distortion 12.5347
+--------> Found distortion 12.1265
+--------> Found distortion 8.8109
+==========> Found best distortion 8.8109 in 0.3144 seconds using 301 queries
+Iteration   1 distortion 6.2089 num_queries 667
+Iteration   6 distortion 3.5955 num_queries 2135
+Iteration  11 distortion 2.5515 num_queries 3423
+Iteration  16 distortion 2.1371 num_queries 4796
+Iteration  21 distortion 1.9520 num_queries 6024
+Iteration  26 distortion 1.8673 num_queries 7261
+Iteration  31 distortion 1.8022 num_queries 8446
+Iteration  36 distortion 1.7670 num_queries 9633
+Iteration  41 distortion 1.7378 num_queries 10816
+Iteration  46 distortion 1.7187 num_queries 12052
+Iteration  51 distortion 1.7075 num_queries 13222
+Iteration  56 distortion 1.7015 num_queries 14408
+Iteration  61 distortion 1.6956 num_queries 15620
+Iteration  66 distortion 1.6914 num_queries 16802
+Iteration  71 distortion 1.6888 num_queries 17952
+Iteration  76 distortion 1.6858 num_queries 19119
+
+Adversarial Example Found Successfully: distortion 1.6836 target 8 queries 20054 
+Time: 21.2878 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 7.9389
+--------> Found distortion 7.6483
+--------> Found distortion 7.4176
+==========> Found best distortion 7.4176 in 0.2589 seconds using 259 queries
+Iteration   1 distortion 5.0456 num_queries 644
+Iteration   6 distortion 2.9365 num_queries 2043
+Iteration  11 distortion 2.0741 num_queries 3406
+Iteration  16 distortion 1.7783 num_queries 4740
+Iteration  21 distortion 1.6722 num_queries 5999
+Iteration  26 distortion 1.5889 num_queries 7225
+Iteration  31 distortion 1.5443 num_queries 8421
+Iteration  36 distortion 1.5181 num_queries 9595
+Iteration  41 distortion 1.4958 num_queries 10792
+Iteration  46 distortion 1.4817 num_queries 11950
+Iteration  51 distortion 1.4737 num_queries 13160
+Iteration  56 distortion 1.4678 num_queries 14370
+Iteration  61 distortion 1.4627 num_queries 15538
+Iteration  66 distortion 1.4566 num_queries 16706
+Iteration  71 distortion 1.4532 num_queries 17876
+Iteration  76 distortion 1.4491 num_queries 19030
+
+Adversarial Example Found Successfully: distortion 1.4458 target 8 queries 20200 
+Time: 21.6295 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 5.2818
+--------> Found distortion 5.2197
+--------> Found distortion 3.9431
+--------> Found distortion 3.6609
+==========> Found best distortion 3.6609 in 0.2936 seconds using 276 queries
+Iteration   1 distortion 1.8266 num_queries 704
+Iteration   6 distortion 1.2127 num_queries 2054
+Iteration  11 distortion 0.8427 num_queries 3401
+Iteration  16 distortion 0.7521 num_queries 4704
+Iteration  21 distortion 0.7033 num_queries 5940
+Iteration  26 distortion 0.6855 num_queries 7148
+Iteration  31 distortion 0.6750 num_queries 8351
+Iteration  36 distortion 0.6682 num_queries 9537
+Iteration  41 distortion 0.6628 num_queries 10684
+Iteration  46 distortion 0.6594 num_queries 11840
+Iteration  51 distortion 0.6574 num_queries 13009
+Iteration  56 distortion 0.6565 num_queries 14152
+Iteration  61 distortion 0.6553 num_queries 15295
+Iteration  66 distortion 0.6543 num_queries 16451
+Iteration  71 distortion 0.6539 num_queries 17607
+Iteration  76 distortion 0.6537 num_queries 18750
+Iteration  81 distortion 0.6534 num_queries 19893
+
+Adversarial Example Found Successfully: distortion 0.6534 target 8 queries 20132 
+Time: 21.9582 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 12.5258
+--------> Found distortion 9.4308
+--------> Found distortion 8.2780
+--------> Found distortion 8.2007
+--------> Found distortion 7.6034
+--------> Found distortion 7.4576
+--------> Found distortion 7.3338
+==========> Found best distortion 7.3338 in 0.3411 seconds using 336 queries
+Iteration   1 distortion 5.2143 num_queries 728
+Iteration   6 distortion 3.9956 num_queries 1970
+Iteration  11 distortion 2.3290 num_queries 3316
+Iteration  16 distortion 1.9549 num_queries 4603
+Iteration  21 distortion 1.7529 num_queries 5824
+Iteration  26 distortion 1.6663 num_queries 7050
+Iteration  31 distortion 1.5978 num_queries 8276
+Iteration  36 distortion 1.5518 num_queries 9491
+Iteration  41 distortion 1.5310 num_queries 10665
+Iteration  46 distortion 1.5168 num_queries 11842
+Iteration  51 distortion 1.5099 num_queries 13010
+Iteration  56 distortion 1.5011 num_queries 14210
+Iteration  61 distortion 1.4974 num_queries 15378
+Iteration  66 distortion 1.4928 num_queries 16550
+Iteration  71 distortion 1.4898 num_queries 17746
+Iteration  76 distortion 1.4874 num_queries 18914
+
+Adversarial Example Found Successfully: distortion 1.4855 target 8 queries 20068 
+Time: 21.0697 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 6.3396
+--------> Found distortion 5.5394
+--------> Found distortion 5.1863
+--------> Found distortion 4.3458
+--------> Found distortion 4.3052
+==========> Found best distortion 4.3052 in 0.3139 seconds using 295 queries
+Iteration   1 distortion 3.0023 num_queries 676
+Iteration   6 distortion 1.6115 num_queries 2087
+Iteration  11 distortion 1.2068 num_queries 3439
+Iteration  16 distortion 1.0272 num_queries 4736
+Iteration  21 distortion 0.9538 num_queries 5976
+Iteration  26 distortion 0.9202 num_queries 7178
+Iteration  31 distortion 0.9023 num_queries 8348
+Iteration  36 distortion 0.8910 num_queries 9549
+Iteration  41 distortion 0.8839 num_queries 10723
+Iteration  46 distortion 0.8794 num_queries 11880
+Iteration  51 distortion 0.8760 num_queries 13062
+Iteration  56 distortion 0.8741 num_queries 14216
+Iteration  61 distortion 0.8724 num_queries 15412
+Iteration  66 distortion 0.8711 num_queries 16622
+Iteration  71 distortion 0.8703 num_queries 17804
+Iteration  76 distortion 0.8696 num_queries 18972
+
+Adversarial Example Found Successfully: distortion 0.8692 target 4 queries 20126 
+Time: 21.4874 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 10.2838
+--------> Found distortion 7.2466
+--------> Found distortion 6.6960
+--------> Found distortion 6.4023
+--------> Found distortion 6.3682
+--------> Found distortion 6.1375
+==========> Found best distortion 6.1375 in 0.3239 seconds using 316 queries
+Iteration   1 distortion 4.0883 num_queries 703
+Iteration   6 distortion 2.2271 num_queries 2090
+Iteration  11 distortion 1.7799 num_queries 3377
+Iteration  16 distortion 1.5470 num_queries 4735
+Iteration  21 distortion 1.4394 num_queries 5937
+Iteration  26 distortion 1.3683 num_queries 7208
+Iteration  31 distortion 1.3361 num_queries 8390
+Iteration  36 distortion 1.3143 num_queries 9593
+Iteration  41 distortion 1.2969 num_queries 10781
+Iteration  46 distortion 1.2890 num_queries 11939
+Iteration  51 distortion 1.2821 num_queries 13125
+Iteration  56 distortion 1.2767 num_queries 14293
+Iteration  61 distortion 1.2710 num_queries 15461
+Iteration  66 distortion 1.2670 num_queries 16675
+Iteration  71 distortion 1.2652 num_queries 17829
+Iteration  76 distortion 1.2636 num_queries 18997
+
+Adversarial Example Found Successfully: distortion 1.2626 target 8 queries 20151 
+Time: 21.4565 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 14.7102
+--------> Found distortion 11.4829
+--------> Found distortion 9.4944
+--------> Found distortion 8.4855
+==========> Found best distortion 8.4855 in 0.2932 seconds using 280 queries
+Iteration   1 distortion 5.4255 num_queries 688
+Iteration   6 distortion 2.2170 num_queries 2199
+Iteration  11 distortion 1.2688 num_queries 3556
+Iteration  16 distortion 1.0229 num_queries 4934
+Iteration  21 distortion 0.8963 num_queries 6146
+Iteration  26 distortion 0.8438 num_queries 7406
+Iteration  31 distortion 0.8137 num_queries 8591
+Iteration  36 distortion 0.7967 num_queries 9760
+Iteration  41 distortion 0.7867 num_queries 10969
+Iteration  46 distortion 0.7804 num_queries 12117
+Iteration  51 distortion 0.7753 num_queries 13278
+Iteration  56 distortion 0.7719 num_queries 14462
+Iteration  61 distortion 0.7701 num_queries 15607
+Iteration  66 distortion 0.7681 num_queries 16765
+Iteration  71 distortion 0.7669 num_queries 17910
+Iteration  76 distortion 0.7643 num_queries 19055
+
+Adversarial Example Found Successfully: distortion 0.7627 target 2 queries 20213 
+Time: 21.5350 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 10.5907
+--------> Found distortion 8.9684
+--------> Found distortion 7.0380
+--------> Found distortion 6.9053
+==========> Found best distortion 6.9053 in 0.2915 seconds using 279 queries
+Iteration   1 distortion 4.6815 num_queries 677
+Iteration   6 distortion 2.5389 num_queries 2052
+Iteration  11 distortion 1.7158 num_queries 3396
+Iteration  16 distortion 1.4692 num_queries 4709
+Iteration  21 distortion 1.3519 num_queries 5941
+Iteration  26 distortion 1.2827 num_queries 7180
+Iteration  31 distortion 1.2355 num_queries 8404
+Iteration  36 distortion 1.2128 num_queries 9578
+Iteration  41 distortion 1.1920 num_queries 10784
+Iteration  46 distortion 1.1798 num_queries 11974
+Iteration  51 distortion 1.1725 num_queries 13133
+Iteration  56 distortion 1.1674 num_queries 14323
+Iteration  61 distortion 1.1638 num_queries 15493
+Iteration  66 distortion 1.1612 num_queries 16663
+Iteration  71 distortion 1.1597 num_queries 17817
+Iteration  76 distortion 1.1584 num_queries 18971
+
+Adversarial Example Found Successfully: distortion 1.1572 target 8 queries 20125 
+Time: 21.4851 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 10.1810
+--------> Found distortion 9.7178
+--------> Found distortion 9.2455
+--------> Found distortion 9.0431
+--------> Found distortion 9.0188
+--------> Found distortion 8.0464
+--------> Found distortion 7.1479
+==========> Found best distortion 7.1479 in 0.3525 seconds using 335 queries
+Iteration   1 distortion 4.2219 num_queries 739
+Iteration   6 distortion 2.5426 num_queries 2117
+Iteration  11 distortion 1.9331 num_queries 3478
+Iteration  16 distortion 1.6545 num_queries 4781
+Iteration  21 distortion 1.5531 num_queries 6001
+Iteration  26 distortion 1.4938 num_queries 7254
+Iteration  31 distortion 1.4601 num_queries 8453
+Iteration  36 distortion 1.4404 num_queries 9643
+Iteration  41 distortion 1.4318 num_queries 10801
+Iteration  46 distortion 1.4214 num_queries 11960
+Iteration  51 distortion 1.4165 num_queries 13114
+Iteration  56 distortion 1.4139 num_queries 14286
+Iteration  61 distortion 1.4115 num_queries 15442
+Iteration  66 distortion 1.4093 num_queries 16596
+Iteration  71 distortion 1.4081 num_queries 17750
+Iteration  76 distortion 1.4074 num_queries 18904
+
+Adversarial Example Found Successfully: distortion 1.4066 target 8 queries 20058 
+Time: 21.6491 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 9.6699
+--------> Found distortion 7.5975
+--------> Found distortion 6.6791
+--------> Found distortion 6.5311
+--------> Found distortion 6.4128
+--------> Found distortion 5.7963
+==========> Found best distortion 5.7963 in 0.3214 seconds using 316 queries
+Iteration   1 distortion 3.0432 num_queries 735
+Iteration   6 distortion 1.1069 num_queries 2320
+Iteration  11 distortion 0.7471 num_queries 3634
+Iteration  16 distortion 0.6588 num_queries 4905
+Iteration  21 distortion 0.6158 num_queries 6111
+Iteration  26 distortion 0.5894 num_queries 7373
+Iteration  31 distortion 0.5738 num_queries 8532
+Iteration  36 distortion 0.5649 num_queries 9707
+Iteration  41 distortion 0.5588 num_queries 10917
+Iteration  46 distortion 0.5565 num_queries 12073
+Iteration  51 distortion 0.5538 num_queries 13260
+Iteration  56 distortion 0.5521 num_queries 14418
+Iteration  61 distortion 0.5511 num_queries 15576
+Iteration  66 distortion 0.5503 num_queries 16719
+Iteration  71 distortion 0.5498 num_queries 17901
+Iteration  76 distortion 0.5494 num_queries 19057
+
+Adversarial Example Found Successfully: distortion 0.5490 target 2 queries 20213 
+Time: 21.3337 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 7.1980
+--------> Found distortion 6.8171
+--------> Found distortion 6.1447
+--------> Found distortion 6.1123
+--------> Found distortion 5.7335
+--------> Found distortion 5.5228
+--------> Found distortion 5.2262
+--------> Found distortion 5.0872
+==========> Found best distortion 5.0872 in 0.3638 seconds using 353 queries
+Iteration   1 distortion 3.6732 num_queries 729
+Iteration   6 distortion 2.0304 num_queries 2121
+Iteration  11 distortion 1.5389 num_queries 3395
+Iteration  16 distortion 1.3605 num_queries 4740
+Iteration  21 distortion 1.2337 num_queries 6005
+Iteration  26 distortion 1.1773 num_queries 7210
+Iteration  31 distortion 1.1337 num_queries 8426
+Iteration  36 distortion 1.1043 num_queries 9594
+Iteration  41 distortion 1.0880 num_queries 10792
+Iteration  46 distortion 1.0755 num_queries 11966
+Iteration  51 distortion 1.0666 num_queries 13140
+Iteration  56 distortion 1.0588 num_queries 14297
+Iteration  61 distortion 1.0516 num_queries 15454
+Iteration  66 distortion 1.0478 num_queries 16639
+Iteration  71 distortion 1.0449 num_queries 17807
+Iteration  76 distortion 1.0430 num_queries 18977
+
+Adversarial Example Found Successfully: distortion 1.0412 target 8 queries 20175 
+Time: 21.3877 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 6.0357
+--------> Found distortion 4.7723
+--------> Found distortion 4.5039
+--------> Found distortion 4.2848
+--------> Found distortion 4.0820
+--------> Found distortion 4.0110
+--------> Found distortion 3.8531
+--------> Found distortion 3.8095
+==========> Found best distortion 3.8095 in 0.3620 seconds using 348 queries
+Iteration   1 distortion 2.1913 num_queries 764
+Iteration   6 distortion 1.4250 num_queries 2044
+Iteration  11 distortion 1.0378 num_queries 3348
+Iteration  16 distortion 0.9255 num_queries 4649
+Iteration  21 distortion 0.8691 num_queries 5892
+Iteration  26 distortion 0.8437 num_queries 7090
+Iteration  31 distortion 0.8306 num_queries 8262
+Iteration  36 distortion 0.8217 num_queries 9448
+Iteration  41 distortion 0.8153 num_queries 10598
+Iteration  46 distortion 0.8108 num_queries 11745
+Iteration  51 distortion 0.8077 num_queries 12931
+Iteration  56 distortion 0.8053 num_queries 14113
+Iteration  61 distortion 0.8036 num_queries 15256
+Iteration  66 distortion 0.8021 num_queries 16399
+Iteration  71 distortion 0.8007 num_queries 17555
+Iteration  76 distortion 0.7998 num_queries 18724
+Iteration  81 distortion 0.7990 num_queries 19893
+
+Adversarial Example Found Successfully: distortion 0.7988 target 8 queries 20132 
+Time: 21.2300 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 6.7666
+--------> Found distortion 6.7191
+--------> Found distortion 5.9149
+--------> Found distortion 5.0549
+--------> Found distortion 4.8475
+--------> Found distortion 4.7139
+--------> Found distortion 4.6109
+==========> Found best distortion 4.6109 in 0.3330 seconds using 332 queries
+Iteration   1 distortion 2.6449 num_queries 734
+Iteration   6 distortion 1.5978 num_queries 2104
+Iteration  11 distortion 1.1894 num_queries 3434
+Iteration  16 distortion 1.0454 num_queries 4716
+Iteration  21 distortion 0.9893 num_queries 5947
+Iteration  26 distortion 0.9536 num_queries 7166
+Iteration  31 distortion 0.9369 num_queries 8339
+Iteration  36 distortion 0.9238 num_queries 9525
+Iteration  41 distortion 0.9154 num_queries 10668
+Iteration  46 distortion 0.9091 num_queries 11844
+Iteration  51 distortion 0.9051 num_queries 13028
+Iteration  56 distortion 0.9025 num_queries 14196
+Iteration  61 distortion 0.9007 num_queries 15366
+Iteration  66 distortion 0.8993 num_queries 16520
+Iteration  71 distortion 0.8983 num_queries 17674
+Iteration  76 distortion 0.8973 num_queries 18842
+Iteration  81 distortion 0.8967 num_queries 19996
+
+Adversarial Example Found Successfully: distortion 0.8965 target 4 queries 20224 
+Time: 21.2045 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 5.2195
+--------> Found distortion 4.1120
+--------> Found distortion 3.9298
+--------> Found distortion 3.6799
+--------> Found distortion 3.5787
+--------> Found distortion 3.5741
+--------> Found distortion 3.4700
+--------> Found distortion 3.4162
+--------> Found distortion 3.1584
+==========> Found best distortion 3.1584 in 0.3700 seconds using 365 queries
+Iteration   1 distortion 1.8498 num_queries 777
+Iteration   6 distortion 1.4737 num_queries 2104
+Iteration  11 distortion 0.8899 num_queries 3534
+Iteration  16 distortion 0.7851 num_queries 4802
+Iteration  21 distortion 0.7293 num_queries 6056
+Iteration  26 distortion 0.6970 num_queries 7285
+Iteration  31 distortion 0.6822 num_queries 8463
+Iteration  36 distortion 0.6724 num_queries 9622
+Iteration  41 distortion 0.6661 num_queries 10799
+Iteration  46 distortion 0.6618 num_queries 11946
+Iteration  51 distortion 0.6588 num_queries 13112
+Iteration  56 distortion 0.6570 num_queries 14255
+Iteration  61 distortion 0.6556 num_queries 15411
+Iteration  66 distortion 0.6545 num_queries 16554
+Iteration  71 distortion 0.6538 num_queries 17710
+Iteration  76 distortion 0.6534 num_queries 18853
+
+Adversarial Example Found Successfully: distortion 0.6529 target 8 queries 20009 
+Time: 20.5169 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 11.0975
+--------> Found distortion 8.3458
+--------> Found distortion 6.2966
+--------> Found distortion 5.9949
+--------> Found distortion 5.8419
+==========> Found best distortion 5.8419 in 0.2952 seconds using 298 queries
+Iteration   1 distortion 3.1160 num_queries 711
+Iteration   6 distortion 1.1437 num_queries 2155
+Iteration  11 distortion 0.7763 num_queries 3534
+Iteration  16 distortion 0.6735 num_queries 4855
+Iteration  21 distortion 0.6203 num_queries 6064
+Iteration  26 distortion 0.5908 num_queries 7287
+Iteration  31 distortion 0.5761 num_queries 8452
+Iteration  36 distortion 0.5618 num_queries 9646
+Iteration  41 distortion 0.5558 num_queries 10812
+Iteration  46 distortion 0.5514 num_queries 11960
+Iteration  51 distortion 0.5483 num_queries 13122
+Iteration  56 distortion 0.5460 num_queries 14291
+Iteration  61 distortion 0.5442 num_queries 15436
+Iteration  66 distortion 0.5426 num_queries 16607
+Iteration  71 distortion 0.5416 num_queries 17776
+Iteration  76 distortion 0.5411 num_queries 18932
+
+Adversarial Example Found Successfully: distortion 0.5405 target 2 queries 20088 
+Time: 20.9987 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 11.4119
+--------> Found distortion 11.1099
+--------> Found distortion 9.7464
+--------> Found distortion 7.7364
+==========> Found best distortion 7.7364 in 0.2747 seconds using 280 queries
+Iteration   1 distortion 4.5991 num_queries 684
+Iteration   6 distortion 2.2802 num_queries 2157
+Iteration  11 distortion 1.6424 num_queries 3526
+Iteration  16 distortion 1.4717 num_queries 4859
+Iteration  21 distortion 1.3677 num_queries 6071
+Iteration  26 distortion 1.3240 num_queries 7276
+Iteration  31 distortion 1.2896 num_queries 8484
+Iteration  36 distortion 1.2703 num_queries 9661
+Iteration  41 distortion 1.2558 num_queries 10835
+Iteration  46 distortion 1.2440 num_queries 11994
+Iteration  51 distortion 1.2362 num_queries 13152
+Iteration  56 distortion 1.2287 num_queries 14329
+Iteration  61 distortion 1.2242 num_queries 15513
+Iteration  66 distortion 1.2209 num_queries 16667
+Iteration  71 distortion 1.2190 num_queries 17821
+Iteration  76 distortion 1.2175 num_queries 18975
+
+Adversarial Example Found Successfully: distortion 1.2164 target 8 queries 20171 
+Time: 20.6882 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 7.0474
+--------> Found distortion 5.0595
+--------> Found distortion 4.4816
+==========> Found best distortion 4.4816 in 0.2554 seconds using 258 queries
+Iteration   1 distortion 2.7161 num_queries 646
+Iteration   6 distortion 1.4314 num_queries 2055
+Iteration  11 distortion 1.0932 num_queries 3318
+Iteration  16 distortion 0.9505 num_queries 4578
+Iteration  21 distortion 0.8805 num_queries 5819
+Iteration  26 distortion 0.8480 num_queries 6992
+Iteration  31 distortion 0.8276 num_queries 8178
+Iteration  36 distortion 0.8170 num_queries 9393
+Iteration  41 distortion 0.8097 num_queries 10551
+Iteration  46 distortion 0.8042 num_queries 11715
+Iteration  51 distortion 0.8001 num_queries 12863
+Iteration  56 distortion 0.7976 num_queries 14019
+Iteration  61 distortion 0.7959 num_queries 15162
+Iteration  66 distortion 0.7946 num_queries 16331
+Iteration  71 distortion 0.7940 num_queries 17474
+Iteration  76 distortion 0.7932 num_queries 18643
+Iteration  81 distortion 0.7927 num_queries 19799
+
+Adversarial Example Found Successfully: distortion 0.7926 target 4 queries 20025 
+Time: 20.6238 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 10.1129
+--------> Found distortion 7.8338
+--------> Found distortion 6.7423
+--------> Found distortion 6.3248
+--------> Found distortion 6.2000
+--------> Found distortion 6.1543
+--------> Found distortion 5.9326
+==========> Found best distortion 5.9326 in 0.3304 seconds using 335 queries
+Iteration   1 distortion 4.3707 num_queries 715
+Iteration   6 distortion 3.2863 num_queries 2062
+Iteration  11 distortion 2.1370 num_queries 3466
+Iteration  16 distortion 1.6908 num_queries 4758
+Iteration  21 distortion 1.4740 num_queries 6042
+Iteration  26 distortion 1.3925 num_queries 7276
+Iteration  31 distortion 1.3437 num_queries 8518
+Iteration  36 distortion 1.3162 num_queries 9689
+Iteration  41 distortion 1.2991 num_queries 10877
+Iteration  46 distortion 1.2882 num_queries 12035
+Iteration  51 distortion 1.2807 num_queries 13212
+Iteration  56 distortion 1.2756 num_queries 14366
+Iteration  61 distortion 1.2720 num_queries 15536
+Iteration  66 distortion 1.2690 num_queries 16692
+Iteration  71 distortion 1.2651 num_queries 17876
+Iteration  76 distortion 1.2621 num_queries 19072
+
+Adversarial Example Found Successfully: distortion 1.2605 target 8 queries 20026 
+Time: 20.5587 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 6.7202
+--------> Found distortion 5.2840
+--------> Found distortion 4.2158
+==========> Found best distortion 4.2158 in 0.2560 seconds using 259 queries
+Iteration   1 distortion 2.1876 num_queries 683
+Iteration   6 distortion 1.3803 num_queries 1979
+Iteration  11 distortion 0.9897 num_queries 3287
+Iteration  16 distortion 0.8855 num_queries 4571
+Iteration  21 distortion 0.8378 num_queries 5788
+Iteration  26 distortion 0.8121 num_queries 6968
+Iteration  31 distortion 0.7984 num_queries 8171
+Iteration  36 distortion 0.7924 num_queries 9316
+Iteration  41 distortion 0.7864 num_queries 10463
+Iteration  46 distortion 0.7830 num_queries 11610
+Iteration  51 distortion 0.7801 num_queries 12753
+Iteration  56 distortion 0.7784 num_queries 13937
+Iteration  61 distortion 0.7775 num_queries 15106
+Iteration  66 distortion 0.7767 num_queries 16275
+Iteration  71 distortion 0.7764 num_queries 17418
+Iteration  76 distortion 0.7759 num_queries 18561
+Iteration  81 distortion 0.7755 num_queries 19730
+
+Adversarial Example Found Successfully: distortion 0.7754 target 8 queries 20195 
+Time: 20.8137 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 8.1787
+--------> Found distortion 6.3987
+--------> Found distortion 6.2509
+--------> Found distortion 5.6241
+--------> Found distortion 5.3403
+--------> Found distortion 5.2091
+--------> Found distortion 4.8843
+--------> Found distortion 4.6279
+--------> Found distortion 4.5260
+--------> Found distortion 4.3852
+==========> Found best distortion 4.3852 in 0.3827 seconds using 388 queries
+Iteration   1 distortion 2.9196 num_queries 773
+Iteration   6 distortion 1.7964 num_queries 2042
+Iteration  11 distortion 1.1491 num_queries 3501
+Iteration  16 distortion 1.0027 num_queries 4769
+Iteration  21 distortion 0.9306 num_queries 6018
+Iteration  26 distortion 0.8939 num_queries 7219
+Iteration  31 distortion 0.8703 num_queries 8438
+Iteration  36 distortion 0.8574 num_queries 9624
+Iteration  41 distortion 0.8485 num_queries 10842
+Iteration  46 distortion 0.8428 num_queries 11999
+Iteration  51 distortion 0.8395 num_queries 13181
+Iteration  56 distortion 0.8369 num_queries 14365
+Iteration  61 distortion 0.8354 num_queries 15533
+Iteration  66 distortion 0.8341 num_queries 16701
+Iteration  71 distortion 0.8330 num_queries 17869
+Iteration  76 distortion 0.8321 num_queries 19039
+
+Adversarial Example Found Successfully: distortion 0.8314 target 8 queries 20193 
+Time: 20.5801 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 10.9479
+--------> Found distortion 9.9146
+--------> Found distortion 7.3534
+--------> Found distortion 7.1539
+==========> Found best distortion 7.1539 in 0.2801 seconds using 279 queries
+Iteration   1 distortion 5.0431 num_queries 665
+Iteration   6 distortion 2.5064 num_queries 2091
+Iteration  11 distortion 1.8938 num_queries 3386
+Iteration  16 distortion 1.6439 num_queries 4697
+Iteration  21 distortion 1.5592 num_queries 5916
+Iteration  26 distortion 1.4837 num_queries 7179
+Iteration  31 distortion 1.4525 num_queries 8354
+Iteration  36 distortion 1.4325 num_queries 9533
+Iteration  41 distortion 1.4125 num_queries 10723
+Iteration  46 distortion 1.4027 num_queries 11882
+Iteration  51 distortion 1.3952 num_queries 13057
+Iteration  56 distortion 1.3907 num_queries 14211
+Iteration  61 distortion 1.3876 num_queries 15395
+Iteration  66 distortion 1.3852 num_queries 16549
+Iteration  71 distortion 1.3838 num_queries 17717
+Iteration  76 distortion 1.3822 num_queries 18885
+
+Adversarial Example Found Successfully: distortion 1.3803 target 8 queries 20053 
+Time: 20.6290 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 11.3131
+--------> Found distortion 10.8953
+--------> Found distortion 9.3459
+--------> Found distortion 8.8261
+--------> Found distortion 7.7812
+--------> Found distortion 7.1620
+==========> Found best distortion 7.1620 in 0.3144 seconds using 318 queries
+Iteration   1 distortion 3.4034 num_queries 758
+Iteration   6 distortion 1.6917 num_queries 2197
+Iteration  11 distortion 1.1630 num_queries 3565
+Iteration  16 distortion 1.0192 num_queries 4901
+Iteration  21 distortion 0.9639 num_queries 6170
+Iteration  26 distortion 0.9290 num_queries 7362
+Iteration  31 distortion 0.9012 num_queries 8571
+Iteration  36 distortion 0.8884 num_queries 9790
+Iteration  41 distortion 0.8801 num_queries 10961
+Iteration  46 distortion 0.8751 num_queries 12162
+Iteration  51 distortion 0.8716 num_queries 13360
+Iteration  56 distortion 0.8695 num_queries 14530
+Iteration  61 distortion 0.8677 num_queries 15700
+Iteration  66 distortion 0.8661 num_queries 16854
+Iteration  71 distortion 0.8649 num_queries 18038
+Iteration  76 distortion 0.8638 num_queries 19206
+
+Adversarial Example Found Successfully: distortion 0.8632 target 8 queries 20146 
+Time: 20.6316 seconds
+('Running gradient descent with start learning rate ', 1.0)
+Searching for the initial direction on 100 random directions: 
+--------> Found distortion 14.2828
+--------> Found distortion 12.6115
+--------> Found distortion 12.2267
+--------> Found distortion 9.9227
+--------> Found distortion 9.6336
+--------> Found distortion 8.3629
+--------> Found distortion 7.9781
+==========> Found best distortion 7.9781 in 0.3330 seconds using 338 queries
+Iteration   1 distortion 2.9647 num_queries 811
+Iteration   6 distortion 1.6421 num_queries 2315
+Iteration  11 distortion 1.0630 num_queries 3693
+Iteration  16 distortion 0.9107 num_queries 5003
+Iteration  21 distortion 0.8404 num_queries 6219
+Iteration  26 distortion 0.7924 num_queries 7469
+Iteration  31 distortion 0.7660 num_queries 8670
+Iteration  36 distortion 0.7466 num_queries 9854
+Iteration  41 distortion 0.7368 num_queries 11018
+Iteration  46 distortion 0.7288 num_queries 12225
+Iteration  51 distortion 0.7237 num_queries 13372
+Iteration  56 distortion 0.7208 num_queries 14567
+Iteration  61 distortion 0.7188 num_queries 15725
+Iteration  66 distortion 0.7175 num_queries 16909
+Iteration  71 distortion 0.7168 num_queries 18039
+Iteration  76 distortion 0.7162 num_queries 19182
+
+Adversarial Example Found Successfully: distortion 0.7158 target 9 queries 20125 
+Time: 21.3262 seconds

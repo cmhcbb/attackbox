@@ -24,15 +24,16 @@ model = net.module if torch.cuda.is_available() else net
 amodel = PytorchModel(model, bounds=[0,1], num_classes=10)
 #attack = CW(amodel)
 #attack = FGSM(amodel)
-#attack = OPT_attack(amodel)
+attack = OPT_attack(amodel)
 #attack = OPT_genattack(amodel) 
 #attack = OPT_attack(amodel)  
 #attack = NES(amodel)
-attack = ZOO(amodel)
+#attack = ZOO(amodel)
 
 
 train_loader, test_loader, train_dataset, test_dataset = load_mnist_data()
 for i, (xi,yi) in enumerate(test_loader):
-    if i==1:
+    if i==50:
         break
+    #if i==3:
     adv=attack(xi,yi)

@@ -30,19 +30,16 @@ model = net.module if torch.cuda.is_available() else net
 # model = model.cpu()
 train_loader, test_loader, train_dataset, test_dataset = load_mnist_data()
 
-X0, Y0 = None, None
-X1, Y1 = None, None
-X2, Y2 = None, None
-for i, (xi,yi) in enumerate(test_loader):
-    if i==0:
-        X0, Y0 = xi, yi
-    if i==1:
-        X1, Y1 = xi, yi
-    if i==2:
-        X2, Y2 = xi, yi
-        
+       
 amodel = PytorchModel(model, bounds=[0,1], num_classes=10)
+attack = OPT_attack_sign_SGD(amodel)
 
+for i, (xi,yi) in enumerate(test_loader):
+    if i==50:
+        break
+    adv_sign, dist_sign = attack(xi.cuda(), yi.cuda())
+
+"""
 # These distortions were calculated by taking average of 10 trials for each example
 # using the randomized gradient free method.
 d0 = (1.5292 + 1.5095 + 1.4743 + 1.3108 + 1.2816 + 1.4416 + 1.5323 + 1.3404 + 1.3365 + 1.3819)/10
@@ -54,11 +51,11 @@ print("d3 ", d2)
 
 trials = 10
 print("*"*30, " Example 1 ", "*"*30)
-for i in range(trials):
-    attack = OPT_attack_sign_SGD(amodel)
-    adv_sign, dist_sign = attack(X0.cuda(), Y0.cuda(), distortion=d0)
-    print("*"*150)
-    plot_adv(X0, adv_sign, index=i, fig=0)
+#for i in range(trials):
+#    attack = OPT_attack_sign_SGD(amodel)
+#    adv_sign, dist_sign = attack(X0.cuda(), Y0.cuda(), distortion=d0)
+#    print("*"*150)
+#    plot_adv(X0, adv_sign, index=i, fig=0)
 
 print("*"*30, " Example 2 ", "*"*30)
 for i in range(trials):
@@ -73,3 +70,10 @@ for i in range(trials):
     adv_sign, dist_sign = attack(X2.cuda(), Y2.cuda(), distortion=d2)
     print("*"*150)
     plot_adv(X2, adv_sign, index=i, fig=2)
+
+for i in range(trials):
+    attack = OPT_attack_sign_SGD(amodel)
+    adv_sign, dist_sign = attack(X3.cuda(), Y3.cuda(), distortion=d2)
+    print("*"*150)
+    plot_adv(X3, adv_sign, index=i, fig=2)
+"""

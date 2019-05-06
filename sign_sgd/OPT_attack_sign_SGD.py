@@ -5,9 +5,28 @@ from numpy import linalg as LA
 import torch
 import scipy.spatial
 from scipy.linalg import qr
+#from qpsolvers import solve_qp
 
 start_learning_rate = 1.0
 stopping = 0.001
+
+def quad_solver(Q, b):
+    """
+    Solve min_a  0.5*aQa + b^T a s.t. a>=0
+    """
+    K = Q.shape[0]
+    alpha = np.zeros((K,))
+    g = b
+    Qdiag = np.diag(Q)
+    for i in range(20000):
+        delta = np.maximum(alpha - g/Qdiag,0) - alpha
+        idx = np.argmax(abs(delta))
+        val = delta[idx]
+        if abs(val) < 1e-7: 
+            break
+        g = g + val*Q[:,idx]
+        alpha[idx] += val
+    return alpha
 
 def sign(y):
     """
@@ -23,7 +42,7 @@ class OPT_attack_sign_SGD(object):
     def __init__(self,model):
         self.model = model
 
-    def attack_untargeted(self, x0, y0, alpha = 0.2, beta = 0.001, iterations = 1000, distortion=None):
+    def attack_untargeted(self, x0, y0, alpha = 0.2, beta = 0.001, iterations = 1000, query_limit=20000, distortion=None):
         """ Attack the original image and return adversarial example
             model: (pytorch model)
             train_dataset: set of training data
@@ -120,9 +139,13 @@ class OPT_attack_sign_SGD(object):
             query_count += (grad_queries + ls_count)
             ls_total += ls_count
             distortions.append(gg)
+
+            if query_count > query_limit:
+                break
             
             if i%5==0:
-                print("Iteration: ", i, " Distortion: ", gg, " Queries: ", query_count, " LR: ", alpha, "grad_queries", grad_queries, "ls_queries", ls_count)
+                print("Iteration %3d distortion %.4f num_queries %d" % (i+1, gg, query_count))
+                #print("Iteration: ", i, " Distortion: ", gg, " Queries: ", query_count, " LR: ", alpha, "grad_queries", grad_queries, "ls_queries", ls_count)
             
             #if distortion is not None and gg < distortion:
             #    print("Success: required distortion reached")
@@ -139,7 +162,7 @@ class OPT_attack_sign_SGD(object):
         timeend = time.time()
         print("\nAdversarial Example Found Successfully: distortion %.4f target"
               " %d queries %d \nTime: %.4f seconds" % (gg, target, query_count, timeend-timestart))
-        print("Distortions: ", distortions)
+        #print("Distortions: ", distortions)
         return x0 + torch.tensor(gg*xg, dtype=torch.float).cuda(), gg
 
     def sign_grad_v1(self, x0, y0, theta, initial_lbd, h=0.001, K=200, lr=5.0):
@@ -204,6 +227,43 @@ class OPT_attack_sign_SGD(object):
             sign_grad += sign(u)*ss
         sign_grad /= K
         return sign_grad, queries
+
+
+    def sign_grad_svm(self, x0, y0, theta, initial_lbd, h=0.001, K=200, lr=5.0):
+        """
+        Evaluate the sign of gradient by formulat
+        sign(g) = 1/Q [ \sum_{q=1}^Q sign( g(theta+h*u_i) - g(theta) )u_i$ ]
+        """
+        sign_grad = np.zeros(theta.shape)
+        queries = 0
+        dim = np.prod(theta.shape)
+        X = np.zeros((dim, K))
+        for iii in range(K):
+            u = np.random.randn(*theta.shape)
+            u /= LA.norm(u)
+            
+            sign = 1
+            new_theta = theta + h*u
+            new_theta /= LA.norm(new_theta)
+            if self.model.predict_label(x0+torch.tensor(initial_lbd*new_theta, dtype=torch.float).cuda()) != y0:
+                sign = -1
+            queries += 1
+            
+            X[:,iii] = sign*u.reshape((dim,))
+        
+        Q = X.transpose().dot(X)
+        q = -1*np.ones((K,))
+        G = np.diag(-1*np.ones((K,)))
+        h = np.zeros((K,))
+        ### Use quad_qp solver 
+        #alpha = solve_qp(Q, q, G, h)
+        ### Use coordinate descent solver written by myself, avoid non-positive definite cases
+        alpha = quad_solver(Q, q)
+        sign_grad = (X.dot(alpha)).reshape(theta.shape)
+        
+        return sign_grad, queries
+
+
 
     def fine_grained_binary_search_local(self, model, x0, y0, theta, initial_lbd = 1.0, tol=1e-5):
         nquery = 0

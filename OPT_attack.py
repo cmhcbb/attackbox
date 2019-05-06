@@ -7,7 +7,7 @@ class OPT_attack(object):
     def __init__(self,model):
         self.model = model
 
-    def attack_untargeted(self, x0, y0, alpha = 0.2, beta = 0.001, iterations = 1500):
+    def attack_untargeted(self, x0, y0, alpha = 0.2, beta = 0.001, iterations = 1500, query_limit=80000):
         """ Attack the original image and return adversarial example
             model: (pytorch model)
             train_dataset: set of training data
@@ -66,8 +66,11 @@ class OPT_attack(object):
                     min_ttt = ttt
             gradient = 1.0/q * gradient
 
-            if (i+1)%50 == 0:
-                print("Iteration %3d: g(theta + beta*u) = %.4f g(theta) = %.4f distortion %.4f num_queries %d" % (i+1, g1, g2, LA.norm(g2*theta), opt_count))
+            if opt_count > query_limit:
+                break
+
+            if (i+1)%10 == 0:
+                print("Iteration %3d distortion %.4f num_queries %d" % (i+1, LA.norm(g2*theta), opt_count))
                 #if g2 > prev_obj-stopping:
                 #    break
                 prev_obj = g2
