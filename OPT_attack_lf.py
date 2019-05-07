@@ -385,7 +385,7 @@ class OPT_attack_lf(object):
     def fine_grained_binary_search_targeted(self, model, x0, y0, t, theta, initial_lbd, current_best):
         nquery = 0
         if initial_lbd > current_best: 
-            if model.predict_label(x0+current_best*theta) == t:
+            if model.predict_label(x0+current_best*theta) != t:
                 nquery += 1
                 return float('inf'), nquery
             lbd = current_best
@@ -398,7 +398,7 @@ class OPT_attack_lf(object):
         while (lbd_hi - lbd_lo) > 1e-5:
             lbd_mid = (lbd_lo + lbd_hi)/2.0
             nquery += 1
-            if model.predict_label(x0 + lbd_mid*theta) != t:
+            if model.predict_label(x0 + lbd_mid*theta) == t:
                 lbd_hi = lbd_mid
             else:
                 lbd_lo = lbd_mid
