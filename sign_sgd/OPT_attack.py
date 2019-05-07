@@ -8,7 +8,7 @@ class OPT_attack(object):
     def __init__(self,model):
         self.model = model
 
-    def attack_untargeted(self, x0, y0, alpha = 0.2, beta = 0.001, iterations = 1000, distortion=None):
+    def attack_untargeted(self, x0, y0, alpha = 0.2, beta = 0.001, iterations = 1000, distortion=None, seed=None):
         """ Attack the original image and return adversarial example
             model: (pytorch model)
             train_dataset: set of training data
@@ -20,6 +20,8 @@ class OPT_attack(object):
             print("Fail to classify the image. No need to attack.")
             return x0
 
+        if seed is not None:
+            np.random.seed(seed)
         num_directions = 100
         best_theta, g_theta = None, float('inf')
         query_count = 0
@@ -242,11 +244,11 @@ class OPT_attack(object):
         co = np.roll(co, -1)
         return si*co*r
 
-    def __call__(self, input_xi, label_or_target, TARGETED=False, distortion=None):
+    def __call__(self, input_xi, label_or_target, TARGETED=False, distortion=None, seed=None):
         if TARGETED:
             print("Not Implemented.")
         else:
-            adv = self.attack_untargeted(input_xi, label_or_target, distortion=distortion)
+            adv = self.attack_untargeted(input_xi, label_or_target, distortion=distortion, seed=seed)
         return adv   
     
         
