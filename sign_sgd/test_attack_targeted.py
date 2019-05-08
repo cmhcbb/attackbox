@@ -13,17 +13,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-net = CIFAR10()
+
+net = MNIST()
 net.cuda()
 net = torch.nn.DataParallel(net, device_ids=[0])
-load_model(net,'cifar10_gpu.pt')
+load_model(net,'mnist_gpu.pt')
 net.eval()
 model = net.module if torch.cuda.is_available() else net
+train_loader, test_loader, train_dataset, test_dataset = load_mnist_data()
 amodel = PytorchModel(model, bounds=[0,1], num_classes=10)
 
-train_loader, test_loader, train_dataset, test_dataset = load_cifar10_data()
+train_loader, test_loader, train_dataset, test_dataset = load_mnist_data()
 
-attack = OPT_attack_lf(amodel)
+attack = OPT_attack_lf(amodel, train_dataset=train_dataset)
 
 np.random.seed(0)
 seeds = np.random.randint(10000, size=[50])
@@ -32,6 +34,8 @@ print(seeds)
 for i, (xi,yi) in enumerate(test_loader):
     if i==50:
         break
-    print("Attacking Source: {0} Seed: {1} Number {2}".format(yi.item(), seeds[i], i))
-    adv, dist = attack(xi.cuda(), yi.cuda(), seed=seeds[i])
+    np.random.seed(seeds[i])
+    target = np.random.randint(10)
+    print("Attacking Source: {0} Target: {1} Seed: {2} Number {3}".format(yi.item(), target, seeds[i], i))
+    adv, dist = attack(xi.cuda(), yi.cuda(), target=target*torch.ones(1, dtype=torch.long).cuda(), seed=seeds[i])
     print()

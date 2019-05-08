@@ -1,0 +1,1341 @@
+Files already downloaded and verified
+Files already downloaded and verified
+Attacking Source: 3 Target: 2 Seed: 2732 Number 0
+Targeted attack - Source: 3 and Target: 2 Seed: 2732
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 0.5003
+--------> Found distortion 0.3043
+--------> Found distortion 0.2948
+--------> Found distortion 0.2935
+--------> Found distortion 0.2309
+--------> Found distortion 0.2090
+==========> Found best distortion 0.2090 in 1.7708 seconds using 1191 queries
+Iteration   1 distortion 0.093509 num_queries 1639
+Iteration   6 distortion 0.046186 num_queries 3143
+Iteration  11 distortion 0.036572 num_queries 4562
+Iteration  16 distortion 0.030291 num_queries 5801
+Iteration  21 distortion 0.026293 num_queries 6977
+Iteration  26 distortion 0.025635 num_queries 8090
+Iteration  31 distortion 0.024821 num_queries 9221
+Warning: not moving
+Iteration  36 distortion 0.024461 num_queries 10550
+Iteration  41 distortion 0.024156 num_queries 11670
+Iteration  46 distortion 0.023934 num_queries 12834
+Warning: not moving
+Iteration  51 distortion 0.023659 num_queries 14182
+Iteration  56 distortion 0.023573 num_queries 15456
+Iteration  61 distortion 0.023477 num_queries 16777
+Iteration  66 distortion 0.023267 num_queries 18023
+Warning: not moving
+Iteration  71 distortion 0.023164 num_queries 19451
+Iteration  76 distortion 0.023137 num_queries 20667
+Iteration  81 distortion 0.023073 num_queries 22009
+Warning: not moving
+Warning: not moving
+Iteration  86 distortion 0.023042 num_queries 23553
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration  91 distortion 0.023004 num_queries 25311
+Warning: not moving
+Iteration  96 distortion 0.022988 num_queries 26977
+Warning: not moving
+Iteration 101 distortion 0.022949 num_queries 28301
+Warning: not moving
+Warning: not moving
+Iteration 106 distortion 0.022947 num_queries 30129
+Warning: not moving
+Iteration 111 distortion 0.022916 num_queries 31473
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration 116 distortion 0.022913 num_queries 33679
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration 121 distortion 0.022913 num_queries 35453
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration 126 distortion 0.022913 num_queries 37767
+Success: stopping threshold reached
+
+Adversarial Example Found Successfully: distortion 0.0229 target 2 queries 37767 LS queries 11376 
+Time: 57.3335 seconds
+
+Attacking Source: 8 Target: 9 Seed: 9845 Number 1
+Targeted attack - Source: 8 and Target: 9 Seed: 9845
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 0.4857
+--------> Found distortion 0.3771
+--------> Found distortion 0.2857
+--------> Found distortion 0.2444
+==========> Found best distortion 0.2444 in 1.6592 seconds using 1111 queries
+Iteration   1 distortion 0.223839 num_queries 1452
+Iteration   6 distortion 0.144857 num_queries 2845
+Iteration  11 distortion 0.105674 num_queries 4216
+Iteration  16 distortion 0.092825 num_queries 5548
+Iteration  21 distortion 0.088433 num_queries 6692
+Iteration  26 distortion 0.078752 num_queries 7936
+Iteration  31 distortion 0.074905 num_queries 9187
+Iteration  36 distortion 0.072740 num_queries 10335
+Iteration  41 distortion 0.071548 num_queries 11475
+Iteration  46 distortion 0.069820 num_queries 12632
+Iteration  51 distortion 0.068421 num_queries 13744
+Iteration  56 distortion 0.066857 num_queries 15043
+Iteration  61 distortion 0.065445 num_queries 16197
+Iteration  66 distortion 0.064533 num_queries 17311
+Iteration  71 distortion 0.063598 num_queries 18466
+Iteration  76 distortion 0.063027 num_queries 19666
+Iteration  81 distortion 0.062798 num_queries 20823
+Iteration  86 distortion 0.062476 num_queries 21933
+Iteration  91 distortion 0.062174 num_queries 23103
+Iteration  96 distortion 0.061860 num_queries 24233
+Iteration 101 distortion 0.061763 num_queries 25433
+Iteration 106 distortion 0.061718 num_queries 26633
+Iteration 111 distortion 0.061535 num_queries 27753
+Iteration 116 distortion 0.061376 num_queries 28943
+Iteration 121 distortion 0.061258 num_queries 30093
+Iteration 126 distortion 0.061032 num_queries 31213
+Iteration 131 distortion 0.060912 num_queries 32363
+Iteration 136 distortion 0.060689 num_queries 33510
+Iteration 141 distortion 0.060504 num_queries 34650
+Iteration 146 distortion 0.060410 num_queries 35810
+Iteration 151 distortion 0.060192 num_queries 36950
+Iteration 156 distortion 0.060087 num_queries 38100
+Iteration 161 distortion 0.060001 num_queries 39220
+Iteration 166 distortion 0.059883 num_queries 40340
+Iteration 171 distortion 0.059802 num_queries 41460
+Iteration 176 distortion 0.059641 num_queries 42570
+Iteration 181 distortion 0.059515 num_queries 43680
+Iteration 186 distortion 0.059390 num_queries 44800
+Iteration 191 distortion 0.059284 num_queries 45920
+Iteration 196 distortion 0.059157 num_queries 47050
+Iteration 201 distortion 0.059080 num_queries 48210
+Iteration 206 distortion 0.059029 num_queries 49310
+Iteration 211 distortion 0.058950 num_queries 50450
+Iteration 216 distortion 0.058895 num_queries 51570
+Iteration 221 distortion 0.058850 num_queries 52680
+Iteration 226 distortion 0.058799 num_queries 53790
+Iteration 231 distortion 0.058726 num_queries 54910
+Iteration 236 distortion 0.058661 num_queries 56040
+Iteration 241 distortion 0.058629 num_queries 57160
+Iteration 246 distortion 0.058592 num_queries 58260
+Iteration 251 distortion 0.058550 num_queries 59390
+
+Adversarial Example Found Successfully: distortion 0.0585 target 9 queries 60060 LS queries 8149 
+Time: 95.7831 seconds
+
+Attacking Source: 8 Target: 3 Seed: 3264 Number 2
+Targeted attack - Source: 8 and Target: 3 Seed: 3264
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 0.5702
+--------> Found distortion 0.3479
+--------> Found distortion 0.3375
+--------> Found distortion 0.3346
+--------> Found distortion 0.3115
+--------> Found distortion 0.2265
+==========> Found best distortion 0.2265 in 1.8509 seconds using 1248 queries
+Iteration   1 distortion 0.167431 num_queries 1631
+Iteration   6 distortion 0.066609 num_queries 5741
+Iteration  11 distortion 0.054307 num_queries 6934
+Iteration  16 distortion 0.043957 num_queries 8264
+Iteration  21 distortion 0.041548 num_queries 9498
+Iteration  26 distortion 0.039961 num_queries 10673
+Iteration  31 distortion 0.039108 num_queries 11849
+Warning: not moving
+Iteration  36 distortion 0.038763 num_queries 13160
+Iteration  41 distortion 0.037876 num_queries 14471
+Iteration  46 distortion 0.037475 num_queries 15737
+Iteration  51 distortion 0.036969 num_queries 16941
+Warning: not moving
+Iteration  56 distortion 0.036639 num_queries 18493
+Iteration  61 distortion 0.036570 num_queries 19813
+Iteration  66 distortion 0.036350 num_queries 21005
+Iteration  71 distortion 0.035832 num_queries 22388
+Iteration  76 distortion 0.035168 num_queries 23566
+Iteration  81 distortion 0.034938 num_queries 24783
+Iteration  86 distortion 0.034733 num_queries 25943
+Iteration  91 distortion 0.034427 num_queries 27137
+Iteration  96 distortion 0.034255 num_queries 28443
+Iteration 101 distortion 0.033911 num_queries 29667
+Iteration 106 distortion 0.033490 num_queries 30862
+Iteration 111 distortion 0.033387 num_queries 32054
+Iteration 116 distortion 0.033248 num_queries 33329
+Iteration 121 distortion 0.033188 num_queries 34633
+Iteration 126 distortion 0.033104 num_queries 35891
+Iteration 131 distortion 0.033013 num_queries 37106
+Iteration 136 distortion 0.032833 num_queries 38378
+Iteration 141 distortion 0.032680 num_queries 39579
+Warning: not moving
+Iteration 146 distortion 0.032665 num_queries 41068
+Iteration 151 distortion 0.032637 num_queries 42353
+Iteration 156 distortion 0.032617 num_queries 43676
+Iteration 161 distortion 0.032572 num_queries 44942
+Warning: not moving
+Warning: not moving
+Iteration 166 distortion 0.032569 num_queries 46512
+Warning: not moving
+Iteration 171 distortion 0.032545 num_queries 48120
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration 176 distortion 0.032538 num_queries 50015
+Warning: not moving
+Iteration 181 distortion 0.032533 num_queries 51471
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration 186 distortion 0.032531 num_queries 53193
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration 191 distortion 0.032494 num_queries 55143
+Warning: not moving
+Warning: not moving
+Iteration 196 distortion 0.032494 num_queries 57055
+Warning: not moving
+Iteration 201 distortion 0.032493 num_queries 58435
+Warning: not moving
+Warning: not moving
+
+Adversarial Example Found Successfully: distortion 0.0325 target 3 queries 60119 LS queries 17671 
+Time: 92.2154 seconds
+
+Attacking Source: 0 Target: 8 Seed: 4859 Number 3
+Targeted attack - Source: 0 and Target: 8 Seed: 4859
+Fail to classify the image. No need to attack.
+
+Attacking Source: 6 Target: 4 Seed: 9225 Number 4
+Targeted attack - Source: 6 and Target: 4 Seed: 9225
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 0.3922
+--------> Found distortion 0.3314
+--------> Found distortion 0.2771
+--------> Found distortion 0.1940
+==========> Found best distortion 0.1940 in 1.7221 seconds using 1161 queries
+Iteration   1 distortion 0.159220 num_queries 1519
+Iteration   6 distortion 0.054860 num_queries 3733
+Iteration  11 distortion 0.045750 num_queries 4886
+Warning: not moving
+Iteration  16 distortion 0.040459 num_queries 6300
+Iteration  21 distortion 0.035465 num_queries 7632
+Warning: not moving
+Iteration  26 distortion 0.034731 num_queries 9167
+Iteration  31 distortion 0.032859 num_queries 10670
+Iteration  36 distortion 0.032377 num_queries 11975
+Iteration  41 distortion 0.031852 num_queries 13279
+Iteration  46 distortion 0.031349 num_queries 14485
+Warning: not moving
+Iteration  51 distortion 0.031319 num_queries 15784
+Warning: not moving
+Warning: not moving
+Iteration  56 distortion 0.031310 num_queries 17601
+Warning: not moving
+Warning: not moving
+Iteration  61 distortion 0.031296 num_queries 19209
+Iteration  66 distortion 0.031286 num_queries 20627
+Warning: not moving
+Warning: not moving
+Iteration  71 distortion 0.031284 num_queries 22387
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration  76 distortion 0.031281 num_queries 24508
+Warning: not moving
+Warning: not moving
+Iteration  81 distortion 0.031280 num_queries 26268
+Warning: not moving
+Iteration  86 distortion 0.031276 num_queries 27800
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration  91 distortion 0.031276 num_queries 30149
+Success: stopping threshold reached
+
+Adversarial Example Found Successfully: distortion 0.0313 target 4 queries 30149 LS queries 10788 
+Time: 44.7872 seconds
+
+Attacking Source: 6 Target: 2 Seed: 7891 Number 5
+Targeted attack - Source: 6 and Target: 2 Seed: 7891
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 0.2464
+==========> Found best distortion 0.2464 in 1.6616 seconds using 1120 queries
+Iteration   1 distortion 0.159078 num_queries 1495
+Iteration   6 distortion 0.055870 num_queries 4350
+Warning: not moving
+Iteration  11 distortion 0.049019 num_queries 6494
+Iteration  16 distortion 0.041122 num_queries 7775
+Iteration  21 distortion 0.037001 num_queries 9011
+Iteration  26 distortion 0.035823 num_queries 10223
+Warning: not moving
+Iteration  31 distortion 0.035498 num_queries 11733
+Iteration  36 distortion 0.033832 num_queries 12951
+Iteration  41 distortion 0.032993 num_queries 14153
+Iteration  46 distortion 0.032498 num_queries 15382
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration  51 distortion 0.032395 num_queries 17197
+Warning: not moving
+Warning: not moving
+Iteration  56 distortion 0.032392 num_queries 18767
+Warning: not moving
+Iteration  61 distortion 0.032280 num_queries 20346
+Warning: not moving
+Warning: not moving
+Iteration  66 distortion 0.032247 num_queries 21859
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration  71 distortion 0.031820 num_queries 23691
+Warning: not moving
+Warning: not moving
+Iteration  76 distortion 0.031785 num_queries 25206
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration  81 distortion 0.031784 num_queries 26719
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration  86 distortion 0.031726 num_queries 28628
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration  91 distortion 0.031540 num_queries 30450
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration  96 distortion 0.031537 num_queries 32343
+Warning: not moving
+Iteration 101 distortion 0.031499 num_queries 33706
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration 106 distortion 0.031462 num_queries 35604
+Iteration 111 distortion 0.031381 num_queries 36927
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration 116 distortion 0.031328 num_queries 38961
+Warning: not moving
+Warning: not moving
+Iteration 121 distortion 0.031257 num_queries 40666
+Warning: not moving
+Warning: not moving
+Iteration 126 distortion 0.031256 num_queries 42483
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration 131 distortion 0.031232 num_queries 44319
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration 136 distortion 0.031223 num_queries 46421
+Warning: not moving
+Iteration 141 distortion 0.031221 num_queries 47991
+Warning: not moving
+Warning: not moving
+Iteration 146 distortion 0.031220 num_queries 49941
+Warning: not moving
+Warning: not moving
+Iteration 151 distortion 0.031220 num_queries 51511
+Warning: not moving
+Warning: not moving
+Iteration 156 distortion 0.031218 num_queries 53100
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration 161 distortion 0.031215 num_queries 55278
+Warning: not moving
+Iteration 166 distortion 0.031213 num_queries 57133
+Warning: not moving
+Warning: not moving
+Iteration 171 distortion 0.031180 num_queries 58760
+
+Adversarial Example Found Successfully: distortion 0.0312 target 2 queries 60140 LS queries 23820 
+Time: 90.8734 seconds
+
+Attacking Source: 1 Target: 0 Seed: 4373 Number 6
+Targeted attack - Source: 1 and Target: 0 Seed: 4373
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 0.8089
+--------> Found distortion 0.4580
+--------> Found distortion 0.4055
+==========> Found best distortion 0.4055 in 1.6632 seconds using 1122 queries
+Iteration   1 distortion 0.314102 num_queries 1480
+Iteration   6 distortion 0.155641 num_queries 4492
+Iteration  11 distortion 0.075692 num_queries 7152
+Iteration  16 distortion 0.062937 num_queries 9223
+Iteration  21 distortion 0.054136 num_queries 11226
+Iteration  26 distortion 0.049752 num_queries 12390
+Iteration  31 distortion 0.047410 num_queries 13638
+Iteration  36 distortion 0.046128 num_queries 14845
+Iteration  41 distortion 0.044009 num_queries 16017
+Iteration  46 distortion 0.043233 num_queries 17191
+Iteration  51 distortion 0.042522 num_queries 18375
+Iteration  56 distortion 0.042363 num_queries 19537
+Iteration  61 distortion 0.042247 num_queries 20645
+Iteration  66 distortion 0.042044 num_queries 21780
+Iteration  71 distortion 0.041880 num_queries 23005
+Iteration  76 distortion 0.041367 num_queries 24171
+Iteration  81 distortion 0.041279 num_queries 25315
+Iteration  86 distortion 0.041206 num_queries 26450
+Warning: not moving
+Iteration  91 distortion 0.041055 num_queries 27854
+Iteration  96 distortion 0.040459 num_queries 29018
+Iteration 101 distortion 0.040115 num_queries 30293
+Warning: not moving
+Iteration 106 distortion 0.039773 num_queries 31869
+Iteration 111 distortion 0.039561 num_queries 33095
+Iteration 116 distortion 0.038969 num_queries 34438
+Iteration 121 distortion 0.038788 num_queries 35616
+Iteration 126 distortion 0.038215 num_queries 36825
+Iteration 131 distortion 0.037795 num_queries 38101
+Iteration 136 distortion 0.037749 num_queries 39293
+Iteration 141 distortion 0.037736 num_queries 40453
+Iteration 146 distortion 0.037651 num_queries 41805
+Warning: not moving
+Iteration 151 distortion 0.037649 num_queries 43141
+Warning: not moving
+Warning: not moving
+Iteration 156 distortion 0.037643 num_queries 44749
+Warning: not moving
+Warning: not moving
+Iteration 161 distortion 0.037643 num_queries 46547
+Warning: not moving
+Warning: not moving
+Iteration 166 distortion 0.037643 num_queries 48041
+Warning: not moving
+Warning: not moving
+Iteration 171 distortion 0.037642 num_queries 49820
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration 176 distortion 0.037641 num_queries 51694
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration 181 distortion 0.037638 num_queries 53644
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Warning: not moving
+Iteration 186 distortion 0.037637 num_queries 55632
+Warning: not moving
+Warning: not moving
+Iteration 191 distortion 0.037608 num_queries 57373
+Warning: not moving
+Iteration 196 distortion 0.037608 num_queries 58810
+Warning: not moving
+Warning: not moving
+Warning: not moving
+
+Adversarial Example Found Successfully: distortion 0.0376 target 0 queries 60123 LS queries 19001 
+Time: 91.7434 seconds
+
+Attacking Source: 6 Target: 8 Seed: 5874 Number 7
+Targeted attack - Source: 6 and Target: 8 Seed: 5874
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 0.3746
+--------> Found distortion 0.2889
+--------> Found distortion 0.2732
+--------> Found distortion 0.2612
+==========> Found best distortion 0.2612 in 1.7384 seconds using 1171 queries
+Iteration   1 distortion 0.236995 num_queries 1499
+Iteration   6 distortion 0.155097 num_queries 2906
+Iteration  11 distortion 0.114908 num_queries 4101
+Iteration  16 distortion 0.102532 num_queries 5305
+Iteration  21 distortion 0.095424 num_queries 6504
+Iteration  26 distortion 0.091595 num_queries 7663
+Iteration  31 distortion 0.089185 num_queries 8801
+Iteration  36 distortion 0.086158 num_queries 10015
+Iteration  41 distortion 0.084538 num_queries 11155
+Iteration  46 distortion 0.083323 num_queries 12286
+Iteration  51 distortion 0.081731 num_queries 13415
+Iteration  56 distortion 0.081006 num_queries 14527
+Iteration  61 distortion 0.080182 num_queries 15708
+Iteration  66 distortion 0.079051 num_queries 16856
+Iteration  71 distortion 0.078401 num_queries 18018
+Iteration  76 distortion 0.076973 num_queries 19173
+Iteration  81 distortion 0.076026 num_queries 20379
+Iteration  86 distortion 0.075046 num_queries 21524
+Iteration  91 distortion 0.074346 num_queries 22705
+Iteration  96 distortion 0.073338 num_queries 23835
+Iteration 101 distortion 0.072148 num_queries 24974
+Iteration 106 distortion 0.071099 num_queries 26108
+Iteration 111 distortion 0.070737 num_queries 27302
+Iteration 116 distortion 0.070214 num_queries 28414
+Iteration 121 distortion 0.069961 num_queries 29560
+Iteration 126 distortion 0.069541 num_queries 30712
+Iteration 131 distortion 0.069447 num_queries 31852
+Iteration 136 distortion 0.069086 num_queries 32982
+Iteration 141 distortion 0.068948 num_queries 34172
+Iteration 146 distortion 0.068628 num_queries 35312
+Iteration 151 distortion 0.068386 num_queries 36422
+Iteration 156 distortion 0.068313 num_queries 37532
+Iteration 161 distortion 0.068085 num_queries 38672
+Iteration 166 distortion 0.067931 num_queries 39782
+Iteration 171 distortion 0.067730 num_queries 40960
+Iteration 176 distortion 0.067388 num_queries 42125
+Iteration 181 distortion 0.067181 num_queries 43247
+Iteration 186 distortion 0.066966 num_queries 44367
+Iteration 191 distortion 0.066409 num_queries 45481
+Iteration 196 distortion 0.066137 num_queries 46628
+Iteration 201 distortion 0.065735 num_queries 47830
+Iteration 206 distortion 0.065343 num_queries 48962
+Iteration 211 distortion 0.065050 num_queries 50100
+Iteration 216 distortion 0.064825 num_queries 51220
+Iteration 221 distortion 0.064572 num_queries 52320
+Iteration 226 distortion 0.064162 num_queries 53457
+Iteration 231 distortion 0.063893 num_queries 54597
+Iteration 236 distortion 0.063704 num_queries 55767
+Iteration 241 distortion 0.063576 num_queries 56939
+Iteration 246 distortion 0.063284 num_queries 58051
+Iteration 251 distortion 0.063172 num_queries 59203
+
+Adversarial Example Found Successfully: distortion 0.0629 target 8 queries 60103 LS queries 7932 
+Time: 94.5107 seconds
+
+Attacking Source: 3 Target: 5 Seed: 6744 Number 8
+Targeted attack - Source: 3 and Target: 5 Seed: 6744
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 0.4891
+--------> Found distortion 0.3932
+--------> Found distortion 0.3748
+--------> Found distortion 0.3699
+--------> Found distortion 0.2712
+--------> Found distortion 0.2529
+--------> Found distortion 0.2488
+--------> Found distortion 0.2359
+--------> Found distortion 0.2346
+==========> Found best distortion 0.2346 in 2.0527 seconds using 1385 queries
+Iteration   1 distortion 0.160290 num_queries 1750
+Iteration   6 distortion 0.103399 num_queries 5383
+Iteration  11 distortion 0.057154 num_queries 9667
+Iteration  16 distortion 0.050595 num_queries 11704
+Iteration  21 distortion 0.044859 num_queries 12940
+Iteration  26 distortion 0.041070 num_queries 14179
+Iteration  31 distortion 0.037550 num_queries 15321
+Iteration  36 distortion 0.036764 num_queries 16421
+Iteration  41 distortion 0.035268 num_queries 17601
+Iteration  46 distortion 0.033580 num_queries 18772
+Iteration  51 distortion 0.033064 num_queries 19904
+Iteration  56 distortion 0.032927 num_queries 21019
+Iteration  61 distortion 0.032787 num_queries 22147
+Iteration  66 distortion 0.032391 num_queries 23277
+Iteration  71 distortion 0.031929 num_queries 24418
+Iteration  76 distortion 0.031609 num_queries 25555
+Iteration  81 distortion 0.031419 num_queries 26665
+Iteration  86 distortion 0.031340 num_queries 27809
+Warning: not moving
+Iteration  91 distortion 0.031164 num_queries 29059
+Iteration  96 distortion 0.031120 num_queries 30203
+Iteration 101 distortion 0.031012 num_queries 31407
+Iteration 106 distortion 0.030967 num_queries 32599
+Warning: not moving
+Iteration 111 distortion 0.030931 num_queries 34189
+Iteration 116 distortion 0.030765 num_queries 35673
+Warning: not moving
+Iteration 121 distortion 0.030685 num_queries 36998
+Warning: not moving
+Warning: not moving
+Iteration 126 distortion 0.030600 num_queries 38533
+Warning: not moving
+Warning: not moving
+Iteration 131 distortion 0.030581 num_queries 40217
+Warning: not moving
+Warning: not moving
+Iteration 136 distortion 0.030579 num_queries 41901
+Warning: not moving
+Warning: not moving
+Iteration 141 distortion 0.030570 num_queries 43680
+Warning: not moving
+Iteration 146 distortion 0.030563 num_queries 45174
+Warning: not moving
+Iteration 151 distortion 0.030552 num_queries 46516
+Warning: not moving
+Iteration 156 distortion 0.030539 num_queries 48010
+Warning: not moving
+Iteration 161 distortion 0.030502 num_queries 49777
+Warning: not moving
+Warning: not moving
+Iteration 166 distortion 0.030493 num_queries 51651
+Warning: not moving
+Warning: not moving
+Iteration 171 distortion 0.030481 num_queries 53240
+Iteration 176 distortion 0.030399 num_queries 54489
+Warning: not moving
+Iteration 181 distortion 0.030397 num_queries 55831
+Warning: not moving
+Iteration 186 distortion 0.030396 num_queries 57439
+Warning: not moving
+Iteration 191 distortion 0.030367 num_queries 58971
+Warning: not moving
+Warning: not moving
+Warning: not moving
+
+Adversarial Example Found Successfully: distortion 0.0304 target 5 queries 60474 LS queries 20089 
+Time: 91.4976 seconds
+
+Attacking Source: 1 Target: 4 Seed: 3468 Number 9
+Targeted attack - Source: 1 and Target: 4 Seed: 3468
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 0.5722
+--------> Found distortion 0.4765
+--------> Found distortion 0.4242
+--------> Found distortion 0.3476
+--------> Found distortion 0.3295
+--------> Found distortion 0.3209
+==========> Found best distortion 0.3209 in 1.7624 seconds using 1193 queries
+Iteration   1 distortion 0.206409 num_queries 1614
+Iteration   6 distortion 0.096963 num_queries 4370
+Iteration  11 distortion 0.073349 num_queries 6379
+Iteration  16 distortion 0.060672 num_queries 7595
+Iteration  21 distortion 0.059205 num_queries 8766
+Iteration  26 distortion 0.055835 num_queries 10029
+Iteration  31 distortion 0.054472 num_queries 11252
+Iteration  36 distortion 0.051769 num_queries 12415
+Iteration  41 distortion 0.050572 num_queries 13561
+Iteration  46 distortion 0.049687 num_queries 14700
+Iteration  51 distortion 0.048420 num_queries 15830
+Iteration  56 distortion 0.048140 num_queries 16974
+Iteration  61 distortion 0.047638 num_queries 18107
+Iteration  66 distortion 0.047543 num_queries 19260
+Iteration  71 distortion 0.047495 num_queries 20440
+Iteration  76 distortion 0.046545 num_queries 21594
+Iteration  81 distortion 0.046379 num_queries 22695
+Iteration  86 distortion 0.045815 num_queries 23847
+Iteration  91 distortion 0.045718 num_queries 25000
+Iteration  96 distortion 0.045433 num_queries 26135
+Iteration 101 distortion 0.045263 num_queries 27270
+Iteration 106 distortion 0.045208 num_queries 28432
+Warning: not moving
+Iteration 111 distortion 0.045131 num_queries 29750
+Iteration 116 distortion 0.045046 num_queries 31012
+Iteration 121 distortion 0.044769 num_queries 32170
+Iteration 126 distortion 0.044378 num_queries 33326
+Iteration 131 distortion 0.044194 num_queries 34594
+Iteration 136 distortion 0.044145 num_queries 35776
+Iteration 141 distortion 0.043769 num_queries 37017
+Iteration 146 distortion 0.043652 num_queries 38227
+Iteration 151 distortion 0.043455 num_queries 39502
+Iteration 156 distortion 0.043188 num_queries 40645
+Iteration 161 distortion 0.042942 num_queries 41808
+Iteration 166 distortion 0.042757 num_queries 43044
+Iteration 171 distortion 0.042715 num_queries 44200
+Iteration 176 distortion 0.042559 num_queries 45356
+Iteration 181 distortion 0.042357 num_queries 46512
+Iteration 186 distortion 0.042164 num_queries 47681
+Iteration 191 distortion 0.041964 num_queries 48837
+Iteration 196 distortion 0.041893 num_queries 50058
+Iteration 201 distortion 0.041789 num_queries 51256
+Iteration 206 distortion 0.041764 num_queries 52412
+Iteration 211 distortion 0.041685 num_queries 53607
+Iteration 216 distortion 0.041601 num_queries 54830
+Iteration 221 distortion 0.041482 num_queries 55999
+Iteration 226 distortion 0.041447 num_queries 57142
+Iteration 231 distortion 0.041424 num_queries 58298
+Iteration 236 distortion 0.041398 num_queries 59441
+
+Adversarial Example Found Successfully: distortion 0.0413 target 4 queries 60145 LS queries 11152 
+Time: 93.5129 seconds
+
+Attacking Source: 0 Target: 1 Seed: 705 Number 10
+Targeted attack - Source: 0 and Target: 1 Seed: 705
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 0.3295
+--------> Found distortion 0.2700
+--------> Found distortion 0.2226
+--------> Found distortion 0.1872
+==========> Found best distortion 0.1872 in 1.5313 seconds using 1034 queries
+Iteration   1 distortion 0.171836 num_queries 1469
+Iteration   6 distortion 0.106799 num_queries 3295
+Iteration  11 distortion 0.085898 num_queries 4728
+Iteration  16 distortion 0.078945 num_queries 5923
+Iteration  21 distortion 0.070711 num_queries 7110
+Iteration  26 distortion 0.068300 num_queries 8279
+Iteration  31 distortion 0.065372 num_queries 9451
+Iteration  36 distortion 0.064231 num_queries 10591
+Iteration  41 distortion 0.063356 num_queries 11795
+Iteration  46 distortion 0.063146 num_queries 12915
+Iteration  51 distortion 0.062254 num_queries 14095
+Iteration  56 distortion 0.061342 num_queries 15238
+Iteration  61 distortion 0.060419 num_queries 16391
+Iteration  66 distortion 0.060053 num_queries 17582
+Iteration  71 distortion 0.059546 num_queries 18791
+Iteration  76 distortion 0.059245 num_queries 19903
+Iteration  81 distortion 0.058383 num_queries 21034
+Iteration  86 distortion 0.058000 num_queries 22171
+Iteration  91 distortion 0.057626 num_queries 23305
+Iteration  96 distortion 0.056926 num_queries 24500
+Iteration 101 distortion 0.056371 num_queries 25640
+Iteration 106 distortion 0.055643 num_queries 26803
+Iteration 111 distortion 0.055269 num_queries 27955
+Iteration 116 distortion 0.055186 num_queries 29075
+Iteration 121 distortion 0.055069 num_queries 30185
+Iteration 126 distortion 0.054989 num_queries 31347
+Iteration 131 distortion 0.054832 num_queries 32487
+Iteration 136 distortion 0.054787 num_queries 33637
+Iteration 141 distortion 0.054703 num_queries 34787
+Iteration 146 distortion 0.054666 num_queries 35917
+Iteration 151 distortion 0.054562 num_queries 37029
+Iteration 156 distortion 0.054464 num_queries 38149
+Iteration 161 distortion 0.054194 num_queries 39289
+Iteration 166 distortion 0.054056 num_queries 40479
+Iteration 171 distortion 0.053930 num_queries 41659
+Iteration 176 distortion 0.053727 num_queries 42789
+Iteration 181 distortion 0.053597 num_queries 43941
+Iteration 186 distortion 0.053520 num_queries 45121
+Iteration 191 distortion 0.053402 num_queries 46278
+Iteration 196 distortion 0.053160 num_queries 47523
+Iteration 201 distortion 0.052888 num_queries 48706
+Iteration 206 distortion 0.052595 num_queries 49838
+Iteration 211 distortion 0.052510 num_queries 50958
+Iteration 216 distortion 0.052440 num_queries 52118
+Iteration 221 distortion 0.052316 num_queries 53270
+Iteration 226 distortion 0.052208 num_queries 54420
+Iteration 231 distortion 0.052156 num_queries 55600
+Iteration 236 distortion 0.052101 num_queries 56780
+Iteration 241 distortion 0.052056 num_queries 57920
+Iteration 246 distortion 0.051993 num_queries 59100
+
+Adversarial Example Found Successfully: distortion 0.0520 target 1 queries 60010 LS queries 8976 
+Time: 93.7370 seconds
+
+Attacking Source: 9 Target: 6 Seed: 2599 Number 11
+Targeted attack - Source: 9 and Target: 6 Seed: 2599
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 0.5406
+--------> Found distortion 0.5362
+--------> Found distortion 0.5208
+--------> Found distortion 0.4524
+--------> Found distortion 0.4182
+--------> Found distortion 0.4049
+--------> Found distortion 0.3769
+==========> Found best distortion 0.3769 in 1.6638 seconds using 1130 queries
+Iteration   1 distortion 0.346807 num_queries 1467
+Iteration   6 distortion 0.266490 num_queries 3336
+Iteration  11 distortion 0.256150 num_queries 4856
+Iteration  16 distortion 0.251589 num_queries 6597
+Iteration  21 distortion 0.250242 num_queries 8108
+Iteration  26 distortion 0.248818 num_queries 9619
+Iteration  31 distortion 0.248159 num_queries 11194
+Iteration  36 distortion 0.247772 num_queries 12711
+Iteration  41 distortion 0.247473 num_queries 14353
+Iteration  46 distortion 0.247282 num_queries 15895
+Iteration  51 distortion 0.247134 num_queries 17709
+Iteration  56 distortion 0.247036 num_queries 19251
+Iteration  61 distortion 0.246959 num_queries 20905
+Iteration  66 distortion 0.246878 num_queries 22607
+Iteration  71 distortion 0.246842 num_queries 24261
+Iteration  76 distortion 0.246756 num_queries 25987
+Iteration  81 distortion 0.246682 num_queries 27553
+Iteration  86 distortion 0.246583 num_queries 29489
+Iteration  91 distortion 0.246501 num_queries 31007
+Iteration  96 distortion 0.246366 num_queries 32795
+Iteration 101 distortion 0.246282 num_queries 34375
+Iteration 106 distortion 0.246214 num_queries 35905
+Iteration 111 distortion 0.246148 num_queries 37435
+Iteration 116 distortion 0.246073 num_queries 38989
+Iteration 121 distortion 0.246033 num_queries 40581
+Iteration 126 distortion 0.245935 num_queries 42321
+Iteration 131 distortion 0.245863 num_queries 43851
+Iteration 136 distortion 0.245781 num_queries 45393
+Iteration 141 distortion 0.245715 num_queries 46973
+Iteration 146 distortion 0.245682 num_queries 48565
+Iteration 151 distortion 0.245636 num_queries 50191
+Iteration 156 distortion 0.245548 num_queries 51647
+Iteration 161 distortion 0.245406 num_queries 53399
+Iteration 166 distortion 0.245330 num_queries 55051
+Iteration 171 distortion 0.245261 num_queries 56679
+Iteration 176 distortion 0.245197 num_queries 58481
+
+Adversarial Example Found Successfully: distortion 0.2452 target 6 queries 60109 LS queries 22779 
+Time: 89.6551 seconds
+
+Attacking Source: 5 Target: 1 Seed: 2222 Number 12
+Targeted attack - Source: 5 and Target: 1 Seed: 2222
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 0.3212
+--------> Found distortion 0.2781
+--------> Found distortion 0.2306
+--------> Found distortion 0.1948
+==========> Found best distortion 0.1948 in 1.5177 seconds using 1033 queries
+Iteration   1 distortion 0.098422 num_queries 1840
+Iteration   6 distortion 0.051041 num_queries 5766
+Iteration  11 distortion 0.038805 num_queries 7485
+Iteration  16 distortion 0.034705 num_queries 8780
+Iteration  21 distortion 0.032935 num_queries 9931
+Iteration  26 distortion 0.031105 num_queries 11051
+Iteration  31 distortion 0.030806 num_queries 12220
+Iteration  36 distortion 0.030441 num_queries 13364
+Iteration  41 distortion 0.030347 num_queries 14517
+Iteration  46 distortion 0.029561 num_queries 15823
+Iteration  51 distortion 0.029172 num_queries 16935
+Iteration  56 distortion 0.028770 num_queries 18082
+Iteration  61 distortion 0.028596 num_queries 19190
+Iteration  66 distortion 0.028486 num_queries 20325
+Iteration  71 distortion 0.028439 num_queries 21478
+Iteration  76 distortion 0.028389 num_queries 22667
+Iteration  81 distortion 0.028230 num_queries 23816
+Iteration  86 distortion 0.028202 num_queries 24983
+Iteration  91 distortion 0.028110 num_queries 26100
+Iteration  96 distortion 0.028048 num_queries 27262
+Iteration 101 distortion 0.027933 num_queries 28361
+Iteration 106 distortion 0.027794 num_queries 29500
+Iteration 111 distortion 0.027730 num_queries 30653
+Iteration 116 distortion 0.027623 num_queries 31768
+Iteration 121 distortion 0.027498 num_queries 32908
+Iteration 126 distortion 0.027412 num_queries 34052
+Iteration 131 distortion 0.027350 num_queries 35160
+Iteration 136 distortion 0.027338 num_queries 36277
+Iteration 141 distortion 0.027331 num_queries 37385
+Iteration 146 distortion 0.027321 num_queries 38475
+Iteration 151 distortion 0.027219 num_queries 39604
+Iteration 156 distortion 0.027165 num_queries 40703
+Iteration 161 distortion 0.027106 num_queries 41874
+Iteration 166 distortion 0.027034 num_queries 43018
+Iteration 171 distortion 0.026947 num_queries 44144
+Iteration 176 distortion 0.026920 num_queries 45261
+Iteration 181 distortion 0.026891 num_queries 46387
+Iteration 186 distortion 0.026875 num_queries 47531
+Iteration 191 distortion 0.026840 num_queries 48711
+Iteration 196 distortion 0.026806 num_queries 49893
+Iteration 201 distortion 0.026775 num_queries 51028
+Iteration 206 distortion 0.026757 num_queries 52145
+Iteration 211 distortion 0.026739 num_queries 53244
+Iteration 216 distortion 0.026719 num_queries 54343
+Iteration 221 distortion 0.026706 num_queries 55460
+Iteration 226 distortion 0.026686 num_queries 56568
+Iteration 231 distortion 0.026680 num_queries 57667
+Iteration 236 distortion 0.026671 num_queries 58775
+Warning: not moving
+
+Adversarial Example Found Successfully: distortion 0.0267 target 1 queries 60009 LS queries 10776 
+Time: 93.8141 seconds
+
+Attacking Source: 7 Target: 8 Seed: 7768 Number 13
+Targeted attack - Source: 7 and Target: 8 Seed: 7768
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 0.4706
+--------> Found distortion 0.4196
+--------> Found distortion 0.3892
+==========> Found best distortion 0.3892 in 1.7055 seconds using 1158 queries
+Iteration   1 distortion 0.324050 num_queries 1522
+Iteration   6 distortion 0.209543 num_queries 2993
+Iteration  11 distortion 0.184820 num_queries 4297
+Iteration  16 distortion 0.161806 num_queries 5549
+Iteration  21 distortion 0.151496 num_queries 6688
+Iteration  26 distortion 0.138725 num_queries 7844
+Iteration  31 distortion 0.132910 num_queries 9264
+Iteration  36 distortion 0.123044 num_queries 10475
+Iteration  41 distortion 0.120397 num_queries 11622
+Iteration  46 distortion 0.118542 num_queries 12781
+Iteration  51 distortion 0.116624 num_queries 13965
+Iteration  56 distortion 0.115033 num_queries 15139
+Iteration  61 distortion 0.113202 num_queries 16304
+Iteration  66 distortion 0.110407 num_queries 17432
+Iteration  71 distortion 0.107559 num_queries 18579
+Iteration  76 distortion 0.106290 num_queries 19765
+Iteration  81 distortion 0.105567 num_queries 21018
+Iteration  86 distortion 0.104863 num_queries 22175
+Iteration  91 distortion 0.104593 num_queries 23296
+Iteration  96 distortion 0.104315 num_queries 24417
+Iteration 101 distortion 0.104026 num_queries 25576
+Iteration 106 distortion 0.103776 num_queries 26763
+Iteration 111 distortion 0.103225 num_queries 27895
+Iteration 116 distortion 0.103115 num_queries 29073
+Iteration 121 distortion 0.102664 num_queries 30194
+Iteration 126 distortion 0.102289 num_queries 31313
+Iteration 131 distortion 0.101942 num_queries 32426
+Iteration 136 distortion 0.101690 num_queries 33546
+Iteration 141 distortion 0.101436 num_queries 34666
+Iteration 146 distortion 0.101249 num_queries 35776
+Iteration 151 distortion 0.101113 num_queries 36936
+Iteration 156 distortion 0.100900 num_queries 38116
+Iteration 161 distortion 0.100770 num_queries 39246
+Iteration 166 distortion 0.100622 num_queries 40408
+Iteration 171 distortion 0.100422 num_queries 41548
+Iteration 176 distortion 0.100050 num_queries 42684
+Iteration 181 distortion 0.099553 num_queries 43875
+Iteration 186 distortion 0.099448 num_queries 45035
+Iteration 191 distortion 0.099292 num_queries 46175
+Iteration 196 distortion 0.099211 num_queries 47367
+Iteration 201 distortion 0.099046 num_queries 48529
+Iteration 206 distortion 0.098644 num_queries 49679
+Iteration 211 distortion 0.098244 num_queries 50881
+Iteration 216 distortion 0.097936 num_queries 52053
+Iteration 221 distortion 0.097832 num_queries 53173
+Iteration 226 distortion 0.097607 num_queries 54293
+Iteration 231 distortion 0.097472 num_queries 55415
+Iteration 236 distortion 0.097304 num_queries 56545
+Iteration 241 distortion 0.097154 num_queries 57727
+Iteration 246 distortion 0.096925 num_queries 58837
+Iteration 251 distortion 0.096728 num_queries 59977
+
+Adversarial Example Found Successfully: distortion 0.0967 target 8 queries 60207 LS queries 8649 
+Time: 94.7297 seconds
+
+Attacking Source: 9 Target: 5 Seed: 2897 Number 14
+Targeted attack - Source: 9 and Target: 5 Seed: 2897
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 0.7613
+--------> Found distortion 0.6443
+--------> Found distortion 0.6290
+--------> Found distortion 0.4133
+--------> Found distortion 0.3635
+==========> Found best distortion 0.3635 in 1.9860 seconds using 1330 queries
+Iteration   1 distortion 0.340248 num_queries 1646
+Iteration   6 distortion 0.194550 num_queries 4675
+Iteration  11 distortion 0.151693 num_queries 5917
+Iteration  16 distortion 0.134525 num_queries 7777
+Iteration  21 distortion 0.126865 num_queries 8925
+Iteration  26 distortion 0.119544 num_queries 10279
+Iteration  31 distortion 0.111853 num_queries 11513
+Iteration  36 distortion 0.105489 num_queries 12680
+Iteration  41 distortion 0.102404 num_queries 13826
+Iteration  46 distortion 0.100055 num_queries 15067
+Iteration  51 distortion 0.098620 num_queries 16277
+Iteration  56 distortion 0.095607 num_queries 17506
+Iteration  61 distortion 0.095258 num_queries 18646
+Iteration  66 distortion 0.094372 num_queries 19788
+Iteration  71 distortion 0.092544 num_queries 20924
+Iteration  76 distortion 0.090980 num_queries 22066
+Iteration  81 distortion 0.090217 num_queries 23284
+Iteration  86 distortion 0.089680 num_queries 24384
+Iteration  91 distortion 0.088235 num_queries 25557
+Iteration  96 distortion 0.086958 num_queries 26683
+Iteration 101 distortion 0.086245 num_queries 27795
+Iteration 106 distortion 0.085770 num_queries 28962
+Iteration 111 distortion 0.085700 num_queries 30122
+Iteration 116 distortion 0.085279 num_queries 31254
+Iteration 121 distortion 0.084764 num_queries 32364
+Iteration 126 distortion 0.084504 num_queries 33484
+Iteration 131 distortion 0.084148 num_queries 34678
+Iteration 136 distortion 0.083707 num_queries 35912
+Iteration 141 distortion 0.083358 num_queries 37062
+Iteration 146 distortion 0.083055 num_queries 38192
+Iteration 151 distortion 0.082688 num_queries 39361
+Iteration 156 distortion 0.082281 num_queries 40485
+Iteration 161 distortion 0.081691 num_queries 41617
+Iteration 166 distortion 0.081519 num_queries 42717
+Iteration 171 distortion 0.081116 num_queries 43829
+Iteration 176 distortion 0.080847 num_queries 44969
+Iteration 181 distortion 0.080693 num_queries 46099
+Iteration 186 distortion 0.080664 num_queries 47219
+Iteration 191 distortion 0.080490 num_queries 48449
+Iteration 196 distortion 0.080453 num_queries 49569
+Iteration 201 distortion 0.080274 num_queries 50689
+Iteration 206 distortion 0.080109 num_queries 51789
+Iteration 211 distortion 0.079918 num_queries 52909
+Iteration 216 distortion 0.079856 num_queries 54039
+Iteration 221 distortion 0.079761 num_queries 55219
+Iteration 226 distortion 0.079739 num_queries 56329
+Iteration 231 distortion 0.079599 num_queries 57501
+Iteration 236 distortion 0.079554 num_queries 58611
+Iteration 241 distortion 0.079487 num_queries 59731
+
+Adversarial Example Found Successfully: distortion 0.0795 target 5 queries 60181 LS queries 10251 
+Time: 93.7045 seconds
+
+Attacking Source: 8 Target: 3 Seed: 9893 Number 15
+Targeted attack - Source: 8 and Target: 3 Seed: 9893
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 0.5461
+--------> Found distortion 0.5456
+--------> Found distortion 0.5188
+--------> Found distortion 0.3906
+--------> Found distortion 0.3625
+--------> Found distortion 0.3561
+==========> Found best distortion 0.3561 in 1.8484 seconds using 1249 queries
+Iteration   1 distortion 0.279848 num_queries 1628
+Iteration   6 distortion 0.121162 num_queries 4157
+Iteration  11 distortion 0.078614 num_queries 5562
+Iteration  16 distortion 0.069002 num_queries 6786
+Iteration  21 distortion 0.062678 num_queries 7951
+Iteration  26 distortion 0.060245 num_queries 9118
+Iteration  31 distortion 0.058020 num_queries 10274
+Iteration  36 distortion 0.056377 num_queries 11470
+Iteration  41 distortion 0.053794 num_queries 12665
+Iteration  46 distortion 0.053186 num_queries 13858
+Iteration  51 distortion 0.052853 num_queries 14988
+Iteration  56 distortion 0.052565 num_queries 16130
+Iteration  61 distortion 0.052017 num_queries 17240
+Iteration  66 distortion 0.051496 num_queries 18367
+Iteration  71 distortion 0.051305 num_queries 19587
+Iteration  76 distortion 0.050775 num_queries 20702
+Iteration  81 distortion 0.050541 num_queries 21810
+Iteration  86 distortion 0.050298 num_queries 22927
+Iteration  91 distortion 0.050230 num_queries 24102
+Iteration  96 distortion 0.050112 num_queries 25228
+Iteration 101 distortion 0.050067 num_queries 26363
+Iteration 106 distortion 0.049993 num_queries 27489
+Iteration 111 distortion 0.049858 num_queries 28624
+Iteration 116 distortion 0.049755 num_queries 29732
+Iteration 121 distortion 0.049740 num_queries 30840
+Warning: not moving
+Iteration 126 distortion 0.049717 num_queries 32176
+Iteration 131 distortion 0.049512 num_queries 33397
+Iteration 136 distortion 0.049444 num_queries 34553
+Iteration 141 distortion 0.049395 num_queries 35722
+Iteration 146 distortion 0.049319 num_queries 36930
+Iteration 151 distortion 0.049172 num_queries 38164
+Iteration 156 distortion 0.049012 num_queries 39320
+Iteration 161 distortion 0.048946 num_queries 40476
+Iteration 166 distortion 0.048880 num_queries 41645
+Iteration 171 distortion 0.048684 num_queries 42925
+Iteration 176 distortion 0.048539 num_queries 44068
+Iteration 181 distortion 0.048340 num_queries 45237
+Iteration 186 distortion 0.048247 num_queries 46419
+Iteration 191 distortion 0.048198 num_queries 47575
+Iteration 196 distortion 0.048162 num_queries 48731
+Iteration 201 distortion 0.048134 num_queries 49913
+Iteration 206 distortion 0.048095 num_queries 51069
+Iteration 211 distortion 0.048042 num_queries 52277
+Iteration 216 distortion 0.047988 num_queries 53472
+Iteration 221 distortion 0.047966 num_queries 54615
+Iteration 226 distortion 0.047943 num_queries 55797
+Iteration 231 distortion 0.047928 num_queries 56927
+Iteration 236 distortion 0.047904 num_queries 58122
+Iteration 241 distortion 0.047878 num_queries 59356
+
+Adversarial Example Found Successfully: distortion 0.0479 target 3 queries 60073 LS queries 10024 
+Time: 93.1467 seconds
+
+Attacking Source: 5 Target: 6 Seed: 537 Number 16
+Targeted attack - Source: 5 and Target: 6 Seed: 537
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 0.3395
+--------> Found distortion 0.3298
+--------> Found distortion 0.2996
+--------> Found distortion 0.2979
+--------> Found distortion 0.2796
+==========> Found best distortion 0.2796 in 1.6088 seconds using 1098 queries
+Iteration   1 distortion 0.174223 num_queries 1522
+Iteration   6 distortion 0.087907 num_queries 3136
+Iteration  11 distortion 0.075016 num_queries 4509
+Iteration  16 distortion 0.064022 num_queries 5893
+Iteration  21 distortion 0.058471 num_queries 7129
+Iteration  26 distortion 0.055960 num_queries 8392
+Iteration  31 distortion 0.054630 num_queries 9674
+Iteration  36 distortion 0.051485 num_queries 10855
+Iteration  41 distortion 0.050285 num_queries 11987
+Iteration  46 distortion 0.049384 num_queries 13108
+Iteration  51 distortion 0.048851 num_queries 14252
+Iteration  56 distortion 0.048397 num_queries 15378
+Iteration  61 distortion 0.047841 num_queries 16477
+Iteration  66 distortion 0.047489 num_queries 17623
+Warning: not moving
+Iteration  71 distortion 0.047252 num_queries 19042
+Iteration  76 distortion 0.046856 num_queries 20227
+Iteration  81 distortion 0.046584 num_queries 21357
+Iteration  86 distortion 0.046394 num_queries 22567
+Iteration  91 distortion 0.046290 num_queries 23788
+Iteration  96 distortion 0.046046 num_queries 24944
+Iteration 101 distortion 0.045787 num_queries 26074
+Iteration 106 distortion 0.045524 num_queries 27230
+Iteration 111 distortion 0.045379 num_queries 28451
+Iteration 116 distortion 0.045300 num_queries 29581
+Iteration 121 distortion 0.045051 num_queries 30809
+Iteration 126 distortion 0.044899 num_queries 31952
+Iteration 131 distortion 0.044782 num_queries 33199
+Iteration 136 distortion 0.044682 num_queries 34420
+Iteration 141 distortion 0.044652 num_queries 35628
+Iteration 146 distortion 0.044619 num_queries 37007
+Iteration 151 distortion 0.044433 num_queries 38163
+Iteration 156 distortion 0.044346 num_queries 39345
+Iteration 161 distortion 0.044333 num_queries 40566
+Iteration 166 distortion 0.044315 num_queries 41787
+Iteration 171 distortion 0.044282 num_queries 42956
+Iteration 176 distortion 0.044231 num_queries 44255
+Iteration 181 distortion 0.044162 num_queries 45413
+Iteration 186 distortion 0.044011 num_queries 46595
+Iteration 191 distortion 0.043989 num_queries 47738
+Iteration 196 distortion 0.043839 num_queries 49015
+Iteration 201 distortion 0.043595 num_queries 50171
+Iteration 206 distortion 0.043530 num_queries 51353
+Iteration 211 distortion 0.043485 num_queries 52509
+Iteration 216 distortion 0.043464 num_queries 53743
+Iteration 221 distortion 0.043381 num_queries 54917
+Iteration 226 distortion 0.043357 num_queries 56099
+Iteration 231 distortion 0.043330 num_queries 57372
+Iteration 236 distortion 0.043309 num_queries 58567
+Iteration 241 distortion 0.043276 num_queries 59801
+
+Adversarial Example Found Successfully: distortion 0.0433 target 6 queries 60027 LS queries 10529 
+Time: 93.1218 seconds
+
+Attacking Source: 7 Target: 0 Seed: 6216 Number 17
+Targeted attack - Source: 7 and Target: 0 Seed: 6216
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 0.6349
+--------> Found distortion 0.4382
+--------> Found distortion 0.3564
+--------> Found distortion 0.3433
+--------> Found distortion 0.2458
+==========> Found best distortion 0.2458 in 1.6855 seconds using 1151 queries
+Iteration   1 distortion 0.230342 num_queries 1467
+Iteration   6 distortion 0.162345 num_queries 2928
+Iteration  11 distortion 0.151832 num_queries 4451
+Iteration  16 distortion 0.140776 num_queries 6248
+Iteration  21 distortion 0.140548 num_queries 7404
+Iteration  26 distortion 0.132765 num_queries 8815
+Iteration  31 distortion 0.132509 num_queries 9971
+Iteration  36 distortion 0.126582 num_queries 11319
+Iteration  41 distortion 0.121534 num_queries 12766
+Iteration  46 distortion 0.109900 num_queries 14944
+Iteration  51 distortion 0.102379 num_queries 16183
+Iteration  56 distortion 0.095492 num_queries 18343
+Iteration  61 distortion 0.089133 num_queries 19828
+Iteration  66 distortion 0.083989 num_queries 22397
+Iteration  71 distortion 0.080865 num_queries 23595
+Iteration  76 distortion 0.078108 num_queries 24820
+Iteration  81 distortion 0.077023 num_queries 25944
+Iteration  86 distortion 0.076563 num_queries 27104
+Iteration  91 distortion 0.075132 num_queries 28228
+Iteration  96 distortion 0.073647 num_queries 29402
+Iteration 101 distortion 0.073331 num_queries 31409
+Iteration 106 distortion 0.072571 num_queries 32561
+Iteration 111 distortion 0.072208 num_queries 33703
+Iteration 116 distortion 0.071935 num_queries 34855
+Iteration 121 distortion 0.071723 num_queries 36002
+Iteration 126 distortion 0.071439 num_queries 37132
+Iteration 131 distortion 0.071181 num_queries 38292
+Iteration 136 distortion 0.070632 num_queries 39433
+Iteration 141 distortion 0.070344 num_queries 40630
+Iteration 146 distortion 0.070132 num_queries 41740
+Iteration 151 distortion 0.069925 num_queries 42892
+Iteration 156 distortion 0.069633 num_queries 44012
+Iteration 161 distortion 0.069306 num_queries 45357
+Iteration 166 distortion 0.068866 num_queries 46479
+Iteration 171 distortion 0.068733 num_queries 47599
+Iteration 176 distortion 0.068514 num_queries 48801
+Iteration 181 distortion 0.068386 num_queries 49941
+Iteration 186 distortion 0.068190 num_queries 51095
+Iteration 191 distortion 0.068006 num_queries 52205
+Iteration 196 distortion 0.067759 num_queries 53325
+Iteration 201 distortion 0.067597 num_queries 54445
+Iteration 206 distortion 0.067462 num_queries 55590
+Iteration 211 distortion 0.067355 num_queries 56750
+Iteration 216 distortion 0.067182 num_queries 57890
+Iteration 221 distortion 0.067131 num_queries 59010
+
+Adversarial Example Found Successfully: distortion 0.0670 target 0 queries 60130 LS queries 13779 
+Time: 92.1231 seconds
+
+Attacking Source: 8 Target: 7 Seed: 6921 Number 18
+Targeted attack - Source: 8 and Target: 7 Seed: 6921
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 0.3720
+--------> Found distortion 0.3671
+==========> Found best distortion 0.3671 in 1.6190 seconds using 1104 queries
+Iteration   1 distortion 0.335794 num_queries 1424
+Iteration   6 distortion 0.220307 num_queries 4628
+Iteration  11 distortion 0.185236 num_queries 8177
+Iteration  16 distortion 0.152374 num_queries 9568
+Iteration  21 distortion 0.124858 num_queries 11100
+Iteration  26 distortion 0.107416 num_queries 12291
+Iteration  31 distortion 0.103552 num_queries 13475
+Iteration  36 distortion 0.100426 num_queries 14610
+Iteration  41 distortion 0.096538 num_queries 15865
+Iteration  46 distortion 0.092897 num_queries 17135
+Iteration  51 distortion 0.089835 num_queries 18352
+Iteration  56 distortion 0.088937 num_queries 19541
+Iteration  61 distortion 0.087655 num_queries 20763
+Iteration  66 distortion 0.086950 num_queries 21890
+Iteration  71 distortion 0.085823 num_queries 23024
+Iteration  76 distortion 0.085030 num_queries 24144
+Iteration  81 distortion 0.083829 num_queries 25270
+Iteration  86 distortion 0.082780 num_queries 26412
+Iteration  91 distortion 0.081895 num_queries 27556
+Iteration  96 distortion 0.081030 num_queries 28686
+Iteration 101 distortion 0.079902 num_queries 29890
+Iteration 106 distortion 0.079497 num_queries 31049
+Iteration 111 distortion 0.078800 num_queries 32223
+Iteration 116 distortion 0.078594 num_queries 33455
+Iteration 121 distortion 0.078061 num_queries 34655
+Iteration 126 distortion 0.077356 num_queries 35810
+Iteration 131 distortion 0.076257 num_queries 36944
+Iteration 136 distortion 0.075764 num_queries 38054
+Iteration 141 distortion 0.075569 num_queries 39174
+Iteration 146 distortion 0.075247 num_queries 40374
+Iteration 151 distortion 0.075102 num_queries 41514
+Iteration 156 distortion 0.075021 num_queries 42634
+Iteration 161 distortion 0.074860 num_queries 43826
+Iteration 166 distortion 0.074787 num_queries 45006
+Iteration 171 distortion 0.074651 num_queries 46238
+Iteration 176 distortion 0.074589 num_queries 47368
+Iteration 181 distortion 0.074442 num_queries 48568
+Iteration 186 distortion 0.074381 num_queries 49688
+Iteration 191 distortion 0.074340 num_queries 50798
+Iteration 196 distortion 0.074279 num_queries 51928
+Iteration 201 distortion 0.074224 num_queries 53048
+Iteration 206 distortion 0.074118 num_queries 54178
+Iteration 211 distortion 0.074092 num_queries 55288
+Iteration 216 distortion 0.074033 num_queries 56408
+Iteration 221 distortion 0.074002 num_queries 57538
+Iteration 226 distortion 0.073950 num_queries 58678
+Iteration 231 distortion 0.073864 num_queries 59798
+
+Adversarial Example Found Successfully: distortion 0.0738 target 7 queries 60018 LS queries 12514 
+Time: 92.3995 seconds
+
+Attacking Source: 6 Target: 1 Seed: 6036 Number 19
+Targeted attack - Source: 6 and Target: 1 Seed: 6036
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 0.5115
+--------> Found distortion 0.4533
+--------> Found distortion 0.4444
+--------> Found distortion 0.4169
+--------> Found distortion 0.4026
+--------> Found distortion 0.3712
+--------> Found distortion 0.3637
+--------> Found distortion 0.3523
+==========> Found best distortion 0.3523 in 1.6038 seconds using 1096 queries
+Iteration   1 distortion 0.333349 num_queries 1408
+Iteration   6 distortion 0.226520 num_queries 2778
+Iteration  11 distortion 0.188887 num_queries 4057
+Iteration  16 distortion 0.163140 num_queries 5368
+Iteration  21 distortion 0.140072 num_queries 6635
+Iteration  26 distortion 0.114680 num_queries 7872
+Iteration  31 distortion 0.108381 num_queries 9083
+Iteration  36 distortion 0.095372 num_queries 10265
+Iteration  41 distortion 0.093143 num_queries 11389
+Iteration  46 distortion 0.089770 num_queries 12532
+Iteration  51 distortion 0.084273 num_queries 13765
+Iteration  56 distortion 0.081861 num_queries 14902
+Iteration  61 distortion 0.079218 num_queries 16097
+Iteration  66 distortion 0.077591 num_queries 17265
+Iteration  71 distortion 0.076420 num_queries 18367
+Iteration  76 distortion 0.075051 num_queries 19594
+Iteration  81 distortion 0.074500 num_queries 20724
+Iteration  86 distortion 0.073354 num_queries 21886
+Iteration  91 distortion 0.072965 num_queries 23023
+Iteration  96 distortion 0.072475 num_queries 24153
+Iteration 101 distortion 0.071584 num_queries 25302
+Iteration 106 distortion 0.070656 num_queries 26527
+Iteration 111 distortion 0.070228 num_queries 27689
+Iteration 116 distortion 0.069570 num_queries 28813
+Iteration 121 distortion 0.068616 num_queries 29962
+Iteration 126 distortion 0.068123 num_queries 31102
+Iteration 131 distortion 0.067908 num_queries 32232
+Iteration 136 distortion 0.067786 num_queries 33452
+Iteration 141 distortion 0.067626 num_queries 34562
+Iteration 146 distortion 0.066977 num_queries 35714
+Iteration 151 distortion 0.066588 num_queries 36824
+Iteration 156 distortion 0.066315 num_queries 37956
+Iteration 161 distortion 0.066212 num_queries 39076
+Iteration 166 distortion 0.066190 num_queries 40216
+Iteration 171 distortion 0.066137 num_queries 41316
+Iteration 176 distortion 0.065974 num_queries 42436
+Iteration 181 distortion 0.065764 num_queries 43601
+Iteration 186 distortion 0.065677 num_queries 44721
+Iteration 191 distortion 0.065542 num_queries 45831
+Iteration 196 distortion 0.065306 num_queries 46983
+Iteration 201 distortion 0.065262 num_queries 48163
+Iteration 206 distortion 0.065164 num_queries 49305
+Iteration 211 distortion 0.064858 num_queries 50425
+Iteration 216 distortion 0.064767 num_queries 51577
+Iteration 221 distortion 0.064654 num_queries 52727
+Iteration 226 distortion 0.064558 num_queries 53867
+Iteration 231 distortion 0.064358 num_queries 55007
+Iteration 236 distortion 0.064271 num_queries 56157
+Iteration 241 distortion 0.064235 num_queries 57297
+Iteration 246 distortion 0.064151 num_queries 58417
+Iteration 251 distortion 0.064103 num_queries 59547
+
+Adversarial Example Found Successfully: distortion 0.0641 target 1 queries 60217 LS queries 8321 
+Time: 93.8508 seconds
+
+Attacking Source: 7 Target: 1 Seed: 2163 Number 20
+Targeted attack - Source: 7 and Target: 1 Seed: 2163
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 0.3734
+--------> Found distortion 0.3613
+--------> Found distortion 0.3376
+==========> Found best distortion 0.3376 in 1.4941 seconds using 1021 queries
+Iteration   1 distortion 0.308716 num_queries 1328
+Iteration   6 distortion 0.202311 num_queries 2831
+Iteration  11 distortion 0.112532 num_queries 4362
+Iteration  16 distortion 0.072928 num_queries 5926
+Iteration  21 distortion 0.056738 num_queries 7323
+Iteration  26 distortion 0.054914 num_queries 8470
+Iteration  31 distortion 0.053302 num_queries 9667
+Iteration  36 distortion 0.052522 num_queries 10842
+Iteration  41 distortion 0.051275 num_queries 12013
+Iteration  46 distortion 0.048742 num_queries 13254
+Iteration  51 distortion 0.047273 num_queries 14439
+Iteration  56 distortion 0.047107 num_queries 15603
+Iteration  61 distortion 0.046061 num_queries 16766
+Iteration  66 distortion 0.045629 num_queries 17930
+Iteration  71 distortion 0.045508 num_queries 19092
+Warning: not moving
+Iteration  76 distortion 0.045064 num_queries 20332
+Iteration  81 distortion 0.044808 num_queries 21542
+Iteration  86 distortion 0.044594 num_queries 22763
+Iteration  91 distortion 0.044293 num_queries 23991
+Iteration  96 distortion 0.044270 num_queries 25199
+Iteration 101 distortion 0.044256 num_queries 26433
+Iteration 106 distortion 0.044126 num_queries 27773
+Iteration 111 distortion 0.044091 num_queries 28942
+Iteration 116 distortion 0.043948 num_queries 30280
+Iteration 121 distortion 0.043809 num_queries 31506
+Iteration 126 distortion 0.043604 num_queries 32701
+Iteration 131 distortion 0.043376 num_queries 33890
+Iteration 136 distortion 0.043191 num_queries 35033
+Iteration 141 distortion 0.043069 num_queries 36176
+Iteration 146 distortion 0.042768 num_queries 37335
+Iteration 151 distortion 0.042481 num_queries 38517
+Iteration 156 distortion 0.042414 num_queries 39732
+Iteration 161 distortion 0.042246 num_queries 40875
+Iteration 166 distortion 0.042082 num_queries 42005
+Iteration 171 distortion 0.041865 num_queries 43174
+Iteration 176 distortion 0.041598 num_queries 44462
+Iteration 181 distortion 0.041426 num_queries 45659
+Iteration 186 distortion 0.041314 num_queries 46958
+Iteration 191 distortion 0.041284 num_queries 48153
+Iteration 196 distortion 0.041216 num_queries 49309
+Iteration 201 distortion 0.041137 num_queries 50452
+Iteration 206 distortion 0.041090 num_queries 51634
+Iteration 211 distortion 0.041061 num_queries 52842
+Iteration 216 distortion 0.041039 num_queries 54050
+Iteration 221 distortion 0.041020 num_queries 55232
+Iteration 226 distortion 0.041005 num_queries 56453
+Iteration 231 distortion 0.040987 num_queries 57674
+Iteration 236 distortion 0.040957 num_queries 58889
+Warning: not moving
+
+Adversarial Example Found Successfully: distortion 0.0409 target 1 queries 60285 LS queries 11064 
+Time: 93.4665 seconds
+
+Attacking Source: 0 Target: 8 Seed: 5072 Number 21
+Targeted attack - Source: 0 and Target: 8 Seed: 5072
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 0.7160
+--------> Found distortion 0.6228
+--------> Found distortion 0.5972
+--------> Found distortion 0.5970
+--------> Found distortion 0.4857
+--------> Found distortion 0.4848
+--------> Found distortion 0.3836
+--------> Found distortion 0.3829
+==========> Found best distortion 0.3829 in 1.8064 seconds using 1234 queries
+Iteration   1 distortion 0.263627 num_queries 1717
+Iteration   6 distortion 0.189215 num_queries 4009
+Iteration  11 distortion 0.172399 num_queries 5906
+Iteration  16 distortion 0.158978 num_queries 8070
+Iteration  21 distortion 0.157519 num_queries 10479
+Iteration  26 distortion 0.157095 num_queries 12248
+Iteration  31 distortion 0.156935 num_queries 14128

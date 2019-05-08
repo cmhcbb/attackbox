@@ -1,11 +1,11 @@
 import os
 import sys
 os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"]="4";
+os.environ["CUDA_VISIBLE_DEVICES"]="3";
 
 from OPT_attack import OPT_attack
-from OPT_attack_lf import OPT_attack_lf
 from OPT_attack_sign_SGD import OPT_attack_sign_SGD
+from OPT_attack_sign_SGD_lf import OPT_attack_sign_SGD_lf
 from models import PytorchModel
 import torch
 from allmodels import MNIST, load_model, load_mnist_data, load_cifar10_data, CIFAR10
@@ -23,11 +23,10 @@ amodel = PytorchModel(model, bounds=[0,1], num_classes=10)
 
 train_loader, test_loader, train_dataset, test_dataset = load_cifar10_data()
 
-attack = OPT_attack_lf(amodel)
+attack = OPT_attack_sign_SGD_lf(amodel)
 
 np.random.seed(0)
 seeds = np.random.randint(10000, size=[50])
-print(seeds)
 
 for i, (xi,yi) in enumerate(test_loader):
     if i==50:
