@@ -9,7 +9,7 @@ class OPT_attack(object):
         self.train_dataset = train_dataset
 
     def attack_untargeted(self, x0, y0, alpha = 0.2, beta = 0.001, iterations = 1500, query_limit=80000,
-                          distortion=None, seed=None):
+                          distortion=None, seed=None, stopping=0.0001):
         """ Attack the original image and return adversarial example
             model: (pytorch model)
             train_dataset: set of training data
@@ -43,6 +43,8 @@ class OPT_attack(object):
                     print("--------> Found distortion %.4f" % g_theta)
 
         timeend = time.time()
+        if g_theta == float('inf'):
+            return "NA", float('inf')
         print("==========> Found best distortion %.4f in %.4f seconds using %d queries" %
               (g_theta, timeend-timestart, query_count))
     
@@ -50,7 +52,6 @@ class OPT_attack(object):
         g1 = 1.0
         theta, g2 = best_theta, g_theta
         opt_count = 0
-        stopping = 0.0001
         prev_obj = 100000
         for i in range(iterations):
             gradient = np.zeros(theta.shape)
@@ -81,10 +82,10 @@ class OPT_attack(object):
 
             if (i+1)%10 == 0:
                 print("Iteration %3d distortion %.4f num_queries %d" % (i+1, LA.norm(g2*theta), opt_count))
-                if g2 > prev_obj-stopping:
-                    print("Stopping criteria reached")
-                    break
-                prev_obj = g2
+#                 if g2 > prev_obj-stopping:
+#                     print("Stopping criteria reached")
+#                     break
+#                 prev_obj = g2
 
             min_theta = theta
             min_g2 = g2
@@ -128,8 +129,8 @@ class OPT_attack(object):
                 alpha = 1.0
                 print("Warning: not moving, g2 %lf gtheta %lf beta is %lf" % (g2, g_theta, beta))
                 beta = beta * 0.1
-                #if (beta < 0.0005):
-                #    break
+                if (beta < 1e-8):
+                    break
 
         target = model.predict_label(x0 + torch.tensor(g_theta*best_theta, dtype=torch.float).cuda())
         timeend = time.time()
@@ -191,7 +192,7 @@ class OPT_attack(object):
         return lbd_hi, nquery
 
     def attack_targeted(self, x0, y0, target, alpha=0.2, beta=0.001, iterations=1500, query_limit=80000,
-                        distortion=None, seed=None):
+                        distortion=None, seed=None, stopping=0.0001):
         """ Attack the original image and return adversarial example
             model: (pytorch model)
             train_dataset: set of training data
@@ -238,6 +239,9 @@ class OPT_attack(object):
             sample_count += 1
             if sample_count >= num_samples:
                 break
+                
+            if i > 500:
+                break
 
         timeend = time.time()
         if g_theta == float('inf'):
@@ -249,7 +253,6 @@ class OPT_attack(object):
         g1 = 1.0
         theta, g2 = best_theta, g_theta
         opt_count = 0
-        stopping = 0.0001
         prev_obj = 100000
         for i in range(iterations):
             gradient = np.zeros(theta.shape)
@@ -281,9 +284,9 @@ class OPT_attack(object):
 
             if (i+1)%10 == 0:
                 print("Iteration %3d distortion %.4f num_queries %d" % (i+1, LA.norm(g2*theta), opt_count))
-                if g2 > prev_obj-stopping:
-                    print("Stopping criteria reached")
-                    break
+#                 if g2 > prev_obj-stopping:
+#                     print("Stopping criteria reached")
+#                     break
 
                 prev_obj = g2
 
@@ -329,6 +332,8 @@ class OPT_attack(object):
                 alpha = 1.0
                 print("Warning: not moving, g2 %lf gtheta %lf beta is %lf" % (g2, g_theta, beta))
                 beta = beta * 0.1
+                if (beta < 1e-8):
+                    break
                 
         target = model.predict_label(x0 + torch.tensor(g_theta*best_theta, dtype=torch.float).cuda())
         timeend = time.time()
@@ -393,11 +398,14 @@ class OPT_attack(object):
                 lbd_hi = lbd_mid
         return lbd_hi, nquery
 
-    def __call__(self, input_xi, label_or_target, target=None, distortion=None, seed=None):
+    def __call__(self, input_xi, label_or_target, target=None, distortion=None, seed=None,
+                 query_limit=80000, stopping=0.0001):
         if target is not None:
-            adv = self.attack_targeted(input_xi, label_or_target, target, distortion=distortion, seed=seed)
+            adv = self.attack_targeted(input_xi, label_or_target, target, distortion=distortion,
+                                       seed=seed, query_limit=query_limit, stopping=stopping)
         else:
-            adv = self.attack_untargeted(input_xi, label_or_target, distortion=distortion, seed=seed)
+            adv = self.attack_untargeted(input_xi, label_or_target, distortion=distortion,
+                                         seed=seed, query_limit=query_limit, stopping=stopping)
         return adv   
     
         

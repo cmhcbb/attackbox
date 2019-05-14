@@ -9,6 +9,7 @@ from scipy.linalg import qr
 import random
 
 start_learning_rate = 1.0
+stopping = 0.0005
 
 def quad_solver(Q, b):
     """
@@ -38,14 +39,14 @@ def sign(y):
     y_sign[y_sign==0] = 1
     return y_sign
 
-class OPT_attack_sign_SGD_lf(object):
+class OPT_attack_sign_SGD(object):
     def __init__(self, model, k=200, train_dataset=None):
         self.model = model
         self.k = k
         self.train_dataset = train_dataset
 
     def attack_untargeted(self, x0, y0, alpha = 0.2, beta = 0.001, iterations = 1000, query_limit=80000,
-                          distortion=None, seed=None, svm=False, stopping=1e-8):
+                          distortion=None, seed=None, svm=False, stopping=0.0001):
         """ Attack the original image and return adversarial example
             model: (pytorch model)
             train_dataset: set of training data
@@ -72,7 +73,7 @@ class OPT_attack_sign_SGD_lf(object):
             query_count += 1
             theta = np.random.randn(*x0.shape)
             if model.predict_label(x0+torch.tensor(theta, dtype=torch.float).cuda())!=y0:
-                initial_lbd = LA.norm(theta.flatten(), np.inf)
+                initial_lbd = LA.norm(theta)
                 theta /= initial_lbd
                 lbd, count = self.fine_grained_binary_search(model, x0, y0, theta, initial_lbd, g_theta)
                 query_count += count
@@ -81,8 +82,6 @@ class OPT_attack_sign_SGD_lf(object):
                     print("--------> Found distortion %.4f" % g_theta)
 
         timeend = time.time()
-        if g_theta == float('inf'):
-            return "NA", float('inf')
         print("==========> Found best distortion %.4f in %.4f seconds "
               "using %d queries" % (g_theta, timeend-timestart, query_count))
     
@@ -90,6 +89,7 @@ class OPT_attack_sign_SGD_lf(object):
         # Begin Gradient Descent.
         timestart = time.time()
         xg, gg = best_theta, g_theta
+        learning_rate = start_learning_rate
         prev_obj = 100000
         distortions = [gg]
         for i in range(iterations):
@@ -97,7 +97,6 @@ class OPT_attack_sign_SGD_lf(object):
                 sign_gradient, grad_queries = self.sign_grad_svm(x0, y0, xg, initial_lbd=gg, h=beta)
             else:
                 sign_gradient, grad_queries = self.sign_grad_v1(x0, y0, xg, initial_lbd=gg, h=beta)
-
             
             if False:
                 # Compare cosine distance with numerical gradient.
@@ -111,7 +110,7 @@ class OPT_attack_sign_SGD_lf(object):
             min_g2 = gg
             for _ in range(15):
                 new_theta = xg - alpha * sign_gradient
-                new_theta /= LA.norm(new_theta.flatten(), np.inf)
+                new_theta /= LA.norm(new_theta)
                 new_g2, count = self.fine_grained_binary_search_local(
                     model, x0, y0, new_theta, initial_lbd = min_g2, tol=beta/500)
                 ls_count += count
@@ -126,7 +125,7 @@ class OPT_attack_sign_SGD_lf(object):
                 for _ in range(15):
                     alpha = alpha * 0.25
                     new_theta = xg - alpha * sign_gradient
-                    new_theta /= LA.norm(new_theta.flatten(), np.inf)
+                    new_theta /= LA.norm(new_theta)
                     new_g2, count = self.fine_grained_binary_search_local(
                         model, x0, y0, new_theta, initial_lbd = min_g2, tol=beta/500)
                     ls_count += count
@@ -134,9 +133,9 @@ class OPT_attack_sign_SGD_lf(object):
                         min_theta = new_theta 
                         min_g2 = new_g2
                         break
-            if alpha < 1e-6:
+            if alpha < 1e-4:
                 alpha = 1.0
-                print("Warning: not moving, beta is {0}".format(beta))
+                print("Warning: not moving")
                 beta = beta*0.1
                 if (beta < 1e-8):
                     break
@@ -152,30 +151,26 @@ class OPT_attack_sign_SGD_lf(object):
                 break
             
             if i%5==0:
-                print("Iteration %3d distortion %.6f num_queries %d" % (i+1, gg, query_count))
-
-#             if gg > prev_obj-stopping:
-#                 print("Success: stopping threshold reached")
-#                 break
-#             prev_obj = gg
-
+                print("Iteration %3d distortion %.4f num_queries %d" % (i+1, gg, query_count))
             
             #if distortion is not None and gg < distortion:
             #    print("Success: required distortion reached")
             #    break
 
-            
-            
-        timeend = time.time()
+#             if gg > prev_obj-stopping:
+#                 print("Success: stopping threshold reached")
+#                 #learning_rate *= 0.7
+#                 break
+#             prev_obj = gg
 
         target = model.predict_label(x0 + torch.tensor(gg*xg, dtype=torch.float).cuda())
+        timeend = time.time()
         print("\nAdversarial Example Found Successfully: distortion %.4f target"
-              " %d queries %d LS queries %d \nTime: %.4f seconds" % (gg, target, query_count, ls_total, timeend-timestart))
-
+              " %d queries %d \nTime: %.4f seconds" % (gg, target, query_count, timeend-timestart))
         #print("Distortions: ", distortions)
         return x0 + torch.tensor(gg*xg, dtype=torch.float).cuda(), gg
 
-    def sign_grad_v1(self, x0, y0, theta, initial_lbd, h=0.001, lr=5.0, D=4, target=None):
+    def sign_grad_v1(self, x0, y0, theta, initial_lbd, h=0.001, lr=5.0, D=4, target=None, batch_size=50):
         """
         Evaluate the sign of gradient by formulat
         sign(g) = 1/Q [ \sum_{q=1}^Q sign( g(theta+h*u_i) - g(theta) )u_i$ ]
@@ -187,49 +182,44 @@ class OPT_attack_sign_SGD_lf(object):
         #dim = np.prod(sign_grad.shape)
         #H = np.random.randn(dim, K)
         #Q, R = qr(H, mode='economic')
-        for iii in range(K):
-#             # Code for reduced dimension gradient
-#             u = np.random.randn(N_d,N_d)
-#             u = u.repeat(D, axis=0).repeat(D, axis=1)
-#             u /= LA.norm(u)
-#             u = u.reshape([1,1,N,N])
+        [B, C, H, W] = theta.shape
+        num_batches = int(K/batch_size) + 1
+        last_batch_size = int(K%batch_size)
+        if last_batch_size == 0:
+            last_batch_size = batch_size
+            num_batches -= 1
+        count = 0
+        preds1 = []
+        for batch in range(num_batches):
+            size = batch_size if batch < num_batches-1 else last_batch_size
+             
+            # Sample unit vectors u_1, u_2,..u_n
+            U = np.random.randn(size, C, H, W)
+            U_norm = LA.norm(U.reshape(size, -1), axis=1)
+            U /= U_norm[:, None, None, None]
             
-            u = np.random.randn(*theta.shape)
-            #u = Q[:,iii].reshape(sign_grad.shape)
-            u /= LA.norm(u.flatten(), np.inf)
+            # Calculate new_theta = theta + h*u and then make it unit vector.
+            U_new_theta = theta + h*U
+            U_new_theta_norm = LA.norm(U_new_theta.reshape(size, -1), axis=1)
+            U_new_theta /= U_new_theta_norm[:, None, None, None]
             
-            #sign = -1
-            sign = 1
-            new_theta = theta + h*u
-            new_theta /= LA.norm(new_theta.flatten(), np.inf)
-            
-            
-            # Targeted case.
-            if (target is not None and 
-                self.model.predict_label(x0+torch.tensor(initial_lbd*new_theta, dtype=torch.float).cuda()) == target):
-                sign = -1
-                
-            # Untargeted case
-            if (target is None and
-                self.model.predict_label(x0+torch.tensor(initial_lbd*new_theta, dtype=torch.float).cuda()) != y0):
-                sign = -1
-                #if self.model.predict_label(x0+torch.tensor((initial_lbd*1.00001)*new_theta, dtype=torch.float).cuda()) == y0:
-                #    print "Yes"
-                #else:
-                #    print "No"
-            queries += 1
-            sign_grad += u*sign
-        
-        sign_grad /= K
+            # Predict at x0 + new_theta*initial_lbd
+            U_new_theta = torch.tensor(initial_lbd*U_new_theta, dtype=torch.float).cuda()
+            U_new_theta = x0 + U_new_theta
 
-        # sign_grad /= LA.norm(sign_grad)
-        # new_theta = theta + h*sign_grad
-        # new_theta /= LA.norm(new_theta)
-        # fxph, q1 = self.fine_grained_binary_search_local(self.model, x0, y0, new_theta, initial_lbd=initial_lbd, tol=h/500)
-        # delta = (fxph - initial_lbd)/h
-        # queries += q1
-        # sign_grad *= lr*delta       
-        
+            # Invoke model
+            preds = self.model.predict_batch_label(U_new_theta).cpu().numpy()
+            queries += size
+            
+            # Untargeted case: sign is -1 if prediction != y0 else 1
+            # TODO: Targeted case
+            preds = np.array(preds==y0.item(), dtype=int) # Ones where pred==yo. E.g. [0, 1, 0, 0, 1]
+            temp = preds - 1 # -1 where pred != y0. [-1, 0, -1, -1, 0]
+            signs = temp + preds # [-1, 1, -1, -1, 1]
+            U = U*signs[:, None, None, None]
+            sign_grad += np.sum(U, axis=0).reshape(-1, C, H, W)
+                            
+        sign_grad /= K        
         return sign_grad, queries
     
     def sign_grad_v2(self, x0, y0, theta, initial_lbd, h=0.001, K=200):
@@ -245,7 +235,7 @@ class OPT_attack_sign_SGD_lf(object):
             
             ss = -1
             new_theta = theta + h*u
-            new_theta /= LA.norm(new_theta.flatten(), np.inf)
+            new_theta /= LA.norm(new_theta)
             if self.model.predict_label(x0+torch.tensor(initial_lbd*new_theta, dtype=torch.float).cuda()) == y0:
                 ss = 1
             queries += 1
@@ -269,8 +259,8 @@ class OPT_attack_sign_SGD_lf(object):
             
             sign = 1
             new_theta = theta + h*u
-            new_theta /= LA.norm(new_theta.flatten(), np.inf)
-
+            new_theta /= LA.norm(new_theta)            
+            
             # Targeted case.
             if (target is not None and 
                 self.model.predict_label(x0+torch.tensor(initial_lbd*new_theta, dtype=torch.float).cuda()) == target):
@@ -280,9 +270,12 @@ class OPT_attack_sign_SGD_lf(object):
             if (target is None and
                 self.model.predict_label(x0+torch.tensor(initial_lbd*new_theta, dtype=torch.float).cuda()) != y0):
                 sign = -1
-
+                #if self.model.predict_label(x0+torch.tensor((initial_lbd*1.00001)*new_theta, dtype=torch.float).cuda()) == y0:
+                #    print "Yes"
+                #else:
+                #    print "No"
+                
             queries += 1
-            
             X[:,iii] = sign*u.reshape((dim,))
         
         Q = X.transpose().dot(X)
@@ -302,7 +295,7 @@ class OPT_attack_sign_SGD_lf(object):
     def fine_grained_binary_search_local(self, model, x0, y0, theta, initial_lbd = 1.0, tol=1e-5):
         nquery = 0
         lbd = initial_lbd
-        tol = max(tol, 2e-9)
+         
         if model.predict_label(x0+torch.tensor(lbd*theta, dtype=torch.float).cuda()) == y0:
             lbd_lo = lbd
             lbd_hi = lbd*1.01
@@ -390,7 +383,7 @@ class OPT_attack_sign_SGD_lf(object):
         return grad, queries
 
     def attack_targeted(self, x0, y0, target, alpha = 0.2, beta = 0.001, iterations = 5000, query_limit=80000,
-                        distortion=None, seed=None, svm=False, stopping=1e-8):
+                        distortion=None, seed=None, svm=False, stopping=0.0001):
         """ Attack the original image and return adversarial example
             model: (pytorch model)
             train_dataset: set of training data
@@ -398,10 +391,7 @@ class OPT_attack_sign_SGD_lf(object):
         """
         model = self.model
         y0 = y0[0]
-        print("Targeted attack - Source: {0} and Target: {1} Seed: {2}".format(y0, target.item(), seed))
-        if (model.predict_label(x0) != y0):
-            print("Fail to classify the image. No need to attack.")
-            return x0, 0.0
+        print("Targeted attack - Source: {0} and Target: {1}".format(y0, target.item()))
         
         if (model.predict_label(x0) == target):
             print("Image already target. No need to attack.")
@@ -434,7 +424,7 @@ class OPT_attack_sign_SGD_lf(object):
                 continue
             
             theta = xi.cpu().numpy() - x0.cpu().numpy()
-            initial_lbd = LA.norm(theta.flatten(), np.inf)
+            initial_lbd = LA.norm(theta)
             theta /= initial_lbd
             lbd, count = self.fine_grained_binary_search_targeted(model, x0, y0, target, theta, initial_lbd, g_theta)
             query_count += count
@@ -445,6 +435,10 @@ class OPT_attack_sign_SGD_lf(object):
             sample_count += 1
             if sample_count >= num_samples:
                 break
+
+            if i > 500:
+                break
+
 
 #         xi = initial_xi
 #         xi = xi.numpy()
@@ -487,7 +481,7 @@ class OPT_attack_sign_SGD_lf(object):
             min_g2 = gg
             for _ in range(15):
                 new_theta = xg - alpha * sign_gradient
-                new_theta /= LA.norm(new_theta.flatten(), np.inf)
+                new_theta /= LA.norm(new_theta)
                 new_g2, count = self.fine_grained_binary_search_local_targeted(
                     model, x0, y0, target, new_theta, initial_lbd = min_g2, tol=beta/500)
                 ls_count += count
@@ -502,7 +496,7 @@ class OPT_attack_sign_SGD_lf(object):
                 for _ in range(15):
                     alpha = alpha * 0.25
                     new_theta = xg - alpha * sign_gradient
-                    new_theta /= LA.norm(new_theta.flatten(), np.inf)
+                    new_theta /= LA.norm(new_theta)
                     new_g2, count = self.fine_grained_binary_search_local_targeted(
                         model, x0, y0, target, new_theta, initial_lbd = min_g2, tol=beta/500)
                     ls_count += count
@@ -529,24 +523,20 @@ class OPT_attack_sign_SGD_lf(object):
                 break
             
             if i%5==0:
-                print("Iteration %3d distortion %.6f num_queries %d" % (i+1, gg, query_count))
+                print("Iteration %3d distortion %.4f num_queries %d" % (i+1, gg, query_count))
 #                 print("Iteration: ", i, " Distortion: ", gg, " Queries: ", query_count,
 #                       " LR: ", alpha, "grad_queries", grad_queries, "ls_queries", ls_count)
-
-#             if gg > prev_obj-stopping:
-#                 print("Success: stopping threshold reached")
-#                 break
-#             prev_obj = gg
             
             #if distortion is not None and gg < distortion:
             #    print("Success: required distortion reached")
             #    break
 
+#             if gg > prev_obj-stopping:
+#                 print("Success: stopping threshold reached")
+#                 #learning_rate *= 0.7
+#                 break
+#             prev_obj = gg
 
-#         g_theta, _ = self.fine_grained_binary_search_local_targeted(model, x0, y0, target, xg,
-#                                                            initial_lbd=1.0, tol=beta/500)
-#         print(gg, g_theta)
-        
         adv_target = model.predict_label(x0 + torch.tensor(gg*xg, dtype=torch.float).cuda())
         if (adv_target == target):
             timeend = time.time()
@@ -561,7 +551,6 @@ class OPT_attack_sign_SGD_lf(object):
     def fine_grained_binary_search_local_targeted(self, model, x0, y0, t, theta, initial_lbd=1.0, tol=1e-5):
         nquery = 0
         lbd = initial_lbd
-        tol = max(tol, 2e-9)
 
         if model.predict_label(x0 + torch.tensor(lbd*theta, dtype=torch.float).cuda()) != t:
             lbd_lo = lbd
@@ -615,14 +604,14 @@ class OPT_attack_sign_SGD_lf(object):
                 lbd_hi = lbd_mid
         return lbd_hi, nquery
 
-    def __call__(self, input_xi, label_or_target, target=None, distortion=None, seed=None, svm=False,
-                 stopping=1e-8, query_limit=80000):
+    def __call__(self, input_xi, label_or_target, target=None, distortion=None, seed=None,
+                 svm=False, query_limit=80000, stopping=0.0001):
         if target is not None:
-            adv = self.attack_targeted(input_xi, label_or_target, target, distortion=distortion, seed=seed,
-                                       svm=svm, stopping=stopping, query_limit=query_limit)
+            adv = self.attack_targeted(input_xi, label_or_target, target, distortion=distortion,
+                                       seed=seed, svm=svm, query_limit=query_limit, stopping=stopping)
         else:
-            adv = self.attack_untargeted(input_xi, label_or_target, distortion=distortion, seed=seed, svm=svm,
-                                         stopping=stopping, query_limit=query_limit)
+            adv = self.attack_untargeted(input_xi, label_or_target, distortion=distortion,
+                                         seed=seed, svm=svm, query_limit=query_limit, stopping=stopping)
         return adv   
     
         

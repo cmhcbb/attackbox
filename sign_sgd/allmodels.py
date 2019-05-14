@@ -262,9 +262,25 @@ def load_cifar10_data():
 
     # Data Loader (Input Pipeline)
     train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True)
-    test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=batch_size, shuffle=False)
+    test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=1, shuffle=False)
 
     return train_loader, test_loader, train_dataset, test_dataset
+
+# def load_imagenet_data():
+#     """ Load IMAGENET data from torchvision.datasets 
+#         input: None
+#         output: minibatches of train and test sets 
+#     """
+#     # CIFAR10 Dataset
+#     train_dataset = dsets.ImageNet('./data/imagenet-py', download=True, split='train', transform= transforms.ToTensor())
+#     test_dataset = dsets.ImageNet('./data/imagenet-py', download=True, split='val', transform= transforms.ToTensor())
+
+#     # Data Loader (Input Pipeline)
+#     train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True)
+#     test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=batch_size, shuffle=False)
+
+#     return train_loader, test_loader, train_dataset, test_dataset
+
 
 def load_imagenet_data():
     """ Load MNIST data from torchvision.datasets 
@@ -280,8 +296,9 @@ def load_imagenet_data():
     #         transforms.ToTensor(),
     #         normalize,
     #     ]))
+    print("Loading ImageNet validation dataset.")
     val_dataset = dsets.ImageFolder(
-        '/data3/ILSVRC2012/val/',
+        'data/imagenet-py/val/',
         transforms.Compose([
             transforms.Resize(256),
             transforms.CenterCrop(224),
@@ -290,7 +307,7 @@ def load_imagenet_data():
         ]))
 
     # Data Loader (Input Pipeline)
-    val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=1000, shuffle=True)
+    val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=1)
 
     return val_loader, val_loader, val_dataset, val_dataset
 

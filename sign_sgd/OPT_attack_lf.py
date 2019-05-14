@@ -11,7 +11,7 @@ class OPT_attack_lf(object):
         self.train_dataset = train_dataset
 
     def attack_untargeted(self, x0, y0, alpha = 0.2, beta = 0.01, iterations = 1000, query_limit=80000,
-                          distortion=None, seed=None):
+                          distortion=None, seed=None, stopping=1e-8):
         """ Attack the original image and return adversarial example
             model: (pytorch model)
             train_dataset: set of training data
@@ -54,7 +54,6 @@ class OPT_attack_lf(object):
         g1 = 1.0
         theta, g2 = best_theta, g_theta
         opt_count = 0
-        stopping = 1e-8
         prev_obj = 100000
         for i in range(iterations):
             gradient = np.zeros(theta.shape)
@@ -86,10 +85,10 @@ class OPT_attack_lf(object):
             if (i+1)%10 == 0:
                 print("Iteration %3d distortion %.6f num_queries %d" %
                       (i+1, LA.norm((g2*theta).flatten(), np.inf), opt_count))
-                if g2 > prev_obj-stopping:
-                    print("Stopping criteria reached")
-                    break
-                prev_obj = g2
+#                 if g2 > prev_obj-stopping:
+#                     print("Stopping criteria reached")
+#                     break
+#                 prev_obj = g2
 
             min_theta = theta
             min_g2 = g2
@@ -195,7 +194,7 @@ class OPT_attack_lf(object):
         return lbd_hi, nquery
 
     def attack_targeted(self, x0, y0, target, alpha = 0.2, beta = 0.001, iterations = 5000, query_limit=80000,
-                        distortion=None, seed=None):
+                        distortion=None, seed=None, stopping=1e-8):
         """ Attack the original image and return adversarial example
             model: (pytorch model)
             train_dataset: set of training data
@@ -205,13 +204,17 @@ class OPT_attack_lf(object):
         #print(y0)
         y0 = y0[0]
         print("Targeted attack - Source: {0} and Target: {1} Seed: {2}".format(y0, target.item(), seed))
+        if (model.predict_label(x0) != y0):
+            print("Fail to classify the image. No need to attack.")
+            return x0, 0.0
+        
         if (model.predict_label(x0) == target):
             print("Image already target. No need to attack.")
             return x0, 0.0
-
+        
         if self.train_dataset is None:
             print("Need training dataset for initial theta.")
-            return x0, float('inf')        
+            return x0, 0.0
 
         if seed is not None:
             np.random.seed(seed)
@@ -293,11 +296,10 @@ class OPT_attack_lf(object):
                 print("Iteration %3d distortion %.6f num_queries %d" % 
                       (i+1, LA.norm((g2*theta).flatten(), np.inf), opt_count))
 
-                if g2 > prev_obj-stopping:
-                    print("Stopping criteria reached")
-                    break
-                    
-                prev_obj = g2
+#                 if g2 > prev_obj-stopping:
+#                     print("Stopping criteria reached")
+#                     break
+#                 prev_obj = g2
 
             min_theta = theta
             min_g2 = g2
@@ -455,11 +457,13 @@ class OPT_attack_lf(object):
                 lbd_lo = lbd_mid
         return lbd_hi, nquery
 
-    def __call__(self, input_xi, label_or_target, target=None, distortion=None, seed=None):
+    def __call__(self, input_xi, label_or_target, target=None, distortion=None, seed=None, stopping=1e-8, query_limit=80000):
         if target is not None:
-            adv = self.attack_targeted(input_xi, label_or_target, target, distortion=distortion, seed=seed)
+            adv = self.attack_targeted(input_xi, label_or_target, target, distortion=distortion, seed=seed,
+                                       stopping=stopping, query_limit=query_limit)
         else:
-            adv = self.attack_untargeted(input_xi, label_or_target, distortion=distortion, seed=seed)
+            adv = self.attack_untargeted(input_xi, label_or_target, distortion=distortion, seed=seed,
+                                        stopping=stopping, query_limit=query_limit)
         return adv   
     
         
