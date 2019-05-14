@@ -1,0 +1,77 @@
+Loading ImageNet validation dataset.
+[2732 9845 3264 4859 9225 7891 4373 5874 6744 3468  705 2599 2222 7768
+ 2897 9893  537 6216 6921 6036 2163 5072 4851 7877 2046 1871 7599 2496
+ 8291  755  797  659 3219 8615 7456 3337 2745 4735 8736 6687  714 2292
+ 8343 1207 6172 8994 7221 6021 3622 3560]
+Attacking Source: 0 Target: 494 Seed: 2732 Number 0
+Targeted attack - Source: 0 and Target: 494
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 396.5752
+==========> Found best distortion 396.5752 in 9086.1743 seconds using 21094 queries
+Iteration   1 distortion 348.6778 num_queries 21380
+Iteration   6 distortion 156.3788 num_queries 22618
+Iteration  11 distortion 133.7684 num_queries 23755
+Iteration  16 distortion 118.9509 num_queries 24903
+Iteration  21 distortion 102.9866 num_queries 26057
+Iteration  26 distortion 88.3585 num_queries 27236
+Iteration  31 distortion 80.2187 num_queries 28499
+Iteration  36 distortion 72.8929 num_queries 29805
+Iteration  41 distortion 63.5751 num_queries 31172
+Iteration  46 distortion 54.9253 num_queries 32515
+Iteration  51 distortion 49.6924 num_queries 33861
+Iteration  56 distortion 44.0878 num_queries 35200
+Iteration  61 distortion 40.5999 num_queries 36592
+Iteration  66 distortion 37.6380 num_queries 37955
+Iteration  71 distortion 34.0320 num_queries 39299
+
+Adversarial Example Found Successfully: distortion 32.5628 target 494 queries 40174 LS queries 4280 
+Time: 5035.8085 seconds
+
+Attacking Source: 0 Target: 521 Seed: 9845 Number 1
+Targeted attack - Source: 0 and Target: 521
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 385.9104
+==========> Found best distortion 385.9104 in 10623.8503 seconds using 23186 queries
+Iteration   1 distortion 343.0891 num_queries 23470
+Iteration   6 distortion 276.1799 num_queries 24626
+Iteration  11 distortion 232.4138 num_queries 25812
+Iteration  16 distortion 197.4559 num_queries 27013
+Iteration  21 distortion 170.6871 num_queries 28171
+Iteration  26 distortion 157.4105 num_queries 29395
+Iteration  31 distortion 143.2664 num_queries 30585
+Iteration  36 distortion 128.9037 num_queries 31737
+Iteration  41 distortion 112.6214 num_queries 32875
+Iteration  46 distortion 102.3622 num_queries 34061
+Iteration  51 distortion 94.3489 num_queries 35187
+Iteration  56 distortion 83.0147 num_queries 36450
+Iteration  61 distortion 70.4026 num_queries 37723
+Iteration  66 distortion 49.9286 num_queries 39147
+
+Adversarial Example Found Successfully: distortion 42.5644 target 521 queries 40055 LS queries 3069 
+Time: 4417.2655 seconds
+
+Attacking Source: 0 Target: 771 Seed: 3264 Number 2
+Targeted attack - Source: 0 and Target: 771
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 647.0607
+==========> Found best distortion 647.0607 in 10793.6922 seconds using 24642 queries
+Iteration   1 distortion 606.3361 num_queries 24922
+Iteration   6 distortion 558.7103 num_queries 26145
+Iteration  11 distortion 530.4734 num_queries 27366
+Iteration  16 distortion 512.1596 num_queries 28604
+Iteration  21 distortion 491.6345 num_queries 29838
+Iteration  26 distortion 457.6866 num_queries 30974
+Iteration  31 distortion 428.3692 num_queries 32153
+Iteration  36 distortion 400.1682 num_queries 33307
+Iteration  41 distortion 371.9473 num_queries 34479
+Iteration  46 distortion 354.9644 num_queries 35627
+Iteration  51 distortion 324.8304 num_queries 36785
+Iteration  56 distortion 302.5052 num_queries 37937
+Iteration  61 distortion 286.9211 num_queries 39108
+
+Adversarial Example Found Successfully: distortion 268.2845 target 771 queries 40060 LS queries 2418 
+Time: 4112.7474 seconds
+
+Attacking Source: 0 Target: 504 Seed: 4859 Number 3
+Targeted attack - Source: 0 and Target: 504
+Searching for the initial direction on 100 samples: 

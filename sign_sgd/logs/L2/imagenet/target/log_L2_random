@@ -1,0 +1,90 @@
+Loading ImageNet validation dataset.
+[2732 9845 3264 4859 9225 7891 4373 5874 6744 3468  705 2599 2222 7768
+ 2897 9893  537 6216 6921 6036 2163 5072 4851 7877 2046 1871 7599 2496
+ 8291  755  797  659 3219 8615 7456 3337 2745 4735 8736 6687  714 2292
+ 8343 1207 6172 8994 7221 6021 3622 3560]
+Attacking Source: 0 Target: 494 Seed: 2732 Number 0
+Targeted attack - Source: 0 and Target: 494 Seed: 2732
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 396.5752
+==========> Found best distortion 396.5752 in 10034.6782 seconds using 21094 queries
+Iteration  10 distortion 231.0812 num_queries 2569
+Iteration  20 distortion 189.8165 num_queries 5012
+Iteration  30 distortion 169.0809 num_queries 7417
+Iteration  40 distortion 161.2784 num_queries 9890
+Iteration  50 distortion 155.4102 num_queries 12338
+Iteration  60 distortion 147.4021 num_queries 14792
+Iteration  70 distortion 140.2542 num_queries 17248
+Iteration  80 distortion 134.9877 num_queries 19816
+Iteration  90 distortion 130.0094 num_queries 22245
+Iteration 100 distortion 124.3834 num_queries 24777
+Iteration 110 distortion 120.1785 num_queries 27372
+Iteration 120 distortion 118.0096 num_queries 29923
+Iteration 130 distortion 115.2468 num_queries 32468
+Iteration 140 distortion 112.1531 num_queries 35019
+Iteration 150 distortion 110.0729 num_queries 37673
+Iteration 160 distortion 107.1627 num_queries 40249
+Iteration 170 distortion 104.0477 num_queries 42664
+Iteration 180 distortion 101.6935 num_queries 44980
+Iteration 190 distortion 100.1635 num_queries 47396
+Warning: not moving, g2 99.639516 gtheta 99.639516 beta is 0.001000
+Iteration 200 distortion 98.5343 num_queries 50290
+Iteration 210 distortion 96.3657 num_queries 53204
+Iteration 220 distortion 94.1851 num_queries 56176
+Iteration 230 distortion 92.6871 num_queries 59149
+Iteration 240 distortion 89.3076 num_queries 62114
+Iteration 250 distortion 87.1391 num_queries 65239
+Iteration 260 distortion 85.6311 num_queries 68156
+Iteration 270 distortion 83.4947 num_queries 71109
+Iteration 280 distortion 81.6107 num_queries 74127
+Iteration 290 distortion 79.8130 num_queries 77060
+Iteration 300 distortion 78.3610 num_queries 79961
+
+Adversarial Example Found Successfully: distortion 78.1030 target 494 queries 101377 
+Time: 7716.5739 seconds
+
+Attacking Source: 0 Target: 521 Seed: 9845 Number 1
+Targeted attack - Source: 0 and Target: 521 Seed: 9845
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 385.9104
+==========> Found best distortion 385.9104 in 11282.1842 seconds using 23186 queries
+Iteration  10 distortion 333.3033 num_queries 2551
+Warning: not moving, g2 324.560416 gtheta 324.560416 beta is 0.001000
+Iteration  20 distortion 323.0173 num_queries 5255
+Iteration  30 distortion 307.7099 num_queries 8192
+Warning: not moving, g2 305.871232 gtheta 305.871232 beta is 0.000100
+Warning: not moving, g2 305.292854 gtheta 305.292854 beta is 0.000010
+Iteration  40 distortion 300.1889 num_queries 11575
+Iteration  50 distortion 294.6248 num_queries 15065
+Warning: not moving, g2 288.842250 gtheta 288.842250 beta is 0.000001
+Warning: not moving, g2 288.817717 gtheta 288.817717 beta is 0.000000
+Warning: not moving, g2 288.809048 gtheta 288.809048 beta is 0.000000
+
+Adversarial Example Found Successfully: distortion 288.8090 target 521 queries 40412 
+Time: 1517.6245 seconds
+
+Attacking Source: 0 Target: 771 Seed: 3264 Number 2
+Targeted attack - Source: 0 and Target: 771 Seed: 3264
+Searching for the initial direction on 100 samples: 
+--------> Found distortion 647.0607
+==========> Found best distortion 647.0607 in 11851.4650 seconds using 24642 queries
+Warning: not moving, g2 589.495554 gtheta 589.495554 beta is 0.001000
+Iteration  10 distortion 583.2935 num_queries 2747
+Warning: not moving, g2 578.513199 gtheta 578.513199 beta is 0.000100
+Iteration  20 distortion 573.8426 num_queries 6087
+Warning: not moving, g2 570.960807 gtheta 570.960807 beta is 0.000010
+Iteration  30 distortion 565.9129 num_queries 9685
+Iteration  40 distortion 555.2161 num_queries 13327
+Iteration  50 distortion 549.0615 num_queries 16963
+Iteration  60 distortion 542.1719 num_queries 20571
+Iteration  70 distortion 537.5817 num_queries 24181
+Warning: not moving, g2 537.464996 gtheta 537.464996 beta is 0.000001
+Warning: not moving, g2 537.451129 gtheta 537.451129 beta is 0.000000
+Warning: not moving, g2 537.451108 gtheta 537.451108 beta is 0.000000
+
+Adversarial Example Found Successfully: distortion 537.4511 target 771 queries 49873 
+Time: 2199.9522 seconds
+
+Attacking Source: 0 Target: 504 Seed: 4859 Number 3
+Targeted attack - Source: 0 and Target: 504 Seed: 4859
+Searching for the initial direction on 100 samples: 
