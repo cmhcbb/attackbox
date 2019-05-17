@@ -306,8 +306,14 @@ def load_imagenet_data():
             normalize,
         ]))
 
+    torch.manual_seed(42)
+    torch.cuda.manual_seed(42)
+    np.random.seed(42)
+    random.seed(42)
+    torch.backends.cudnn.deterministic = True
+    val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=1, shuffle=True)
     # Data Loader (Input Pipeline)
-    val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=1)
+    # val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=1)
 
     return val_loader, val_loader, val_dataset, val_dataset
 
