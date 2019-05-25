@@ -416,7 +416,7 @@ def show_image(img):
     for i in range(28):
         print("".join([remap[int(round(x))] for x in img[i*28:i*28+28]]))
 
-def load_mnist_data():
+def load_mnist_data(test_batch_size=1):
     """ Load MNIST data from torchvision.datasets 
         input: None
         output: minibatches of train and test sets 
@@ -427,11 +427,11 @@ def load_mnist_data():
 
     # Data Loader (Input Pipeline)
     train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=False)
-    test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=1, shuffle=False)
+    test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=test_batch_size, shuffle=False)
 
     return train_loader, test_loader, train_dataset, test_dataset
 
-def load_cifar10_data():
+def load_cifar10_data(test_batch_size=1):
     """ Load MNIST data from torchvision.datasets 
         input: None
         output: minibatches of train and test sets 
@@ -442,7 +442,7 @@ def load_cifar10_data():
 
     # Data Loader (Input Pipeline)
     train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True)
-    test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=100, shuffle=False)
+    test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=test_batch_size, shuffle=False)
 
     return train_loader, test_loader, train_dataset, test_dataset
 
