@@ -15,7 +15,7 @@ class OPT_attack(object):
         """
         model = self.model
         if type(x0) is torch.Tensor:
-            x0 = x0.numpy()
+            x0 = x0.cpu().numpy()
         if type(y0) is torch.Tensor:
             y0 = y0.item()
         if (model.predict_label(x0) != y0):

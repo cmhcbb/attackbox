@@ -3,6 +3,7 @@ from torch.autograd import Variable
 import torch.optim as optim
 from utils import mulvt
 import torch.nn as nn
+
 class FGSM(object):
     def __init__(self,model):
         self.model = model
@@ -16,7 +17,7 @@ class FGSM(object):
         #print(c.size(),modifier.size())
         return loss
 
-    def fgsm(self, input_xi, label_or_target, eta, TARGETED=False):
+    def i_fgsm(self, input_xi, label_or_target, eta, TARGETED=False):
        
         yi = Variable(label_or_target.cuda())
         x_adv = Variable(input_xi.cuda(), requires_grad=True)
@@ -28,16 +29,34 @@ class FGSM(object):
             #print(gradient)
             x_adv.grad.sign_()
             if TARGETED:
-                x_adv = x_adv - eta* x_adv.grad 
+                x_adv.data = x_adv.data - eta* x_adv.grad 
             else:
-                x_adv = x_adv + eta* x_adv.grad
-            x_adv = Variable(x_adv.data, requires_grad=True)
+                x_adv.data = x_adv.data + eta* x_adv.grad
+            #x_adv = Variable(x_adv.data, requires_grad=True)
             #error.backward()
         return x_adv
- 
+
+    def fgsm(self, input_xi, label_or_target, eta, TARGETED=False):
+       
+        yi = Variable(label_or_target.cuda())
+        x_adv = Variable(input_xi.cuda(), requires_grad=True)
+
+        error = self.get_loss(x_adv,yi,TARGETED)
+        if (it)%1==0:
+            print(error.data[0]) 
+        self.model.get_gradient(error)
+        #print(gradient)
+        x_adv.grad.sign_()
+        if TARGETED:
+            x_adv.data = x_adv.data - eta* x_adv.grad 
+        else:
+            x_adv.data = x_adv.data + eta* x_adv.grad
+            #x_adv = Variable(x_adv.data, requires_grad=True)
+            #error.backward()
+        return x_adv 
 
     def __call__(self, input_xi, label_or_target, eta=0.01, TARGETED=False):
-        adv = self.fgsm(input_xi, label_or_target, eta, TARGETED)
+        adv = self.i_fgsm(input_xi, label_or_target, eta, TARGETED)
         return adv   
     
         

@@ -1,13 +1,13 @@
-from CW import CW
-from FGSM import FGSM
-from OPT_attack import OPT_attack
-from OPT_genattack import OPT_genattack
-from ZOO import ZOO
-from OPT_attack_lf import OPT_attack_lf
-from Sign_OPT import OPT_attack_sign_SGD
-from Sign_OPT_lf import OPT_attack_sign_SGD_lf
-from NES import NES
-from PGD import PGD
+from attack.CW import CW
+from attack.FGSM import FGSM
+from attack.OPT_attack import OPT_attack
+from attack.OPT_genattack import OPT_genattack
+from attack.ZOO import ZOO
+from attack.OPT_attack_lf import OPT_attack_lf
+from attack.Sign_OPT import OPT_attack_sign_SGD
+from attack.Sign_OPT_lf import OPT_attack_sign_SGD_lf
+from attack.NES import NES
+from attack.PGD import PGD
 from models import PytorchModel
 import torch
 from allmodels import MNIST, load_model, load_mnist_data, load_cifar10_data, CIFAR10, VGG_plain, VGG_rse, VGG_vi
