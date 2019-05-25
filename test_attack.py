@@ -55,12 +55,12 @@ args = parser.parse_args()
 if args.dataset == "MNIST":
     net = MNIST()
     net = torch.nn.DataParallel(net, device_ids=[0])
-    load_model(net,'mnist_gpu.pt')
+    load_model(net,'model/mnist_gpu.pt')
     train_loader, test_loader, train_dataset, test_dataset = load_mnist_data(args.test_batch_size)
 elif args.dataset == 'CIFAR':
     net = CIFAR10() 
     net = torch.nn.DataParallel(net, device_ids=[0])
-    load_model(net, 'cifar10_gpu.pt')
+    load_model(net, 'model/cifar10_gpu.pt')
     train_loader, test_loader, train_dataset, test_dataset = load_cifar10_data(args.test_batch_size)
 elif args.dataset == 'Imagenet':
     net = CIFAR10() 
