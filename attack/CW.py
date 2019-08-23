@@ -39,13 +39,13 @@ class CW(object):
             error,loss1,loss2 = self.get_loss(xi,label_onehot_v,c,modifier, TARGETED)
             self.model.get_gradient(error)
             #error.backward()
-            optimizer.step()
             if (it)%500==0:
                 print(error.data[0],loss1.data[0],loss2.data[0]) 
             if loss2.data[0]==0:
                 if best_loss1 >= loss1.data[0]:
                     best_loss1 = loss1.data[0]
                     best_adv = modifier.clone()    
+            optimizer.step()
         if best_adv is None:
             #print(str(c)+'\t'+'None')
             return None
