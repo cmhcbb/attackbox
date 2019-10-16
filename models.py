@@ -15,6 +15,14 @@ class PytorchModel(object):
             image = image.unsqueeze(0)
         output = self.model(image)
         return output
+ 
+    def predict_prob(self,image):
+        with torch.no_grad():
+            image = torch.clamp(image,self.bounds[0],self.bounds[1]).cuda()
+            if len(image.size())!=4:
+                image = image.unsqueeze(0)
+            output = self.model(image)
+        return output
     
     def predict_label(self, image):
         if isinstance(image, np.ndarray):

@@ -5,6 +5,7 @@ from attack.OPT_genattack import OPT_genattack
 from attack.ZOO import ZOO
 from attack.OPT_attack_lf import OPT_attack_lf
 from attack.Sign_OPT import OPT_attack_sign_SGD
+from attack.Sign_OPT_v2 import OPT_attack_sign_SGD_v2
 from attack.Sign_OPT_lf import OPT_attack_sign_SGD_lf
 from attack.NES import NES
 from attack.PGD import PGD
@@ -12,7 +13,7 @@ from models import PytorchModel
 import torch
 from allmodels import MNIST, load_model, load_mnist_data, load_cifar10_data, CIFAR10, VGG_plain, VGG_rse, VGG_vi
 import os, argparse
-
+import numpy as np
 parser = argparse.ArgumentParser()
 parser.add_argument('--no-cuda', action='store_true', default=False,
                     help='Disables CUDA training.')
@@ -31,6 +32,11 @@ parser.add_argument('--dataset', type=str, default="MNIST",
                     help='Dataset to be used, [MNIST, CIFAR10, Imagenet]')
 parser.add_argument('--attack', type=str, default=None,
                     help='Attack to be used')
+parser.add_argument('--targeted', action='store_true', default=False,
+                    help='Targeted attack.')
+parser.add_argument('--random_start', action='store_true', default=False,
+                    help='PGD attack with random start.')
+
 
 parser.add_argument('--n_neigh', type=int, default=0,
                     help='number of neighbors of target node')
@@ -47,8 +53,8 @@ parser.add_argument('--verbose', action='store_true', default=False,
 parser.add_argument('--test_batch_size', type=int, default=1,
                     help='test batch_size')
 args = parser.parse_args()
-#np.random.seed(args.seed)
-#torch.manual_seed(args.seed)
+np.random.seed(args.seed)
+torch.manual_seed(args.seed)
 
 
 
@@ -57,10 +63,18 @@ if args.dataset == "MNIST":
     net = torch.nn.DataParallel(net, device_ids=[0])
     load_model(net,'model/mnist_gpu.pt')
     train_loader, test_loader, train_dataset, test_dataset = load_mnist_data(args.test_batch_size)
-elif args.dataset == 'CIFAR':
-    net = CIFAR10() 
+elif args.dataset == 'CIFAR10':
+    #net = CIFAR10() 
+    net = VGG_plain('VGG16', 10, img_width=32)
     net = torch.nn.DataParallel(net, device_ids=[0])
-    load_model(net, 'model/cifar10_gpu.pt')
+    #load_model(net,'model/cifar10_gpu.pt')
+    #from wideresnet import *
+    #device = torch.device("cuda")
+    #net = WideResNet().to(device)
+    #load_model(net, 'model/cifar10_gpu.pt')
+    load_model(net, '../Label_smoothing/checkpoint/backup/cifar10_vgg_resume_multi_diri2.pth')
+    #load_model(net, '../Label_smoothing/checkpoint/cifar10_vgg_adv.pth')
+    #load_model(net, '../Label_smoothing/checkpoint/backup/cifar10_wide_resnet_trades.pth')
     train_loader, test_loader, train_dataset, test_dataset = load_cifar10_data(args.test_batch_size)
 elif args.dataset == 'Imagenet':
     net = CIFAR10() 
@@ -68,7 +82,7 @@ elif args.dataset == 'Imagenet':
     load_model(net, 'cifar10_gpu.pt')
 else:
     print("Unsupport dataset")
-    os.exit(0)
+    #os.exit(0)
 
 attack_list = {
     "PGD":PGD,
@@ -79,7 +93,8 @@ attack_list = {
     "OPT_attack_lf": OPT_attack_lf,
     "FGSM": FGSM,
     "NES": NES,
-    "ZOO": ZOO
+    "ZOO": ZOO,
+    "Liu": OPT_attack_sign_SGD_v2
 }
 
 
@@ -97,8 +112,8 @@ net.eval()
 #load_model(net, 'cifar10_gpu.pt')
 #net.eval()
 #net.cuda()
-model = net.module if torch.cuda.is_available() else net
-
+#model = net.module if torch.cuda.is_available() else net
+model = net 
 
 
 amodel = PytorchModel(model, bounds=[0,1], num_classes=10)
@@ -113,20 +128,27 @@ attack = attack_list[args.attack](amodel)
 #attack = ZOO(amodel)
 #attack = PGD(amodel)
 #attack = OPT_attack_sign_SGD(amodel)
-
 #train_loader, test_loader, train_dataset, test_dataset = load_mnist_data(args.test_batch_size)
 #train_loader, test_loader, train_dataset, test_dataset = load_cifar10_data()
+total_r_count = 0
+total_clean_count = 0
 for i, (xi,yi) in enumerate(test_loader):
-    print("image "+str(i))
-    if i==1:
+    print(f"image batch: {i}")
+    #if i==10:
         #continue
-        break
+    #    break
     xi,yi = xi.cuda(), yi.cuda()
     #if i==3:
     #amodel.predict_ensemble(xi)
     #adv=attack(xi,yi, 0.2)
-    adv=attack(xi,yi)
-    #r_count= (torch.max(amodel.predict(adv),1)[1]==yi).nonzero().shape[0]
-    #clean_count= (torch.max(amodel.predict(xi),1)[1]==yi).nonzero().shape[0]
-    #total_r_count += r_count
-    #print(clean_count - r_count, (clean_count - r_count)/clean_count)
+    adv=attack(xi,yi,TARGETED=args.targeted)
+
+    if args.targeted == False:
+        r_count= (torch.max(amodel.predict(adv),1)[1]==yi).nonzero().shape[0]
+        clean_count= (torch.max(amodel.predict(xi),1)[1]==yi).nonzero().shape[0]
+        total_r_count += r_count
+        total_clean_count += clean_count
+print(i)
+print(f"clean acc:{total_clean_count/(i*args.test_batch_size)}")
+print(f"acc under attack:{total_r_count/(i*args.test_batch_size)}")
+#print(clean_count - r_count, (clean_count - r_count)/clean_count)
