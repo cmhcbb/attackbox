@@ -9,6 +9,8 @@ from scipy.linalg import qr
 import random
 
 start_learning_rate = 1.0
+MAX_ITER = 1000
+
 
 def quad_solver(Q, b):
     """
@@ -42,8 +44,12 @@ class OPT_attack_sign_SGD(object):
     def __init__(self, model, k=200, train_dataset=None):
         self.model = model
         self.k = k
-        self.train_dataset = train_dataset
+        self.train_dataset = train_dataset 
+        self.log = torch.ones(MAX_ITER,2)
 
+    def get_log(self):
+        return self.log
+    
     def attack_untargeted(self, x0, y0, alpha = 0.2, beta = 0.001, iterations = 1000, query_limit=20000,
                           distortion=None, seed=None, svm=False, momentum=0.0, stopping=0.0001):
         """ Attack the original image and return adversarial example
@@ -51,6 +57,8 @@ class OPT_attack_sign_SGD(object):
             train_dataset: set of training data
             (x0, y0): original image
         """
+
+
         model = self.model
         y0 = y0[0]
         query_count = 0
@@ -86,7 +94,7 @@ class OPT_attack_sign_SGD(object):
         print("==========> Found best distortion %.4f in %.4f seconds "
               "using %d queries" % (g_theta, timeend-timestart, query_count))
     
-    
+        self.log[0][0], self.log[0][1] = g_theta, query_count
         # Begin Gradient Descent.
         timestart = time.time()
         xg, gg = best_theta, g_theta
@@ -171,11 +179,11 @@ class OPT_attack_sign_SGD(object):
             distortions.append(gg)
 
             if query_count > query_limit:
-                break
+               break
             
-            if i%5==0:
+            if (i+1)%10==0:
                 print("Iteration %3d distortion %.4f num_queries %d" % (i+1, gg, query_count))
-            
+            self.log[i+1][0], self.log[i+1][1] = gg, query_count
             #if distortion is not None and gg < distortion:
             #    print("Success: required distortion reached")
             #    break
@@ -184,13 +192,16 @@ class OPT_attack_sign_SGD(object):
 #                 print("Success: stopping threshold reached")
 #                 break            
 #             prev_obj = gg
-
         target = model.predict_label(x0 + torch.tensor(gg*xg, dtype=torch.float).cuda())
         timeend = time.time()
         print("\nAdversarial Example Found Successfully: distortion %.4f target"
               " %d queries %d \nTime: %.4f seconds" % (gg, target, query_count, timeend-timestart))
+        
+        self.log[i+1:,0] = gg
+        self.log[i+1:,1] = query_count
+        #print(self.log)
         #print("Distortions: ", distortions)
-        return x0 + torch.tensor(gg*xg, dtype=torch.float).cuda(), gg
+        return x0 + torch.tensor(gg*xg, dtype=torch.float).cuda()
 
     def sign_grad_v1(self, x0, y0, theta, initial_lbd, h=0.001, D=4, target=None):
         """
@@ -564,10 +575,10 @@ class OPT_attack_sign_SGD(object):
             print("\nAdversarial Example Found Successfully: distortion %.4f target"
                   " %d queries %d LS queries %d \nTime: %.4f seconds" % (gg, target, query_count, ls_total, timeend-timestart))
 
-            return x0 + torch.tensor(gg*xg, dtype=torch.float).cuda(), gg
+            return x0 + torch.tensor(gg*xg, dtype=torch.float).cuda()
         else:
             print("Failed to find targeted adversarial example.")
-            return x0, np.float('inf')    
+            return x0 
     
     def fine_grained_binary_search_local_targeted(self, model, x0, y0, t, theta, initial_lbd=1.0, tol=1e-5):
         nquery = 0
@@ -626,7 +637,7 @@ class OPT_attack_sign_SGD(object):
         return lbd_hi, nquery
 
     def __call__(self, input_xi, label_or_target, target=None, distortion=None, seed=None,
-                 svm=False, query_limit=40000, momentum=0.0, stopping=0.0001):
+                 svm=False, query_limit=40000, momentum=0.0, stopping=0.0001, TARGETED=False):
         if target is not None:
             adv = self.attack_targeted(input_xi, label_or_target, target, distortion=distortion,
                                        seed=seed, svm=svm, query_limit=query_limit, stopping=stopping)

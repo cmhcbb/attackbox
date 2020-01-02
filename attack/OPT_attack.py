@@ -3,10 +3,16 @@ import time, torch
 import numpy as np 
 from numpy import linalg as LA
 
+MAX_ITER = 1000
+
 class OPT_attack(object):
     def __init__(self,model):
         self.model = model
-
+        self.log = torch.ones(MAX_ITER,2)
+    
+    def get_log(self):
+        return self.log
+        
     def attack_untargeted(self, x0, y0, alpha = 0.2, beta = 0.001, iterations = 1500, query_limit=80000):
         """ Attack the original image and return adversarial example
             model: (pytorch model)
@@ -41,8 +47,10 @@ class OPT_attack(object):
                     print("--------> Found distortion %.4f" % g_theta)
 
         timeend = time.time()
-        print("==========> Found best distortion %.4f in %.4f seconds using %d queries" % (g_theta, timeend-timestart, query_count))
-    
+        print("==========> Found best distortion %.4f in %.4f seconds using %d queries" % (g_theta, timeend-timestart, query_count))    
+        self.log[0][0], self.log[0][1] = g_theta, query_count
+        
+        
         timestart = time.time()
         g1 = 1.0
         theta, g2 = best_theta, g_theta
@@ -74,6 +82,7 @@ class OPT_attack(object):
                 #if g2 > prev_obj-stopping:
                 #    break
                 prev_obj = g2
+            self.log[i+1][0], self.log[i+1][1] = g2, opt_count + query_count
 
             min_theta = theta
             min_g2 = g2
@@ -121,7 +130,10 @@ class OPT_attack(object):
         target = model.predict_label(x0 + g_theta*best_theta)
         timeend = time.time()
         print("\nAdversarial Example Found Successfully: distortion %.4f target %d queries %d \nTime: %.4f seconds" % (g_theta, target, query_count + opt_count, timeend-timestart))
-        return x0 + g_theta*best_theta
+        
+        self.log[i+1:,0] = g_theta
+        self.log[i+1:,1] = opt_count + query_count
+        return torch.tensor(x0 + g_theta*best_theta, dtype=torch.float).cuda()
 
     def fine_grained_binary_search_local(self, model, x0, y0, theta, initial_lbd = 1.0, tol=1e-5):
         nquery = 0
