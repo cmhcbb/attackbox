@@ -6,19 +6,6 @@ from allmodels import MNIST, load_model, load_mnist_data, load_cifar10_data, CIF
 import os, argparse
 import numpy as np
 parser = argparse.ArgumentParser()
-parser.add_argument('--no-cuda', action='store_true', default=False,
-                    help='Disables CUDA training.')
-parser.add_argument('--seed', type=int, default=42, help='Random seed.')
-parser.add_argument('--epochs', type=int, default=200,
-                    help='Number of epochs to train.')
-parser.add_argument('--lr', type=float, default=0.01,
-                    help='Initial learning rate.')
-parser.add_argument('--weight_decay', type=float, default=5e-4,
-                    help='Weight decay (L2 loss on parameters).')
-parser.add_argument('--hidden', type=int, default=16,
-                    help='Number of hidden units.')
-parser.add_argument('--dropout', type=float, default=0.5,
-                    help='Dropout rate (1 - keep probability).')
 parser.add_argument('--dataset', type=str, default="MNIST",
                     help='Dataset to be used, [MNIST, CIFAR10, Imagenet]')
 parser.add_argument('--attack', type=str, default=None,
@@ -31,17 +18,7 @@ parser.add_argument('--fd_eta', type=float, help='\eta, used to estimate the der
 parser.add_argument('--image_lr', type=float, help='Learning rate for the image (iterative attack)')
 parser.add_argument('--online_lr', type=float, help='Learning rate for the prior')
 parser.add_argument('--mode', type=str, help='Which lp constraint to run bandits [linf|l2]')
-parser.add_argument('--exploration', type=float, help='\delta, parameterizes the exploration to be done around the prior')
- 
-
-#parser.add_argument('--n_neigh', type=int, default=0,
-#                    help='number of neighbors of target node')
-#parser.add_argument('--start', type=int, default=0,
-#                    help='starting node')
-#parser.add_argument('--npoints', type=int, default=10,
-#                    help='points to be added')
-#parser.add_argument('--hops', type=int, default=1,
-#                    help='hops of neighbors of target node')
+parser.add_argument('--exploration', type=float, help='\delta, parameterizes the exploration to be done around the prior') 
 parser.add_argument('--epsilon', type=float, default=0.01,
                         help='epsilon in the PGD attack')
 parser.add_argument('--verbose', action='store_true', default=False,
@@ -50,7 +27,7 @@ parser.add_argument('--test_batch_size', type=int, default=1,
                     help='test batch_size')
 parser.add_argument('--test_batch', type=int, default=10,
                     help='test batch number')
-parser.add_argument('--model_dir', type=str,  help='model loading directory')
+parser.add_argument('--model_dir', type=str, required=True, help='model loading directory')
 
 
 args = parser.parse_args()
@@ -62,7 +39,7 @@ torch.manual_seed(args.seed)
 if args.dataset == "MNIST":
     net = MNIST()
     net = torch.nn.DataParallel(net, device_ids=[0])
-    load_model(net,'model/mnist_gpu.pt')
+    load_model(net,args.model_dir)
     train_loader, test_loader, train_dataset, test_dataset = load_mnist_data(args.test_batch_size)
 elif args.dataset == 'CIFAR10':
     net = CIFAR10() 
@@ -78,7 +55,7 @@ elif args.dataset == 'CIFAR10':
 elif args.dataset == 'Imagenet':
     net = CIFAR10() 
     net = torch.nn.DataParallel(net, device_ids=[0])
-    load_model(net, 'cifar10_gpu.pt')
+    load_model(net,args.model_dir)
 else:
     print("Unsupport dataset")
     #os.exit(0)
@@ -128,7 +105,7 @@ for i, (xi,yi) in enumerate(test_loader):
         break
     xi,yi = xi.cuda(), yi.cuda()
     #adv=attack(xi,yi, 0.2)
-    adv=attack(xi,yi,TARGETED=args.targeted)
+    adv=attack(xi,yi,epsilon=args.epsilon, TARGETED=args.targeted)
 
     if args.targeted == False:
         r_count= (torch.max(amodel.predict(adv),1)[1]==yi).nonzero().shape[0]
