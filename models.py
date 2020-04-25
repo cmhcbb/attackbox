@@ -60,6 +60,9 @@ class PytorchModel(object):
 
     def get_num_queries(self):
         return self.num_queries
+    
+    #def get_infor_hard(self, dis_history, query_history):
+    #    return torch.mean(dis_history,2,keepdim=True), torch.mean(query_history,2,keepdim=True)
 
     def get_gradient(self,loss):
         loss.backward()

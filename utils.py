@@ -13,4 +13,6 @@ def mulvt(v,t):
     
 def reduce_sum(t,axis):
     dim = t.size()
+
+
     

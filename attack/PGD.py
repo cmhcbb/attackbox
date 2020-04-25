@@ -38,8 +38,8 @@ class PGD(object):
         x_adv.requires_grad = True
         for it in range(100):
             error = self.get_loss(x_adv,yi, TARGETED)
-            #if (it)%10==0:
-            #    print(error.data.item()) 
+            # if (it)%10==0:
+            # print(error.data.item()) 
             #x_adv.grad.data.zero_()
             #error.backward(retain_graph=True)
             #print(error.requires_grad)
