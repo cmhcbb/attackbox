@@ -3,8 +3,11 @@ from models import PytorchModel
 import torch
 from allmodels import MNIST, load_model, load_mnist_data, load_cifar10_data, CIFAR10, VGG_plain, VGG_rse, VGG_vi
 #from wideresnet import *
+from paper_model import vgg16, BasicCNN
 import os, argparse
 import numpy as np
+import utils
+
 parser = argparse.ArgumentParser()
 parser.add_argument('--dataset', type=str, default="MNIST",
                     help='Dataset to be used, [MNIST, CIFAR10, Imagenet]')
@@ -28,7 +31,7 @@ parser.add_argument('--test_batch_size', type=int, default=1,
 parser.add_argument('--test_batch', type=int, default=10,
                     help='test batch number')
 parser.add_argument('--model_dir', type=str, required=True, help='model loading directory')
-
+parser.add_argument('--seed', type=int, default=1, help='random seed')
 
 args = parser.parse_args()
 np.random.seed(args.seed)
@@ -37,12 +40,15 @@ torch.manual_seed(args.seed)
 
 
 if args.dataset == "MNIST":
-    net = MNIST()
-    net = torch.nn.DataParallel(net, device_ids=[0])
+    # net = MNIST()
+    net = BasicCNN()
+    # net = torch.nn.DataParallel(net, device_ids=[0])
     load_model(net,args.model_dir)
+    net = torch.nn.DataParallel(net, device_ids=[0])
     train_loader, test_loader, train_dataset, test_dataset = load_mnist_data(args.test_batch_size)
 elif args.dataset == 'CIFAR10':
-    net = CIFAR10() 
+    # net = CIFAR10() 
+    net = vgg16()
     #net = VGG_plain('VGG16', 10, img_width=32)
     net = torch.nn.DataParallel(net, device_ids=[0])
     load_model(net,args.model_dir)
@@ -75,8 +81,17 @@ attack_list = {
     "Sign_SGD": Sign_SGD,
     "ZOO": ZOO,
     "Liu": OPT_attack_sign_SGD_v2,
-    "Evolutionary": Evolutionary
+    "Evolutionary": Evolutionary,
+    "SimBA": SimBA
 }
+
+l2_list = ["Sign_OPT","CW", "OPT_attack","FGSM","ZOO","SimBA"]
+linf_list = ["PGD","Sign_OPT_lf","OPT_attack_lf","NES"]
+
+if args.attack in l2_list:
+    norm = 'l2'
+elif args.attack in linf_list:
+    norm = 'linf'
 
 
 net.cuda()
@@ -95,13 +110,13 @@ else:
 
 total_r_count = 0
 total_clean_count = 0
-
+total_distance = 0
 #logs = torch.zeros(1000,2)
 
 for i, (xi,yi) in enumerate(test_loader):
     print(f"image batch: {i}")
-    if i==args.test_batch:
-        #continue
+    if i == args.test_batch:
+        # continue
         break
     xi,yi = xi.cuda(), yi.cuda()
     #adv=attack(xi,yi, 0.2)
@@ -112,6 +127,7 @@ for i, (xi,yi) in enumerate(test_loader):
         clean_count= (torch.max(amodel.predict(xi),1)[1]==yi).nonzero().shape[0]
         total_r_count += r_count
         total_clean_count += clean_count
+        total_distance += utils.distance(adv,xi,norm=norm)
     if args.attack in ["Sign_OPT","OPT_attack"]:
         if i==0:
             logs = torch.zeros(attack.get_log().size())
@@ -120,14 +136,16 @@ for i, (xi,yi) in enumerate(test_loader):
 if args.attack in ["Sign_OPT","OPT_attack"]:
     logs /= args.test_batch
     print("saving logs to numpy array")
-    np.save("attack_log.npy",logs.numpy())
+    npy_file = args.dataset + args.attack + "_log.npy"
+    np.save(npy_file,logs.numpy())
     import matplotlib.pyplot as plt
-    plot_log = np.load("attack_log.npy")
+    plot_log = np.load(npy_file)
     plt.plot(plot_log[:,1],plot_log[:,0])
     plt.ylabel('Distortion')
     plt.xlabel('Num of queries')
     plt.show()
-    plt.savefig('attack_plot.png')
+    png_file = args.dataset + args.attack + "_plot.png"
+    plt.savefig(png_file)
 
 else:
     num_queries = amodel.get_num_queries()
@@ -135,4 +153,5 @@ else:
     print(f"clean count:{total_clean_count}")
     print(f"acc under attack count:{total_r_count}")
     print(f"number queries used:{num_queries}")
+    print(f"average distortion:{total_distance/(args.test_batch*args.test_batch_size)}")
     #print(clean_count - r_count, (clean_count - r_count)/clean_count)

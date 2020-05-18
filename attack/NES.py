@@ -20,7 +20,7 @@ class NES(object):
             g +=  out1 * u.view(x.size()[0],-1)
             g -=  out2 * u.view(x.size()[0],-1)
         g=g.view(x.size())
-        return 1/(2*sigma*n) * g
+        return -1/(2*sigma*n) * g
 
 
     def nes(self, x_in, y, net, steps, eps, TARGETED):
@@ -30,11 +30,11 @@ class NES(object):
         lr = 0.01
         for i in range(steps):
             #print(f'\trunning step {i+1}/{steps} ...')
-            print(net.predict(x_adv)[0][y].item())
+            # print(net.predict(x_adv)[0][y].item())
             if TARGETED:
-                step_adv = x_adv + lr * torch.sign(self.nes_grad_est(x_adv, y, net))
-            else:
                 step_adv = x_adv - lr * torch.sign(self.nes_grad_est(x_adv, y, net))
+            else:
+                step_adv = x_adv + lr * torch.sign(self.nes_grad_est(x_adv, y, net))
             diff = step_adv - x_in
             diff.clamp_(-eps, eps)
             x_adv = x_in + diff
@@ -43,6 +43,6 @@ class NES(object):
         
         return x_adv
 
-    def __call__(self, input_xi, label_or_target, TARGETED=False):
+    def __call__(self, input_xi, label_or_target, TARGETED=False, epsilon=None):
         input_xi, label_or_target = input_xi.cuda(), label_or_target.cuda()
-        return self.nes(input_xi,label_or_target,self.model, steps=100, eps=0.2, TARGETED=TARGETED)
+        return self.nes(input_xi,label_or_target,self.model, steps=100, eps=epsilon, TARGETED=TARGETED)

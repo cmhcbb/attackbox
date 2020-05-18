@@ -1,7 +1,6 @@
 import torch
 from torch.autograd import Variable
 import torch.optim as optim
-from utils import mulvt
 import torch.nn as nn
 
 class FGSM(object):
@@ -24,7 +23,7 @@ class FGSM(object):
         for it in range(10):
             error = self.get_loss(x_adv,yi,TARGETED)
             if (it)%1==0:
-                print(error.data[0]) 
+                print(error.item()) 
             self.model.get_gradient(error)
             #print(gradient)
             x_adv.grad.sign_()
@@ -42,8 +41,7 @@ class FGSM(object):
         x_adv = Variable(input_xi.cuda(), requires_grad=True)
 
         error = self.get_loss(x_adv,yi,TARGETED)
-        if (it)%1==0:
-            print(error.data[0]) 
+        print(error.item()) 
         self.model.get_gradient(error)
         #print(gradient)
         x_adv.grad.sign_()
@@ -55,8 +53,12 @@ class FGSM(object):
             #error.backward()
         return x_adv 
 
-    def __call__(self, input_xi, label_or_target, eta=0.01, TARGETED=False):
-        adv = self.i_fgsm(input_xi, label_or_target, eta, TARGETED)
+    def __call__(self, input_xi, label_or_target, eta=0.01, TARGETED=False, ITERATIVE=False, epsilon=None):
+        if ITERATIVE:
+            adv = self.i_fgsm(input_xi, label_or_target, eta, TARGETED)
+        else:
+            eta = epsilon
+            adv = self.fgsm(input_xi, label_or_target, eta, TARGETED)
         return adv   
     
         

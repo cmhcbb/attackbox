@@ -1,4 +1,3 @@
-from utils import mulvt
 import time, torch
 import numpy as np 
 from numpy import linalg as LA
@@ -26,7 +25,7 @@ class OPT_attack(object):
             y0 = y0.item()
         if (model.predict_label(x0) != y0):
             print("Fail to classify the image. No need to attack.")
-            return x0
+            return torch.tensor(x0).cuda()
 
         num_directions = 100
         best_theta, g_theta = None, float('inf')
@@ -45,7 +44,26 @@ class OPT_attack(object):
                 if lbd < g_theta:
                     best_theta, g_theta = theta, lbd
                     print("--------> Found distortion %.4f" % g_theta)
+        if g_theta == float('inf'):
+            num_directions = 500
+            best_theta, g_theta = None, float('inf')
+            print("Searching for the initial direction on %d random directions: " % (num_directions))
+            timestart = time.time()
+            for i in range(num_directions):
+                query_count += 1
+                theta = np.random.randn(*x0.shape)
+                if model.predict_label(x0+theta)!=y0:
+                    initial_lbd = LA.norm(theta)
+                    theta /= initial_lbd
+                    lbd, count = self.fine_grained_binary_search(model, x0, y0, theta, initial_lbd, g_theta)
+                    query_count += count
+                    if lbd < g_theta:
+                        best_theta, g_theta = theta, lbd
+                        print("--------> Found distortion %.4f" % g_theta)
 
+        if g_theta == float('inf'):    
+            print("Couldn't find valid initial, failed")
+            return torch.tensor(x0).cuda()
         timeend = time.time()
         print("==========> Found best distortion %.4f in %.4f seconds using %d queries" % (g_theta, timeend-timestart, query_count))    
         self.log[0][0], self.log[0][1] = g_theta, query_count
@@ -124,8 +142,8 @@ class OPT_attack(object):
                 alpha = 1.0
                 print("Warning: not moving, g2 %lf gtheta %lf" % (g2, g_theta))
                 beta = beta * 0.1
-                #if (beta < 0.0005):
-                #    break
+                if (beta < 1e-8):
+                   break
 
         target = model.predict_label(x0 + g_theta*best_theta)
         timeend = time.time()
@@ -188,7 +206,7 @@ class OPT_attack(object):
         return lbd_hi, nquery
 
 
-    def __call__(self, input_xi, label_or_target, TARGETED=False):
+    def __call__(self, input_xi, label_or_target, TARGETED=False, epsilon=None):
         if TARGETED:
             print("Not Implemented.")
         else:

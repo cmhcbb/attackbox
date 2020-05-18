@@ -24,10 +24,10 @@ class PytorchModel(object):
             if len(image.size())!=4:
                 image = image.unsqueeze(0)
             output = self.model(image)
-            self.num_queries += 1
+            self.num_queries += image.size(0)
         return output
     
-    def predict_label(self, image):
+    def predict_label(self, image, batch=False):
         if isinstance(image, np.ndarray):
             image = torch.from_numpy(image).type(torch.FloatTensor)
         image = torch.clamp(image,self.bounds[0],self.bounds[1]).cuda()
@@ -39,7 +39,10 @@ class PytorchModel(object):
             self.num_queries += image.size(0)
         #image = Variable(image, volatile=True) # ?? not supported by latest pytorch
         _, predict = torch.max(output.data, 1)
-        return predict[0]
+        if batch:
+            return predict
+        else:
+            return predict[0]
     
     def predict_ensemble(self, image):
         if isinstance(image, np.ndarray):

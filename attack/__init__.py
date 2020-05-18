@@ -14,3 +14,4 @@ from .NES import NES
 from .Bandit import Bandit
 from .PGD import PGD
 from .Sign_SGD import Sign_SGD
+from .SimBA import SimBA

@@ -1,7 +1,6 @@
 import torch
 from torch.autograd import Variable
 import torch.optim as optim
-from utils import mulvt
 
 class CW(object):
     def __init__(self,model):

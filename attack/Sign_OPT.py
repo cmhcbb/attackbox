@@ -1,4 +1,3 @@
-from utils import mulvt
 import time
 import numpy as np 
 from numpy import linalg as LA
@@ -66,7 +65,7 @@ class OPT_attack_sign_SGD(object):
         
         if (model.predict_label(x0) != y0):
             print("Fail to classify the image. No need to attack.")
-            return x0, 0.0
+            return x0
         
         if seed is not None:
             np.random.seed(seed)
@@ -88,9 +87,27 @@ class OPT_attack_sign_SGD(object):
                     best_theta, g_theta = theta, lbd
                     print("--------> Found distortion %.4f" % g_theta)
 
-        timeend = time.time()
+
         if g_theta == float('inf'):
-            return "NA", float('inf')
+            num_directions = 100
+            best_theta, g_theta = None, float('inf')
+            print("Searching for the initial direction on %d random directions: " % (num_directions))
+            timestart = time.time()
+            for i in range(num_directions):
+                query_count += 1
+                theta = np.random.randn(*x0.shape)
+                if model.predict_label(x0+torch.tensor(theta, dtype=torch.float).cuda())!=y0:
+                    initial_lbd = LA.norm(theta)
+                    theta /= initial_lbd
+                    lbd, count = self.fine_grained_binary_search(model, x0, y0, theta, initial_lbd, g_theta)
+                    query_count += count
+                    if lbd < g_theta:
+                        best_theta, g_theta = theta, lbd
+                        print("--------> Found distortion %.4f" % g_theta)
+        timeend = time.time()        
+        if g_theta == float('inf'):    
+            print("Couldn't find valid initial, failed")
+            return x0 
         print("==========> Found best distortion %.4f in %.4f seconds "
               "using %d queries" % (g_theta, timeend-timestart, query_count))
     
@@ -637,7 +654,7 @@ class OPT_attack_sign_SGD(object):
         return lbd_hi, nquery
 
     def __call__(self, input_xi, label_or_target, target=None, distortion=None, seed=None,
-                 svm=False, query_limit=40000, momentum=0.0, stopping=0.0001, TARGETED=False):
+                 svm=False, query_limit=40000, momentum=0.0, stopping=0.0001, TARGETED=False, epsilon=None):
         if target is not None:
             adv = self.attack_targeted(input_xi, label_or_target, target, distortion=distortion,
                                        seed=seed, svm=svm, query_limit=query_limit, stopping=stopping)

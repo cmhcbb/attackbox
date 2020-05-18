@@ -1,7 +1,6 @@
 import torch
 from torch.autograd import Variable
 import torch.optim as optim
-from utils import mulvt
 import numpy as np
 
 class ZOO(object):
