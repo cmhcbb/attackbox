@@ -70,3 +70,28 @@ MNIST, CIFAR10, ImageNet
 | OPT-attack    | are neat      |    $1 |
 | Sign-OPT      | are neat      |    $1 |
 | PGD           | | |
+
+
+## Download defense models
+1. Install RobustBench package
+```
+pip install git+https://github.com/RobustBench/robustbench
+```
+
+2. Defense models will be downloaded automatically while loading
+
+(Please checkout https://github.com/RobustBench/robustbench or download_defense_models.py for the list of available defense models.)
+
+## Update (Dec 23, 2020)
+We have made some changes to the exp management of this project. You can now test signopt quickly on cifar10 and clean model using the following bash script:
+```
+cd exp_scripts
+bash signopt-lf.sh
+bash signopt-l2.sh
+```
+
+More options are available as well:
+```
+bash signopt-lf.sh --model [e.g. Sehwag2020Hydra] --gpu [e.g. 0, auto (select the gpu with lowest memory)] --seed [e.g. 2]
+bash signopt-l2.sh --model [e.g. Wu2020Adversarial] --gpu [e.g. 0, auto (select the gpu with lowest memory)] --seed [e.g. 2]
+```

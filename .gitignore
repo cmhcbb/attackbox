@@ -1,3 +1,7 @@
 __pycache__/
 .ipynb_checkpoints/
 
+# exp_scripts/
+experiments/
+data/
+model/defense_models/
