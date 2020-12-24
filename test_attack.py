@@ -188,7 +188,7 @@ for i, (xi, yi) in enumerate(test_loader):
     ## attack
     theta_init = None
     adv, distortion, is_success, nqueries, theta_signopt = attack(xi, yi,
-        epsilon=args.epsilon, targeted=args.targeted, query_limit=args.query, distortion=args.epsilon, args=args)
+        targeted=args.targeted, query_limit=args.query, distortion=args.epsilon, args=args)
 
     if theta_init is not None:
         match = (theta_signopt.astype(np.int32) == theta_init.astype(np.int32)).sum() / np.sum(abs(theta_signopt))

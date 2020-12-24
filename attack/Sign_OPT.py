@@ -365,8 +365,7 @@ class OPT_attack_sign_SGD(object):
 
 
     def __call__(self, input_xi, label_or_target, targeted=False, distortion=None, seed=None,
-                 svm=False, query_limit=4000, momentum=0.0, stopping=0.0001, epsilon=None,
-                 args=None): # this line: dummy args to match signopt-lf
+                 svm=False, query_limit=4000, momentum=0.0, stopping=0.0001, args=None): # this line: dummy args to match signopt-lf
         if targeted:
             raise NotImplementedError
             # adv = self.attack_targeted(input_xi, label_or_target, target, distortion=distortion,

@@ -317,7 +317,7 @@ class OPT_attack_sign_SGD_lf(object):
 
 
     def __call__(self, input_xi, label_or_target, targeted=False, distortion=None,
-                 stopping=1e-8, query_limit=80000, epsilon=None, args=None):
+                 stopping=1e-8, query_limit=80000, args=None):
         self.args = args
         
         if targeted:
