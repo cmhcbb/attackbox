@@ -106,7 +106,7 @@ class OPT_attack_sign_SGD(object):
             if svm == True:
                 sign_gradient, grad_queries = self.sign_grad_svm(x0, y0, xg, initial_lbd=gg, h=beta)
             else:
-                sign_gradient, grad_queries = self.sign_grad_v1(x0, y0, xg, initial_lbd=gg, h=beta)
+                sign_gradient, grad_queries = self.sign_grad_v1_fast(x0, y0, xg, initial_lbd=gg, h=beta)
 
             ## Line search of the step size of gradient descent
             ls_count = 0
@@ -241,8 +241,29 @@ class OPT_attack_sign_SGD(object):
         # sign_grad *= 0.5*delta
         
         return sign_grad, queries
-    
-    
+
+
+    def sign_grad_v1_fast(self, x0, y0, theta, initial_lbd, h=0.001, D=4, target=None):
+        # sample K Gaussian noise
+        k = self.k
+        u = torch.randn(k, *theta.shape[1:]).cuda()
+        u /= u.view(k, -1).norm(dim=1)[:, None, None, None]
+
+        # compute K new theta's
+        new_theta = torch.tensor(theta, dtype=torch.float).cuda() + h * u
+        new_theta /= new_theta.view(k, -1).norm(dim=1)[:, None, None, None]
+
+        # predict
+        pred = self.model.predict_label(x0 + initial_lbd * new_theta)
+        pred = pred != y0 if target is None else pred == target
+
+        # estimate sign grad
+        sign = (1 - 2 * pred)[:, None, None, None]  # (0, 1) -> (+1, -1)
+        sign_grad = torch.mean(u * sign, dim=0, keepdims=True)
+
+        return sign_grad.cpu().numpy(), k
+
+
     ##########################################################################################
     def sign_grad_v2(self, x0, y0, theta, initial_lbd, h=0.001, K=200):
         """
